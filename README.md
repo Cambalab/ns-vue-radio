@@ -2,6 +2,15 @@
 
 > A native application built with NativeScript-Vue
 
+## Download and Install
+
+Download Command line tools from android:
+- https://developer.android.com/studio/#downloads
+
+Follow steps here:
+- https://docs.nativescript.org/start/ns-setup-linux
+- https://docs.nativescript.org/tooling/android-virtual-devices
+
 ## Usage
 
 ``` bash
