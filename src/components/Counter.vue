@@ -1,7 +1,7 @@
 <template>
   <Page class="page">
     <ActionBar class="action-bar" title="Counter">
-      <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" @tap="$router.push('/home')"/>
+      <NavigationButton text="Go Back" android.systemIcon="ic_menu_back"/>
     </ActionBar>
 
     <StackLayout>

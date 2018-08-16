@@ -6,8 +6,11 @@ import store from './store';
 
 import './styles.scss';
 
-// Uncomment the following to see NativeScript-Vue output logs
-//Vue.config.silent = false;
+Vue.config.silent = false;
+
+Vue.registerElement('BottomNavigation', () => require('nativescript-bottom-navigation').BottomNavigation)
+Vue.registerElement('BottomNavigationTab', () => require('nativescript-bottom-navigation').BottomNavigationTab)
+Vue.registerElement('OnTabSelectedEventData', () => require('nativescript-bottom-navigation'));
 
 new Vue({
 
