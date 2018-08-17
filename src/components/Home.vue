@@ -1,12 +1,15 @@
 <template>
   <Page class="page">
-    <ActionBar class="action-bar" title="Home"/>
+    <ActionBar class="action-bar">
+      <StackLayout orientation="horizontal">
+        <Image src="~/images/ahijuna-logo.png" width="140" />
+      </StackLayout>
+    </ActionBar>
     <GridLayout columns="*" rows="*, auto">
       <Vivo v-show="currentTab === 0" />
       <Programacion v-show="currentTab === 1" />
       <Podcasts v-show="currentTab === 3" />
       <Redes v-show="currentTab === 4" />
-
       <BottomNavigation activeColor="#f63e00"
                         inactiveColor="gray"
                         backgroundColor="#282928"
