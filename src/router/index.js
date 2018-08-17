@@ -6,6 +6,7 @@ Vue.use(VueRouter);
 import Home from '../components/Home';
 import HelloWorld from '../components/HelloWorld';
 import Counter from '../components/Counter';
+import Escribinos from '../components/Escribinos';
 
 const router = new VueRouter({
   pageRouting: true,
@@ -29,6 +30,13 @@ const router = new VueRouter({
       component: Counter,
       meta: {
         title: 'Counter',
+      },
+    },
+    {
+      path: '/contact',
+      component: Escribinos,
+      meta: {
+        title: 'Escribinos',
       },
     },
     {path: '*', redirect: '/home'},

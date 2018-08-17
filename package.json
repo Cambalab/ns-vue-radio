@@ -17,11 +17,13 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1",
+    "nativescript-appavailability": "^1.3.1",
+    "nativescript-open-app": "git+https://github.com/ludwiktrammer/nativescript-open-app.git",
     "nativescript-theme-core": "^1.0.4",
     "nativescript-vue": "^1.3.1",
-    "tns-core-modules": "~3.4.1"
+    "tns-core-modules": "~3.4.1",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
