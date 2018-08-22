@@ -1,6 +1,10 @@
 <template>
   <FlexboxLayout flexDirection="column" justifyContent="space-between" backgroundColor="#000028">
-    <Label text="" height="50"/>
+    <StackLayout>
+      <Label text="Estas escuchando:" height="15" style="text-align:center; font-weight:bold" color="#32DAC4"/>
+      <Label :text="progActual" height="15" style="text-align:center; font-weight:bold" color="#32DAC4"/>
+    </StackLayout>
+    <Image src="~/images/program-placeholder.png" height="220"/>
     <StackLayout class="spacer" style="background-color: #282928; height: 50;">
       <Label v-show="playing === 'paused'" class="mdi" @tap="play" :text="'\ue037'" fontSize="48" style="text-align:center;" color="#f9ce35"/>
       <Label v-show="playing === 'playing'" class="mdi" @tap="pause" :text="'\ue034'" fontSize="48" style="text-align:center;" color="#f9ce35"/>
@@ -10,11 +14,14 @@
 </template>
 <script>
   import { TNSPlayer } from 'nativescript-audio';
+  import ProgramaService from '../api/ProgramaService';
+
   export default {
     data: () => {
       return {
         playing: 'paused',
         player: undefined,
+        progActual: ''
       }
     },
     methods: {
@@ -49,12 +56,21 @@
       pause() {
         this.playing = 'paused';
         this.player.pause();
+      },
+      setProgramaActual() {
+        ProgramaService.getProgramaActual().then((resp)=>{
+          this.progActual = resp.data.programa;
+        })
       }
     },
     mounted() {
       setTimeout(()=>{
         this.player = new TNSPlayer();
-      },0)
+      },0);
+      this.setProgramaActual();
+      setInterval(()=>{
+        this.setProgramaActual();
+      }, 60000);
     }
   };
 </script>
