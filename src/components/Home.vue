@@ -8,6 +8,7 @@
     <GridLayout columns="*" rows="*, auto">
       <Vivo v-show="currentTab === 0" />
       <Programacion v-show="currentTab === 1" />
+      <Escribinos v-show="currentTab === 2" />
       <Podcasts v-show="currentTab === 3" />
       <Redes v-show="currentTab === 4" />
       <BottomNavigation activeColor="#f63e00"
@@ -30,13 +31,15 @@
   import Programacion from './Programacion.vue'
   import Podcasts from './Podcasts.vue'
   import Redes from './Redes.vue'
+  import Escribinos from './Escribinos.vue'
 
   export default {
     components: {
       Vivo,
       Programacion,
       Podcasts,
-      Redes
+      Redes,
+      Escribinos
     },
     data: () => {
       return {
