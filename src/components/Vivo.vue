@@ -20,28 +20,28 @@
     data: () => {
       return {
         playing: 'paused',
-        player: undefined,
-        progActual: ''
+        progActual: '',
+        url: 'http://stream.ahijuna.fm/aire.mp3'
+      }
+    },
+    computed: {
+      player_screen() {
+        return this.$store.getters.getPlayerScreen
+      }
+    },
+    watch: {
+      player_screen(newPlayerScreen) {
+        if(newPlayerScreen !== 'VIVO') {
+          this.playing = 'paused';
+        }
       }
     },
     methods: {
       play() {
+        this.$store.commit('SET_PLAYER_SCREEN', 'VIVO');
         this.playing = 'loading';
-        const playerOptions = {
-          audioFile: 'http://stream.ahijuna.fm/aire.mp3',
-          loop: false,
-          errorCallback: (errorObject) => {
-            this.playing = 'paused';
-            alert({
-              title: "Error",
-              message: "Hubo un problema reproduciendo la transmisión",
-              okButtonText: "Entendido"
-            })
-          }
-        };
-        this.player
-          .playFromUrl(playerOptions)
-          .then((res) => {
+        this.$store.commit('PLAY_URL', this.url);
+        this.$store.getters.getPlayPromise.then((res) => {
             this.playing = 'playing';
           })
           .catch((err) => {
@@ -55,7 +55,7 @@
       },
       pause() {
         this.playing = 'paused';
-        this.player.pause();
+        this.$store.commit('PAUSE');
       },
       setProgramaActual() {
         ProgramaService.getProgramaActual().then((resp)=>{
@@ -65,8 +65,8 @@
     },
     mounted() {
       setTimeout(()=>{
-        this.player = new TNSPlayer();
-      },0);
+        this.$store.commit('SET_PLAYER', new TNSPlayer());
+      }, 0);
       this.setProgramaActual();
       setInterval(()=>{
         this.setProgramaActual();
