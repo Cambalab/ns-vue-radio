@@ -138,8 +138,12 @@
       },
       onPodcastTap(event) {
         this.$store.commit('PAUSE');
-        this.pauseAll()
+        let willPlay = false;
         if(event.item.playing === 'paused') {
+          willPlay = true;
+        }
+        this.pauseAll();
+        if(willPlay) {
           this.play(event.item);
         }
       }
