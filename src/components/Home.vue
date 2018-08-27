@@ -3,7 +3,6 @@
     <ActionBar class="action-bar">
       <StackLayout orientation="horizontal">
         <Image src="~/images/ahijuna-logo.png" width="140" />
-        <Button class="sci" :text="'\ue072'" @tap="shareUrl()" width="40" style="backgroundColor: #2e2e2e" color="#f63e00"></Button>
       </StackLayout>
     </ActionBar>
     <GridLayout columns="*" rows="*, auto">
@@ -34,12 +33,6 @@
   import Redes from './Redes.vue'
   import Escribinos from './Escribinos.vue'
 
-  const SocialShare = require("nativescript-social-share");
-
-  const shareUrl = function() {
-    SocialShare.shareUrl("http://ahijuna.fm/", "Radio Ahijuna");
-  };
-
   export default {
     components: {
       Vivo,
@@ -56,8 +49,7 @@
     methods: {
       changeTabTo(event) {
         this.currentTab = event.newIndex
-      },
-      shareUrl
+      }
     }
   };
 </script>
