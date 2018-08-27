@@ -1,14 +1,14 @@
 <template>
   <FlexboxLayout flexDirection="column" justifyContent="space-between" backgroundColor="#000028">
     <StackLayout>
-      <Label text="Estas escuchando:" height="15" style="text-align:center; font-weight:bold" color="#32DAC4"/>
-      <Label :text="progActual" height="15" style="text-align:center; font-weight:bold" color="#32DAC4"/>
+      <Label text="Lo que suena:" class="text-center font-italic m-t-20" style="color: #809393;" />
+      <Label :text="progActual" class="h1 bold text-cyan text-center m-b-0"/>
     </StackLayout>
     <Image src="~/images/program-placeholder.png" height="220"/>
     <StackLayout class="spacer" style="background-color: #282928; height: 50;">
-      <Label v-show="playing === 'paused'" class="mdi" @tap="play" :text="'\ue037'" fontSize="48" style="text-align:center;" color="#f9ce35"/>
-      <Label v-show="playing === 'playing'" class="mdi" @tap="pause" :text="'\ue034'" fontSize="48" style="text-align:center;" color="#f9ce35"/>
-      <ActivityIndicator v-show="playing === 'loading'" busy="true" color="#f9ce35"/>
+      <Label v-show="playing === 'paused'"  @tap="play" :text="'\ue037'" fontSize="48" class="mdi text-center text-orange"/>
+      <Label v-show="playing === 'playing'"  @tap="pause" :text="'\ue034'" fontSize="48" class="mdi text-center text-orange"/>
+      <ActivityIndicator v-show="playing === 'loading'" busy="true" class="text-orange"/>
     </StackLayout>
   </FlexboxLayout>
 </template>

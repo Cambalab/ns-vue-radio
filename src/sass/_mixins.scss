@@ -1,0 +1,37 @@
+// All reusable chunks of css go here
+
+// Backgrounds
+
+.orange {
+  background-color: $orange;
+}
+
+.cyan {
+  background-color: $cyan;
+}
+
+.yellow {
+  background-color: $yellow;
+}
+
+.grey {
+  background-color: $grey;
+}
+
+// Text
+
+.text-orange {
+  color: $orange;
+}
+
+.text-cyan {
+  color: $cyan;
+}
+
+.text-yellow {
+  color: $yellow;
+}
+
+.bold {
+  font-weight: bold;
+}
