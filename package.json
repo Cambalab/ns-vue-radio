@@ -23,6 +23,7 @@
     "nativescript-bottom-navigation": "^1.3.0",
     "nativescript-open-app": "git+https://github.com/ludwiktrammer/nativescript-open-app.git",
     "nativescript-social-share": "^1.5.0",
+    "nativescript-email": "^1.5.3",
     "nativescript-theme-core": "^1.0.4",
     "nativescript-vue": "^1.3.1",
     "tns": "^0.2.0",
