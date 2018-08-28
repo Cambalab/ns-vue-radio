@@ -3,6 +3,14 @@
 @import '~nativescript-theme-core/scss/skins/dark/index';
 @import '~nativescript-theme-core/scss/index';
 
+// COLORS
+$cyan: #32DAC4;
+$orange: #F63E00;
+$yellow: #f9ce35;
+$grey: #282928;
+
+@import 'mixins';
+
 .mdi {
   font-family: MaterialDesign, materialicons;
 }
