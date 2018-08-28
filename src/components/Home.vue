@@ -1,6 +1,6 @@
 <template>
   <Page class="page">
-    <ActionBar class="action-bar">
+    <ActionBar class="action-bar grey">
       <StackLayout orientation="horizontal">
         <Image src="~/images/ahijuna-logo.png" width="140" />
         <Button class="sci" :text="'\ue072'" @tap="shareUrl()" width="40" style="backgroundColor: #2e2e2e" color="#f63e00"></Button>
@@ -14,7 +14,7 @@
       <Redes v-show="currentTab === 4" />
       <BottomNavigation activeColor="#f63e00"
                         inactiveColor="gray"
-                        backgroundColor="#282928"
+                        class="grey"
                         keyLineColor="gray"
                         row="1"
                         @tabSelected="changeTabTo($event)">
