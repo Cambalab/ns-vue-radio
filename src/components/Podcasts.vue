@@ -2,14 +2,14 @@
   <ListView for="podcast in podcasts" @itemTap="onPodcastTap" backgroundColor="#000028" separatorColor="transparent">
     <v-template>
       <StackLayout width="100%" class="p-x-10 p-y-10">
-        <FlexboxLayout orientation="horizontal" justifyContent="space-between">
-          <ActivityIndicator v-show="podcast.playing === 'loading'" busy="true" class="text-orange" alignSelf="center" width="30"/>
-          <Label :text="'\ue038'" v-show="podcast.playing === 'paused'" class="mdi text-orange" fontSize="30" alignSelf="center"/>
-          <Label :text="'\ue034'" v-show="podcast.playing === 'playing'" class="mdi text-orange" fontSize="30" alignSelf="center"/>
-          <Label :text="podcast.titulo" class="text-orange p-l-5" width="300" fontWeight="300" alignSelf="center" textWrap="true"/>
-          <Label text="11:15" class="pull-right bold" color="white" width="30" fontSize="9" opacity="0.4"/>
+        <FlexboxLayout orientation="horizontal" justifyContent="space-between" width="100%">
+          <ActivityIndicator v-show="podcast.playing === 'loading'" busy="true" class="text-orange" alignSelf="flex-start" width="30" height="30" fontSize="30"/>
+          <Label :text="'\ue038'" v-show="podcast.playing === 'paused'" class="mdi text-orange" width="30" fontSize="30" height="30" />
+          <Label :text="'\ue034'" v-show="podcast.playing === 'playing'" class="mdi text-orange" width="30" fontSize="30" height="30" />
+          <Label :text="podcast.titulo" class="text-orange p-l-5" width="300" flexGrow="1" flexShrink="2" fontWeight="300" textWrap="true"/>
+          <Label text="11:15" class="pull-right bold" color="white" width="30" fontSize="9" opacity="0.4" alignSelf="flext-end"/>
         </FlexboxLayout>
-        <Label :text="podcast.descripcion" opacity="0.6" padding="8 0 8 35" color="white" fontWeight="300" fontSize="11" width="100%" verticalAlignment="center" textWrap="true"/>
+        <Label :text="podcast.descripcion" opacity="0.6" padding="8 0 8 35" color="white" fontWeight="300" fontSize="11" width="100%" textWrap="true"/>
         <StackLayout width="100%" paddingLeft="30">
           <StackLayout width="100%" height="1" class="orange m-t-10" opacity="0.3"></StackLayout>
         </StackLayout>
