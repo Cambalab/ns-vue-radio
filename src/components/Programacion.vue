@@ -11,7 +11,7 @@
       </ListView>
     </StackLayout>
     <StackLayout class="spacer" height="25%">
-      <ListPicker :items="dias" :selectedIndex="diaSeleccionado" @selectedIndexChange="cambioDeDia" color="white"/>
+      <ListPicker :items="dias" :selectedIndex="diaPicker" @selectedIndexChange="cambioDeDia" color="white"/>
     </StackLayout>
   </FlexboxLayout>
 </template>
@@ -19,7 +19,9 @@
   export default {
     data: () => {
       return {
+        ultimoCambio: new Date(),
         diaSeleccionado: 0,
+        diaPicker: 0,
         dias: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
         programas: [
           {
@@ -67,21 +69,26 @@
     },
     computed: {
       programasFiltrados() {
-        return this.programas.filter(this.seTransmiteDia)
+        return this.programas.filter(this.seTransmiteDia);
       }
     },
     methods: {
+      seleccionarDia() {
+        this.diaSeleccionado = this.diaPicker;
+      },
       cambioDeDia(event) {
-        this.diaSeleccionado = event.value
-        console.log(this.programasFiltrados)
+        this.ultimoCambio = new Date();
+        this.diaPicker = event.value;
+        setTimeout(()=>{
+          if((new Date() - this.ultimoCambio) >= 500) {
+            this.seleccionarDia();
+          }
+        },500)
       },
       seTransmiteDia(programa) {
         let seTransmite = false;
         programa.horarios.map((horario => {
-          console.log(horario.dias)
-          console.log(this.dias[this.diaSeleccionado])
           if (horario.dias.includes(this.dias[this.diaSeleccionado])) {
-            console.log('MATCH')
             seTransmite = true;
           }
         }))
