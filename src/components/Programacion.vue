@@ -1,17 +1,27 @@
 <template>
-  <FlexboxLayout flexDirection="column" justifyContent="space-between" backgroundColor="#000028">
-    <StackLayout>
-      <ListView for="programa in programasFiltrados" backgroundColor="#000028" separatorColor="gray">
+  <FlexboxLayout flexDirection="column" justifyContent="space-between" backgroundColor="#32DAC4">
+    <StackLayout flexGrow="2" height="100%">
+      <ListView for="programa in programasFiltrados" height="100%" backgroundColor="#32DAC4" separatorColor="transparent">
         <v-template>
-          <StackLayout height="75%">
-            <Label :text="programa.nombre" color="#f63e00" verticalAlignment="center" textWrap="true"/>
-            <Image :src="programa.imagen"/>
+          <StackLayout xmlns:Card="nativescript-cardview" width="100%">
+            <CardView radius="6" margin="10" backgroundColor="white" elevation="5" ripple="true">
+              <StackLayout>
+                <StackLayout width="100%" height="200">
+                  <Image :src="programa.imagen" stretch="aspectFill"/>
+                </StackLayout>
+                <StackLayout class="p-x-12 p-y-12" borderTopWidth="1px" borderTopColor="#eee">
+                  <Label :text="programa.nombre" color="#333" textWrap="true"/>
+                  <Label :text="programa.horarioLegible" fontSize="10" color="#555" textWrap="true"/>
+                  <Label :text="programa.descripcion" fontSize="11" marginTop="10" color="#555" textWrap="true"/>
+                </StackLayout>
+              </StackLayout>
+            </CardView>
           </StackLayout>
         </v-template>
       </ListView>
     </StackLayout>
-    <StackLayout class="spacer" height="25%">
-      <ListPicker :items="dias" :selectedIndex="diaPicker" @selectedIndexChange="cambioDeDia" color="white"/>
+    <StackLayout class="spacer" height="22%" flexShrink="0">
+      <ListPicker :items="dias" :selectedIndex="diaPicker" @selectedIndexChange="cambioDeDia" class="grey" color="white"/>
     </StackLayout>
   </FlexboxLayout>
 </template>
@@ -26,6 +36,8 @@
         programas: [
           {
             nombre: 'SELECCIÓN MUSICAL + PICANDO DISCOS',
+            descripcion: 'Una propuesta periodística para arrancar la mañana con la mejor música. Conduce: Martín Iglesias',
+            horarioLegible: 'Lunes a viernes de 7 a 9 y de 13:30 a 15',
             horarios: [
               {
                 dias: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
@@ -36,6 +48,8 @@
           },
           {
             nombre: 'SEÑAL DE AJUSTE',
+            descripcion: 'Una propuesta periodística para arrancar la mañana con la mejor música. Conduce: Martín Iglesias',
+            horarioLegible: 'Lunes a viernes de 9 a 10',
             horarios: [
               {
                 dias: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
@@ -46,6 +60,8 @@
           },
           {
             nombre: '¿ERA NECESARIO?',
+            descripcion: 'Una propuesta periodística para arrancar la mañana con la mejor música. Conduce: Martín Iglesias',
+            horarioLegible: 'Lunes de 15 a 16',
             horarios: [
               {
                 dias: ['Lunes'],
@@ -56,6 +72,8 @@
           },
           {
             nombre: 'INFORMATIVO RED COLMENA',
+            descripcion: 'Una propuesta periodística para arrancar la mañana con la mejor música. Conduce: Martín Iglesias',
+            horarioLegible: 'Sabados y domingos de 7 a 8',
             horarios: [
               {
                 dias: ['Sábado', 'Domingo'],
