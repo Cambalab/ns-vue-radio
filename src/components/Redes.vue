@@ -1,14 +1,31 @@
 <template>
-  <FlexboxLayout flexDirection="column" justifyContent="space-between" backgroundColor="#000028">
-    <Label height="15" style="text-align:center; font-weight:bold" color="#32DAC4">Compartir Ahijuna FM </Label>
-    <Button class="sci" @tap="shareUrl()" :text="'\ue072'" fontSize="50" style="background-color: #2e2e2e" color="#32b36c"/>
-    <Label height="15" style="text-align:center; font-weight:bold" color="#32DAC4">Visitanos en nuestras redes sociales:</Label>
+  <ScrollView backgroundColor="#000028">
+    <!-- <Label style="text-align:center; font-weight:bold" color="#32DAC4" padding="5">Compartir Ahijuna FM </Label>
+    <Button class="sci text-cyan" @tap="shareUrl()" :text="'\ue072'" fontSize="50" style="background-color: #2e2e2e"/> -->
     <StackLayout>
-      <Button class="sci" @tap="openFb()" :text="'\ue028'" fontSize="50" style="background-color: #365899" color="white"/>
-      <Button class="sci" @tap="openIg()" :text="'\ue044'" fontSize="50" margin="5" marginTop="5" marginBottom="5" style="background-image: ~/images/instagram.png; backgroundSize: cover" color="white"/>
-      <Button class="sci" @tap="openTwitter()" :text="'\ue08d'" fontSize="50" marginBottom="5" style="background-color: #006dbf" color="white"/>
+      <StackLayout
+        @tap="shareUrl()"
+        orientation="horizontal"
+        class="text-left"
+        margin="30 10"
+        padding="10"
+        borderRadius="2"
+        backgroundColor="transparent"
+        borderColor="#F63E00"
+        borderWidth="1px"
+        width="200">
+
+        <Label class="sci" color="#F63E00" :text="'\ue072'" fontSize="30" verticalAlignment="center"></Label>
+        <Label fontSize="12" class="bold" color="white" opacity="0.7" paddingLeft="10" width="150" verticalAlignment="center">Compartir Ahijuna FM</Label>
+      </StackLayout>
+      <Label style="text-align:center; font-weight:bold" color="white" opacity="0.5" marginBottom="20">Visitanos en nuestras redes sociales:</Label>
+      <StackLayout width="100%">
+      <Button class="sci" @tap="openFb()" :text="'\ue028'" fontSize="50" borderRadius="2" margin="5" style="background-color: #365899" color="white"/>
+      <Button class="sci" @tap="openIg()" :text="'\ue044'" fontSize="50" borderRadius="2" margin="5" style="background-image: ~/images/instagram.png; backgroundSize: cover" color="white"/>
+      <Button class="sci" @tap="openTwitter()" :text="'\ue08d'" fontSize="50" borderRadius="2" margin="5" style="background-color: #006dbf" color="white"/>
+      </StackLayout>
     </StackLayout>
-  </FlexboxLayout>
+  </ScrollView>
 </template>
 <script>
   import { openApp } from "nativescript-open-app";
