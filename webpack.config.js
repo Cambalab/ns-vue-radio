@@ -16,6 +16,8 @@ const config = (platform, launchArgs = '') => {
 
   const command = launchArgs.split(' ')[0];
   const isDebug = command !== 'build';
+  const confFile = !isDebug ? 'prod.env' : 'dev.env';
+  const env = require('./environments/' + confFile)();
 
   winston.info(`Bundling application for ${platform}...`);
 
@@ -42,7 +44,7 @@ const config = (platform, launchArgs = '') => {
   });
 
   const plugins = [
-
+      new webpack.EnvironmentPlugin(env),
       // Extract CSS to separate file
       new ExtractTextPlugin({filename: `app.${platform}.css`}),
 
