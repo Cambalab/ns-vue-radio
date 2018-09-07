@@ -13,8 +13,6 @@
         <Label fontSize="12" class="bold" padding="0 10" width="170" verticalAlignment="center">Contactanos vía Whatsapp</Label>
         <Label fontSize="14" :text="'\ue89e'" class="mdi" horizontalAlignment="right" verticalAlignment="center"></Label>
       </StackLayout>
-      <!-- <Button class="sci" @tap="openEmail()" :text="'\ue050'" fontSize="80" marginBottom="30" marginLeft="100" marginRight="100" style="background-color: gray" color="black"/> -->
-      <!-- <Button class="sci" @tap="openWsp()" :text="'\ue099' " fontSize="70" minHeight="110" marginBottom="40" marginLeft="100" marginRight="100" style="background-color: green" color="white"/> -->
     </StackLayout>
   </ScrollView>
 </template>
@@ -39,7 +37,7 @@
       openEmail () {
         email.compose({
           body: "",
-          to: ['email@gmail.com']
+          to: ['radio@ahijuna.fm']
         }).then(
           function() {
             console.log("Email composer closed");
