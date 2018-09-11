@@ -40,7 +40,7 @@
     },
     mounted() {
       ProgramasService.getProgramas().then((programas) => {
-        this.programas = programas.data.results;
+        this.programas = programas.data;
       }).catch((err) => console.log(err))
     },
     computed: {
