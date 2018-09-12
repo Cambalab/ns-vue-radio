@@ -25,7 +25,9 @@
       return {
         playing: 'paused',
         progActual: '',
-        url: 'http://stream.ahijuna.fm/aire.mp3'
+        url: 'http://stream.ahijuna.fm/aire.mp3',
+        programas: [],
+        imageProgActual: '~/images/program-placeholder.png'
       }
     },
     computed: {
@@ -63,8 +65,17 @@
       },
       setProgramaActual() {
         ProgramaService.getProgramaActual().then((resp)=>{
-          this.progActual = resp.data.programa;
+          if(this.progActual !== resp.data.programa) {
+            this.progActual = resp.data.programa;
+            this.setImage()
+          }
         })
+      },
+      setImage() {
+        ProgramaService.getProgramas().then((programas) => {
+          this.programas = programas.data.results;
+          this.imageProgActual = this.programas.find((p) => {return p.title === this.progActual}).image
+        }).catch((err) => console.log(err));
       }
     },
     mounted() {
