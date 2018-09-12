@@ -1,6 +1,6 @@
 <template>
     <AbsoluteLayout>
-      <Image src="~/images/program-placeholder.png" stretch="aspectFill" height="100%" top="0"/>
+      <Image :src="imageProgActual" stretch="aspectFill" height="100%" top="0"/>
       <Image src="~/images/blackgradient.png" stretch="aspectFit" top="0" width="100%"/>
       <FlexboxLayout flexDirection="column" justifyContent="space-between" top="100" width="100%">
         <StackLayout alignSelf="center" width="100%">
@@ -27,7 +27,7 @@
         progActual: '',
         url: 'http://stream.ahijuna.fm/aire.mp3',
         programas: [],
-        imageProgActual: '~/images/program-placeholder.png'
+        imageProgActual: ''
       }
     },
     computed: {
@@ -73,7 +73,7 @@
       },
       setImage() {
         ProgramaService.getProgramas().then((programas) => {
-          this.programas = programas.data.results;
+          this.programas = programas.data;
           this.imageProgActual = this.programas.find((p) => {return p.title === this.progActual}).image
         }).catch((err) => console.log(err));
       }
