@@ -6,7 +6,7 @@
         <StackLayout alignSelf="center" width="100%">
           <Image src="~/images/microphone.png" width="30" opacity="0.7"/>
           <Label text="Estas escuchando" class="text-center text-cyan font-italic" marginTop="10" fontSize="14" />
-          <Label :text="progActual" class="h2 bold text-center m-b-0" color="white"/>
+          <Label :text="progActual" class="h2 bold text-center m-b-0" color="white" textWrap="true"/>
         </StackLayout>
         <StackLayout class="spacer" style="height: 110;" alignSelf="center" marginTop="20">
           <Label v-show="playing === 'paused'"  @tap="play" :text="'\ue037'" fontSize="110" class="mdi text-center" color="white"/>
