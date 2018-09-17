@@ -43,13 +43,21 @@
     },
     data: () => {
       return {
-        currentTab: 0
+
       }
+    },
+    computed: {
+      currentTab() {
+        return this.$store.getters.getCurrentTab
+      },
     },
     methods: {
       changeTabTo(event) {
-        this.currentTab = event.newIndex
+        this.$store.commit('SET_CURRENT_TAB', event.newIndex);
       }
+    },
+    created() {
+      this.$store.commit('FIREBASE_INIT')
     }
   };
 </script>

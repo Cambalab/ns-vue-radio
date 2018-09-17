@@ -9,3 +9,11 @@ export const getPlayPromise = state => {
 export const getPlayerScreen = state => {
   return state.player_screen;
 }
+
+export const getCurrentTab = state => {
+  return state.current_tab;
+}
+
+export const getFirebase = state => {
+  return state.firebase;
+}
