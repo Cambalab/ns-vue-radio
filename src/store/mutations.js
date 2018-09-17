@@ -37,20 +37,36 @@ export const SET_CURRENT_TAB = (state, newTab) => {
 }
 
 export const FIREBASE_INIT = (state) => {
-  console.log(state.firebase);
   state.firebase.init({
-    /*
-    onAuthStateChanged: data => { // optional
-      console.log((data.loggedIn ? "Logged in to firebase" : "Logged out from firebase") + " (init's onAuthStateChanged callback)");
-    },
-    persist: false,
-    */
+    onMessageReceivedCallback: function(message) {
+      console.log("Title: " + message.title);
+      console.log("Body: " + message.body);
+      // if your server passed a custom property called 'foo', then do this:
+      console.log("Value of 'foo': " + message.data.foo);
+
+      alert({
+        title: message.title,
+        message: message.body,
+        okButtonText: "OK"
+      }).then(() => {
+        console.log("Alert dialog closed");
+        switch (''){
+          default:
+            console.log('changeTab')
+            // commit('SET_CURRENT_TAB', 0);
+            break;
+        }
+      });
+
+    }
   }).then(
     () => {
       console.log("Firebase is ready");
+      // firebase.subscribeToTopic("news").then(() => console.log("Subscribed to topic"));
     },
     error => {
       console.log("firebase.init error: " + error);
     }
   );
+  
 }
