@@ -43,21 +43,35 @@
     },
     data: () => {
       return {
-
+        //currentTab: 0
       }
     },
     computed: {
+      
       currentTab() {
         return this.$store.getters.getCurrentTab
       },
+      
     },
     methods: {
       changeTabTo(event) {
         this.$store.commit('SET_CURRENT_TAB', event.newIndex);
+        //this.currentTab = event.newIndex
+        //console.log(this)
       }
     },
     created() {
-      this.$store.commit('FIREBASE_INIT')
+      this.$store.commit('FIREBASE_INIT', this.$store)
+
+      this.$store.subscribe((mutation, state) => {
+        console.log(mutation.type)
+        console.log(mutation.payload)
+      })
+    },
+    mounted() {
+      this.$store.commit('SET_CURRENT_TAB', 3);
+      // this.currentTab = 3
+
     }
   };
 </script>

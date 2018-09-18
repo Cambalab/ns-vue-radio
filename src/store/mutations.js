@@ -36,7 +36,7 @@ export const SET_CURRENT_TAB = (state, newTab) => {
   state.current_tab = newTab;
 }
 
-export const FIREBASE_INIT = (state) => {
+export const FIREBASE_INIT = (state, store) => {
   state.firebase.init({
     onMessageReceivedCallback: function(message) {
       console.log("Title: " + message.title);
@@ -53,7 +53,9 @@ export const FIREBASE_INIT = (state) => {
         switch (''){
           default:
             console.log('changeTab')
-            // commit('SET_CURRENT_TAB', 0);
+            console.log(store)
+            store.commit('SET_CURRENT_TAB', 2);
+            console.log(state.current_tab)
             break;
         }
       });
