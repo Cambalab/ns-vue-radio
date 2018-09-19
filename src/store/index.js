@@ -11,13 +11,13 @@ const store = new Vuex.Store({
   state: {
     player: undefined,
     player_screen: 'VIVO',
-    play_promise: undefined
+    play_promise: undefined,
+    conexion: true
   },
   mutations,
   getters,
   strict: debug
 })
-
 
 Vue.prototype.$store = store;
 
