@@ -43,7 +43,6 @@ export const FIREBASE_INIT = (state, store) => {
       console.log("Body: " + message.body);
       // if your server passed a custom property called 'foo', then do this:
       console.log("Value of 'foo': " + message.data.foo);
-
       alert({
         title: message.title,
         message: message.body,
@@ -53,13 +52,12 @@ export const FIREBASE_INIT = (state, store) => {
         switch (''){
           default:
             console.log('changeTab')
-            console.log(store)
-            store.commit('SET_CURRENT_TAB', 2);
-            console.log(state.current_tab)
+            // console.log(store)
+            store.commit('SET_CURRENT_TAB', 4);
+            // console.log(state.current_tab)
             break;
-        }
+        }  
       });
-
     }
   }).then(
     () => {

@@ -16,7 +16,8 @@
                         class="grey"
                         keyLineColor="gray"
                         row="1"
-                        @tabSelected="changeTabTo($event)">
+                        @tabSelected="changeTabTo($event)"
+                        ref="bn">
           <BottomNavigationTab title="Vivo" icon="round_radio_black_36"></BottomNavigationTab>
           <BottomNavigationTab title="Programación" icon="round_ballot_black_36"></BottomNavigationTab>
           <BottomNavigationTab title="Escribinos" icon="round_message_black_36"></BottomNavigationTab>
@@ -47,31 +48,28 @@
       }
     },
     computed: {
-      
       currentTab() {
         return this.$store.getters.getCurrentTab
-      },
-      
+      }
     },
     methods: {
       changeTabTo(event) {
         this.$store.commit('SET_CURRENT_TAB', event.newIndex);
-        //this.currentTab = event.newIndex
-        //console.log(this)
       }
     },
     created() {
       this.$store.commit('FIREBASE_INIT', this.$store)
-
+    },
+    mounted() {
+    },
+    beforeUpdate() {
       this.$store.subscribe((mutation, state) => {
         console.log(mutation.type)
         console.log(mutation.payload)
+        if (mutation.type == 'SET_CURRENT_TAB') {
+          this.$refs.bn._nativeView.selectTab(mutation.payload)
+        }
       })
-    },
-    mounted() {
-      this.$store.commit('SET_CURRENT_TAB', 3);
-      // this.currentTab = 3
-
     }
   };
 </script>
