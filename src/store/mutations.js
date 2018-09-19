@@ -39,30 +39,49 @@ export const SET_CURRENT_TAB = (state, newTab) => {
 export const FIREBASE_INIT = (state, store) => {
   state.firebase.init({
     onMessageReceivedCallback: function(message) {
-      console.log("Title: " + message.title);
-      console.log("Body: " + message.body);
+      // console.log(message)
+      // console.log("Title: " + message.title);
+      // console.log("Body: " + message.body);
       // if your server passed a custom property called 'foo', then do this:
-      console.log("Value of 'foo': " + message.data.foo);
-      alert({
-        title: message.title,
-        message: message.body,
-        okButtonText: "OK"
-      }).then(() => {
-        console.log("Alert dialog closed");
-        switch (''){
-          default:
-            console.log('changeTab')
-            // console.log(store)
-            store.commit('SET_CURRENT_TAB', 4);
-            // console.log(state.current_tab)
-            break;
-        }  
-      });
+      // console.log("Value of 'foo': " + message.data.foo);
+      if (message.foreground == true){
+        alert({
+          //title: message.title,
+          message: message.body,
+          okButtonText: "OK"
+        }).then(() => {
+          console.log("Alert dialog closed");
+          switch (message.from){
+            case '/topics/programacion':
+              store.commit('SET_CURRENT_TAB', 1);
+              break;
+            case '/topics/escribinos':
+              store.commit('SET_CURRENT_TAB', 2);
+              break;
+            case '/topics/podcasts':
+              store.commit('SET_CURRENT_TAB', 3);
+              break;
+            case '/topics/redes':
+              store.commit('SET_CURRENT_TAB', 4);
+              break;
+            default: // /topics/vivo || any msj
+              store.commit('SET_CURRENT_TAB', 0);
+              break;
+          }  
+        });
+      } else {
+        console.log(message)
+      }
+      
     }
   }).then(
     () => {
       console.log("Firebase is ready");
-      // firebase.subscribeToTopic("news").then(() => console.log("Subscribed to topic"));
+      state.firebase.subscribeToTopic("vivo").then(() => console.log("Subscribed to topic vivo"));
+      state.firebase.subscribeToTopic("programacion").then(() => console.log("Subscribed to topic programacion"));
+      state.firebase.subscribeToTopic("escribinos").then(() => console.log("Subscribed to topic escribinos"));
+      state.firebase.subscribeToTopic("podcasts").then(() => console.log("Subscribed to topic podcasts"));
+      state.firebase.subscribeToTopic("redes").then(() => console.log("Subscribed to topic redes"));
     },
     error => {
       console.log("firebase.init error: " + error);

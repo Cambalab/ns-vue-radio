@@ -61,12 +61,9 @@
       this.$store.commit('FIREBASE_INIT', this.$store)
     },
     mounted() {
-    },
-    beforeUpdate() {
       this.$store.subscribe((mutation, state) => {
-        console.log(mutation.type)
-        console.log(mutation.payload)
         if (mutation.type == 'SET_CURRENT_TAB') {
+          // this set the active BottomNavigationTab
           this.$refs.bn._nativeView.selectTab(mutation.payload)
         }
       })
