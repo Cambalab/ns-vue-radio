@@ -17,7 +17,8 @@
                         keyLineColor="gray"
                         row="1"
                         @tabSelected="changeTabTo($event)"
-                        ref="bn">
+                        ref="bn"
+                        @loaded="bnloaded">
           <BottomNavigationTab title="Vivo" icon="round_radio_black_36"></BottomNavigationTab>
           <BottomNavigationTab title="Programación" icon="round_ballot_black_36"></BottomNavigationTab>
           <BottomNavigationTab title="Escribinos" icon="round_message_black_36"></BottomNavigationTab>
@@ -55,16 +56,28 @@
     methods: {
       changeTabTo(event) {
         this.$store.commit('SET_CURRENT_TAB', event.newIndex);
+      },
+      bnloaded(argv) {
+        let bn = argv.object
+        //console.log(bn)
+        bn.selectTab(this.$store.getters.getCurrentTab)
       }
+
     },
     created() {
       this.$store.commit('FIREBASE_INIT', this.$store)
+      // this.$store.commit('SET_CURRENT_TAB', 0);
     },
-    mounted() {
+    beforeMount() {
       this.$store.subscribe((mutation, state) => {
         if (mutation.type == 'SET_CURRENT_TAB') {
           // this set the active BottomNavigationTab
-          this.$refs.bn._nativeView.selectTab(mutation.payload)
+          //console.log(this.$refs.bn)
+          // console.log(this.bn)
+          console.log(this.$refs)
+          if (this.$refs.bn !== undefined){
+            this.$refs.bn._nativeView.selectTab(mutation.payload)
+          }
         }
       })
     }
