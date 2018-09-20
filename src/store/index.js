@@ -14,7 +14,8 @@ const store = new Vuex.Store({
     player_screen: 'VIVO',
     play_promise: undefined,
     current_tab: 0,
-    firebase: firebase
+    firebase: firebase,
+    foreground: true
   },
   mutations,
   getters,

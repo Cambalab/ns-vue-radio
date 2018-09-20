@@ -17,3 +17,7 @@ export const getCurrentTab = state => {
 export const getFirebase = state => {
   return state.firebase;
 }
+
+export const getForeground = state => {
+  return state.foreground;
+}

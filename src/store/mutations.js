@@ -36,21 +36,23 @@ export const SET_CURRENT_TAB = (state, newTab) => {
   state.current_tab = newTab;
 }
 
+export const SET_FOREGROUND = (state, value) => {
+  state.foreground = value;
+}
+
 export const FIREBASE_INIT = (state, store) => {
+  store.commit('SET_CURRENT_TAB', 0);
   state.firebase.init({
     onMessageReceivedCallback: function(message) {
       // console.log(message)
-      // console.log("Title: " + message.title);
-      // console.log("Body: " + message.body);
-      // if your server passed a custom property called 'foo', then do this:
-      // console.log("Value of 'foo': " + message.data.foo);
-      if (message.foreground == true){
+      if (message.foreground){
         alert({
           //title: message.title,
           message: message.body,
           okButtonText: "OK"
         }).then(() => {
           console.log("Alert dialog closed");
+          store.commit('SET_FOREGROUND', true)
           switch (message.from){
             case '/topics/programacion':
               store.commit('SET_CURRENT_TAB', 1);
@@ -71,6 +73,28 @@ export const FIREBASE_INIT = (state, store) => {
         });
       } else {
         console.log(message)
+        /*
+        switch (message.topic){
+          case 'programacion':
+            store.commit('SET_CURRENT_TAB', 1);
+            break;
+          case 'escribinos':
+            store.commit('SET_CURRENT_TAB', 2);
+            break;
+          case 'podcasts':
+            store.commit('SET_CURRENT_TAB', 3);
+            break;
+          case 'redes':
+            store.commit('SET_CURRENT_TAB', 4);
+            break;
+          default: // /topics/vivo || any msj
+            store.commit('SET_CURRENT_TAB', 0);
+            break;
+        }
+        */
+        store.commit('SET_FOREGROUND', false)
+        store.commit('SET_CURRENT_TAB', 4);
+        // store.commit('SET_FOREGROUND', true)
       }
       
     }

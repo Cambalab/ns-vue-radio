@@ -35,6 +35,10 @@
   import Redes from './Redes.vue'
   import Escribinos from './Escribinos.vue'
 
+  import {topmost} from "ui/frame";
+  import {AndroidApplication} from "application";
+
+
   export default {
     components: {
       Vivo,
@@ -44,6 +48,7 @@
       Escribinos
     },
     data: () => {
+      
       return {
         //currentTab: 0
       }
@@ -60,8 +65,7 @@
       bottomNavigationLoaded(argv) {
         let bottomNavigation = argv.object
         bottomNavigation.selectTab(this.$store.getters.getCurrentTab)
-      }
-
+      },
     },
     created() {
       this.$store.commit('FIREBASE_INIT', this.$store)
@@ -70,11 +74,11 @@
       this.$store.subscribe((mutation, state) => {
         if (mutation.type == 'SET_CURRENT_TAB') {
           // this set the active BottomNavigationTab
-          if (this.$refs.bottomNavigation !== undefined){
+          if (this.$refs.bottomNavigation !== undefined && this.$store.getters.getForeground){
             this.$refs.bottomNavigation._nativeView.selectTab(mutation.payload)
           }
         }
       })
-    }
+    },
   };
 </script>
