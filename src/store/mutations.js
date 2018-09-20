@@ -40,6 +40,10 @@ export const SET_FOREGROUND = (state, value) => {
   state.foreground = value;
 }
 
+export const SET_LAST_MESSAGE_ID = (state, value) => {
+  state.last_message_id = value;
+}
+
 export const FIREBASE_INIT = (state, store) => {
   store.commit('SET_CURRENT_TAB', 0);
   state.firebase.init({
@@ -72,7 +76,6 @@ export const FIREBASE_INIT = (state, store) => {
           }  
         });
       } else {
-        console.log(message)
         /*
         switch (message.topic){
           case 'programacion':
@@ -93,7 +96,15 @@ export const FIREBASE_INIT = (state, store) => {
         }
         */
         store.commit('SET_FOREGROUND', false)
-        store.commit('SET_CURRENT_TAB', 4);
+        console.log(message)
+        //console.log(message.data.google.message_id)google.message_id
+        console.log(store.getters.getLastMessageId)
+        
+        if (message.data['google.message_id'] !== store.getters.getLastMessageId) {
+          store.commit('SET_CURRENT_TAB', 4);
+          store.commit('SET_LAST_MESSAGE_ID', message.data['google.message_id']);
+        }
+        
         // store.commit('SET_FOREGROUND', true)
       }
       

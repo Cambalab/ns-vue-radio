@@ -15,7 +15,8 @@ const store = new Vuex.Store({
     play_promise: undefined,
     current_tab: 0,
     firebase: firebase,
-    foreground: true
+    foreground: true,
+    last_message_id: 0
   },
   mutations,
   getters,

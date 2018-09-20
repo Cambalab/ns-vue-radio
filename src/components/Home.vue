@@ -65,6 +65,7 @@
       bottomNavigationLoaded(argv) {
         let bottomNavigation = argv.object
         bottomNavigation.selectTab(this.$store.getters.getCurrentTab)
+        console.log('pase por aqui... !"#$%&$#"!#$%&$#"$%')
       },
     },
     created() {

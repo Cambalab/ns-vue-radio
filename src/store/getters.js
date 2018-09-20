@@ -21,3 +21,7 @@ export const getFirebase = state => {
 export const getForeground = state => {
   return state.foreground;
 }
+
+export const getLastMessageId = state => {
+  return state.last_message_id;
+}
