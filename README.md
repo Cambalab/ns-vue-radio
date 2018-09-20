@@ -14,7 +14,8 @@ Follow steps here:
 ## FCM Firebase Cloud Messaging
 - https://github.com/EddyVerbruggen/nativescript-plugin-firebase/blob/master/docs/MESSAGING.md
 
-copy your google-services.json to -> template/app/App_Resources/Android/ folder
+Don't forget to copy your google-services.json to -> template/app/App_Resources/Android/ folder, follow steps here:
+- https://gitlab.camba.coop/camba/radio-ahijuna-app/wikis/firebase-cloud-messaging
 
 ## Usage
 
