@@ -47,12 +47,6 @@
       Redes,
       Escribinos
     },
-    data: () => {
-      
-      return {
-        //currentTab: 0
-      }
-    },
     computed: {
       currentTab() {
         return this.$store.getters.getCurrentTab
@@ -63,19 +57,23 @@
         this.$store.commit('SET_CURRENT_TAB', event.newIndex);
       },
       bottomNavigationLoaded(argv) {
+        // cuando se recibe un msj con la aplicacion en background
+        // muestra activa la pestaña correspondiente al data.topic del mensaje
         let bottomNavigation = argv.object
         bottomNavigation.selectTab(this.$store.getters.getCurrentTab)
-        console.log('pase por aqui... !"#$%&$#"!#$%&$#"$%')
       },
     },
     created() {
+      // cuando se vuelve del background o arranca la aplicacion siempre se muestra el primer tab
+      this.$store.commit('SET_CURRENT_TAB', 0);
       this.$store.commit('FIREBASE_INIT', this.$store)
     },
     beforeMount() {
       this.$store.subscribe((mutation, state) => {
         if (mutation.type == 'SET_CURRENT_TAB') {
-          // this set the active BottomNavigationTab
           if (this.$refs.bottomNavigation !== undefined && this.$store.getters.getForeground){
+            // cuando se recibe un msj con la aplicacion en foreground
+            // muestra activa la pestaña correspondiente al data.topic del mensaje
             this.$refs.bottomNavigation._nativeView.selectTab(mutation.payload)
           }
         }

@@ -44,74 +44,34 @@ export const SET_LAST_MESSAGE_ID = (state, value) => {
   state.last_message_id = value;
 }
 
-export const FIREBASE_INIT = (state, store) => {
-  store.commit('SET_CURRENT_TAB', 0);
+export const FIREBASE_INIT = (state, store) => { 
   state.firebase.init({
     onMessageReceivedCallback: function(message) {
-      // console.log(message)
+      let tabName = getTabName(message)
       if (message.foreground){
         alert({
-          //title: message.title,
+          title: message.title,
           message: message.body,
           okButtonText: "OK"
         }).then(() => {
           console.log("Alert dialog closed");
           store.commit('SET_FOREGROUND', true)
-          switch (message.from){
-            case '/topics/programacion':
-              store.commit('SET_CURRENT_TAB', 1);
-              break;
-            case '/topics/escribinos':
-              store.commit('SET_CURRENT_TAB', 2);
-              break;
-            case '/topics/podcasts':
-              store.commit('SET_CURRENT_TAB', 3);
-              break;
-            case '/topics/redes':
-              store.commit('SET_CURRENT_TAB', 4);
-              break;
-            default: // /topics/vivo || any msj
-              store.commit('SET_CURRENT_TAB', 0);
-              break;
-          }  
+          changeTab(tabName)
         });
       } else {
-        /*
-        switch (message.topic){
-          case 'programacion':
-            store.commit('SET_CURRENT_TAB', 1);
-            break;
-          case 'escribinos':
-            store.commit('SET_CURRENT_TAB', 2);
-            break;
-          case 'podcasts':
-            store.commit('SET_CURRENT_TAB', 3);
-            break;
-          case 'redes':
-            store.commit('SET_CURRENT_TAB', 4);
-            break;
-          default: // /topics/vivo || any msj
-            store.commit('SET_CURRENT_TAB', 0);
-            break;
-        }
-        */
         store.commit('SET_FOREGROUND', false)
-        console.log(message)
-        //console.log(message.data.google.message_id)google.message_id
-        console.log(store.getters.getLastMessageId)
-        
+        // cuando la aplicacion vuelve de a de background, si recibio con anterioridad
+        // un mensaje en ese estado se ejecuta siempre onMessageReceivedCallback
         if (message.data['google.message_id'] !== store.getters.getLastMessageId) {
-          store.commit('SET_CURRENT_TAB', 4);
+          changeTab(tabName)
           store.commit('SET_LAST_MESSAGE_ID', message.data['google.message_id']);
         }
-        
-        // store.commit('SET_FOREGROUND', true)
       }
-      
     }
   }).then(
     () => {
       console.log("Firebase is ready");
+      state.firebase.subscribeToTopic("general").then(() => console.log("Subscribed to topic general"));
       state.firebase.subscribeToTopic("vivo").then(() => console.log("Subscribed to topic vivo"));
       state.firebase.subscribeToTopic("programacion").then(() => console.log("Subscribed to topic programacion"));
       state.firebase.subscribeToTopic("escribinos").then(() => console.log("Subscribed to topic escribinos"));
@@ -122,5 +82,38 @@ export const FIREBASE_INIT = (state, store) => {
       console.log("firebase.init error: " + error);
     }
   );
+
+  function getTabName(message) {
+    // data.topic is priority
+    let topic = undefined
+      if (message.from !== undefined) {
+        topic = message.from.slice(8)
+      } else {
+        topic = 'default'
+      } 
+      let tabName = message.data.topic || topic
+      return tabName
+  }
+
+  function changeTab(tabName) {
+    console.log(tabName)
+    switch (tabName){
+      case 'programacion':
+        store.commit('SET_CURRENT_TAB', 1);
+        break;
+      case 'escribinos':
+        store.commit('SET_CURRENT_TAB', 2);
+        break;
+      case 'podcasts':
+        store.commit('SET_CURRENT_TAB', 3);
+        break;
+      case 'redes':
+        store.commit('SET_CURRENT_TAB', 4);
+        break;
+      default:
+        store.commit('SET_CURRENT_TAB', 0);
+        break;
+    }  
+  }
   
 }
