@@ -40,6 +40,7 @@
       }
     },
     mounted() {
+      this.actualizarConexion();
       setInterval(()=>{
         this.actualizarConexion();
       }, 20000);
