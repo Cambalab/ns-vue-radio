@@ -35,6 +35,7 @@
   import Escribinos from './Escribinos.vue'
   import SinConexion from './SinConexion.vue'
 
+
   export default {
     components: {
       Vivo,
