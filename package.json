@@ -21,7 +21,7 @@
     "html2plaintext": "^2.0.1",
     "nativescript-appavailability": "^1.3.1",
     "nativescript-audio": "^5.0.0",
-    "nativescript-bottom-navigation": "1.3.0",
+    "nativescript-bottom-navigation": "~1.3.0",
     "nativescript-cardview": "^3.1.1",
     "nativescript-email": "^1.5.3",
     "nativescript-open-app": "git+https://github.com/ludwiktrammer/nativescript-open-app.git",
