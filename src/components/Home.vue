@@ -11,6 +11,7 @@
       <Escribinos v-show="currentTab === 2" />
       <Podcasts v-show="currentTab === 3" />
       <Redes v-show="currentTab === 4" />
+      <SinConexion v-show="currentTab === 5" />
       <BottomNavigation activeColor="#f63e00"
                         inactiveColor="gray"
                         class="grey"
@@ -32,6 +33,7 @@
   import Podcasts from './Podcasts.vue'
   import Redes from './Redes.vue'
   import Escribinos from './Escribinos.vue'
+  import SinConexion from './SinConexion.vue'
 
   export default {
     components: {
@@ -39,16 +41,37 @@
       Programacion,
       Podcasts,
       Redes,
-      Escribinos
+      Escribinos,
+      SinConexion
     },
     data: () => {
       return {
-        currentTab: 0
+        currentTab: 0,
+        lastTab: 0
+      }
+    },
+    computed: {
+      conexion() {
+        return this.$store.getters.getConexion
+      }
+    },
+    watch: {
+      conexion(newConexion) {
+        if(newConexion) {
+          this.currentTab = this.lastTab;
+        }else {
+          this.currentTab = 5;
+        }
       }
     },
     methods: {
       changeTabTo(event) {
-        this.currentTab = event.newIndex
+        this.lastTab = event.newIndex;
+        if(this.$store.getters.getConexion){
+          this.currentTab = event.newIndex;
+        }else {
+          this.currentTab = 5;
+        }
       }
     }
   };
