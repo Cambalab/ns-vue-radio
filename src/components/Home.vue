@@ -33,9 +33,6 @@
   import Redes from './Redes.vue'
   import Escribinos from './Escribinos.vue'
 
-  const orientation = require('nativescript-orientation');
-  orientation.disableRotation();
-  orientation.setOrientation("portrait");
 
   export default {
     components: {
@@ -47,7 +44,7 @@
     },
     data: () => {
       return {
-        currentTab: 0
+        currentTab: 0,
       }
     },
     methods: {

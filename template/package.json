@@ -19,8 +19,7 @@
     "nativescript-appavailability": "^1.3.1",
     "nativescript-social-share": "^1.5.0",
     "nativescript-email": "^1.5.3",
-    "nativescript-cardview": "^3.1.1",
-    "nativescript-orientation": "^2.2.1"
+    "nativescript-cardview": "^3.1.1"
   },
   "devDependencies": {
     "babel-traverse": "6.26.0",
