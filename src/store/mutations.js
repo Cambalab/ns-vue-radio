@@ -31,3 +31,7 @@ export const SET_PLAY_PROMISE = (state, promise) => {
 export const SET_PLAYER_SCREEN = (state, player_screen) => {
   state.player_screen = player_screen;
 }
+
+export const SET_CONEXION = (state, conexion) => {
+  state.conexion = conexion;
+}

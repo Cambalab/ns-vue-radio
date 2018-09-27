@@ -9,3 +9,7 @@ export const getPlayPromise = state => {
 export const getPlayerScreen = state => {
   return state.player_screen;
 }
+
+export const getConexion = state => {
+  return state.conexion;
+}
