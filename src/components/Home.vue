@@ -11,6 +11,7 @@
       <Escribinos v-show="currentTab === 2" />
       <Podcasts v-show="currentTab === 3" />
       <Redes v-show="currentTab === 4" />
+      <SinConexion v-show="currentTab === 5" />
       <BottomNavigation activeColor="#f63e00"
                         inactiveColor="gray"
                         class="grey"
@@ -29,55 +30,82 @@
   </Page>
 </template>
 <script>
-  import Vivo from './Vivo.vue'
-  import Programacion from './Programacion.vue'
-  import Podcasts from './Podcasts.vue'
-  import Redes from './Redes.vue'
-  import Escribinos from './Escribinos.vue'
+import Vivo from "./Vivo.vue";
+import Programacion from "./Programacion.vue";
+import Podcasts from "./Podcasts.vue";
+import Redes from "./Redes.vue";
+import Escribinos from "./Escribinos.vue";
+import SinConexion from "./SinConexion.vue";
 
-  import {topmost} from "ui/frame";
-  import {AndroidApplication} from "application";
+import { topmost } from "ui/frame";
+import { AndroidApplication } from "application";
 
+export default {
+  components: {
+    Vivo,
+    Programacion,
+    Podcasts,
+    Redes,
+    Escribinos,
+    SinConexion
+  },
 
-  export default {
-    components: {
-      Vivo,
-      Programacion,
-      Podcasts,
-      Redes,
-      Escribinos
+  data: () => {
+    return {
+      lastTab: 0
+    };
+  },
+  computed: {
+    currentTab() {
+      return this.$store.getters.getCurrentTab;
     },
-    computed: {
-      currentTab() {
-        return this.$store.getters.getCurrentTab
+    conexion() {
+      return this.$store.getters.getConexion;
+    }
+  },
+  watch: {
+    conexion(newConexion) {
+      if (newConexion) {
+        this.$store.commit("SET_CURRENT_TAB", this.lastTab);
+      } else {
+        this.$store.commit("SET_CURRENT_TAB", 5);
+      }
+    }
+  },
+  methods: {
+    changeTabTo(event) {
+      this.lastTab = event.newIndex;
+      if (this.$store.getters.getConexion) {
+        this.$store.commit("SET_CURRENT_TAB", event.newIndex);
+      } else {
+        this.$store.commit("SET_CURRENT_TAB", 5);
       }
     },
-    methods: {
-      changeTabTo(event) {
-        this.$store.commit('SET_CURRENT_TAB', event.newIndex);
-      },
-      bottomNavigationLoaded(argv) {
-        // cuando se recibe un msj con la aplicacion en background
-        // muestra activa la pestaña correspondiente al data.topic del mensaje
-        let bottomNavigation = argv.object
-        bottomNavigation.selectTab(this.$store.getters.getCurrentTab)
-      },
-    },
-    created() {
-      // cuando se vuelve del background o arranca la aplicacion siempre se muestra el primer tab
-      this.$store.commit('SET_CURRENT_TAB', 0);
-      this.$store.commit('FIREBASE_INIT', this.$store)
-    },
-    beforeMount() {
-      this.$store.subscribe((mutation, state) => {
-        if (mutation.type == 'SET_CURRENT_TAB') {
-          if (this.$refs.bottomNavigation !== undefined && this.$store.getters.getForeground){
-            // cuando se recibe un msj con la aplicacion en foreground
-            // muestra activa la pestaña correspondiente al data.topic del mensaje
-            this.$refs.bottomNavigation._nativeView.selectTab(mutation.payload)
-          }
+    bottomNavigationLoaded(argv) {
+      // cuando se recibe un msj con la aplicacion en background
+      // muestra activa la pestaña correspondiente al data.topic del mensaje
+      let bottomNavigation = argv.object;
+      bottomNavigation.selectTab(this.$store.getters.getCurrentTab);
+    }
+  },
+  created() {
+    // cuando se vuelve del background o arranca la aplicacion siempre se muestra el primer tab
+    this.$store.commit("SET_CURRENT_TAB", 0);
+    this.$store.commit("FIREBASE_INIT", this.$store);
+  },
+  beforeMount() {
+    this.$store.subscribe((mutation, state) => {
+      if (mutation.type == "SET_CURRENT_TAB") {
+        if (
+          this.$refs.bottomNavigation !== undefined &&
+          this.$store.getters.getForeground
+        ) {
+          // cuando se recibe un msj con la aplicacion en foreground
+          // muestra activa la pestaña correspondiente al data.topic del mensaje
+          this.$refs.bottomNavigation._nativeView.selectTab(mutation.payload);
         }
-      })
-    },
-  };
+      }
+    });
+  }
+};
 </script>

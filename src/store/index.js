@@ -16,13 +16,13 @@ const store = new Vuex.Store({
     current_tab: 0,
     firebase: firebase,
     foreground: true,
-    last_message_id: 0
+    last_message_id: 0,
+    conexion: true
   },
   mutations,
   getters,
   strict: debug
 })
-
 
 Vue.prototype.$store = store;
 

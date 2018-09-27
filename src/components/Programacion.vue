@@ -40,7 +40,9 @@
     },
     mounted() {
       ProgramasService.getProgramas().then((programas) => {
-        this.programas = programas.data;
+        if (programas.status===200) {
+          this.programas = programas.data;
+        } 
       }).catch((err) => console.log(err))
     },
     computed: {

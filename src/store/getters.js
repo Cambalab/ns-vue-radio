@@ -25,3 +25,7 @@ export const getForeground = state => {
 export const getLastMessageId = state => {
   return state.last_message_id;
 }
+
+export const getConexion = state => {
+  return state.conexion;
+}

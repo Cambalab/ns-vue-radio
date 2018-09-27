@@ -115,5 +115,8 @@ export const FIREBASE_INIT = (state, store) => {
         break;
     }  
   }
-  
+}
+
+export const SET_CONEXION = (state, conexion) => {
+  state.conexion = conexion;
 }
