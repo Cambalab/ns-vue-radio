@@ -10,6 +10,22 @@ export const getPlayerScreen = state => {
   return state.player_screen;
 }
 
+export const getCurrentTab = state => {
+  return state.current_tab;
+}
+
+export const getFirebase = state => {
+  return state.firebase;
+}
+
+export const getForeground = state => {
+  return state.foreground;
+}
+
+export const getLastMessageId = state => {
+  return state.last_message_id;
+}
+
 export const getConexion = state => {
   return state.conexion;
 }
