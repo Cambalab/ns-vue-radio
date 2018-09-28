@@ -6,12 +6,12 @@
       </StackLayout>
     </ActionBar>
     <GridLayout columns="*" rows="*, auto">
-      <Vivo v-show="currentTab === 0" />
-      <Programacion v-show="currentTab === 1" />
-      <Escribinos v-show="currentTab === 2" />
-      <Podcasts v-show="currentTab === 3" />
-      <Redes v-show="currentTab === 4" />
-      <SinConexion v-show="currentTab === 5" />
+      <Vivo v-show="currentTab === 0 && conexion" />
+      <Programacion v-show="currentTab === 1 && conexion" />
+      <Escribinos v-show="currentTab === 2 && conexion" />
+      <Podcasts v-show="currentTab === 3 && conexion" />
+      <Redes v-show="currentTab === 4 && conexion" />
+      <SinConexion v-show="!conexion" />
       <BottomNavigation activeColor="#f63e00"
                         inactiveColor="gray"
                         class="grey"
@@ -37,9 +37,6 @@ import Redes from "./Redes.vue";
 import Escribinos from "./Escribinos.vue";
 import SinConexion from "./SinConexion.vue";
 
-import { topmost } from "ui/frame";
-import { AndroidApplication } from "application";
-
 export default {
   components: {
     Vivo,
@@ -49,12 +46,6 @@ export default {
     Escribinos,
     SinConexion
   },
-
-  data: () => {
-    return {
-      lastTab: 0
-    };
-  },
   computed: {
     currentTab() {
       return this.$store.getters.getCurrentTab;
@@ -63,23 +54,9 @@ export default {
       return this.$store.getters.getConexion;
     }
   },
-  watch: {
-    conexion(newConexion) {
-      if (newConexion) {
-        this.$store.commit("SET_CURRENT_TAB", this.lastTab);
-      } else {
-        this.$store.commit("SET_CURRENT_TAB", 5);
-      }
-    }
-  },
   methods: {
     changeTabTo(event) {
-      this.lastTab = event.newIndex;
-      if (this.$store.getters.getConexion) {
-        this.$store.commit("SET_CURRENT_TAB", event.newIndex);
-      } else {
-        this.$store.commit("SET_CURRENT_TAB", 5);
-      }
+      this.$store.commit("SET_CURRENT_TAB", event.newIndex);
     },
     bottomNavigationLoaded(argv) {
       // cuando se recibe un msj con la aplicacion en background
