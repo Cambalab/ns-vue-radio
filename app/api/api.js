@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios/dist/axios'
 
 export default() => {
     return axios.create({

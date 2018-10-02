@@ -1,6 +1,6 @@
 <template>
     <AbsoluteLayout>
-      <Image src="~/images/blackgradient.png" stretch="aspectFit" top="0" width="100%"/>
+      <Image src="~/assets/images/blackgradient.png" stretch="aspectFit" top="0" width="100%"/>
       <FlexboxLayout flexDirection="column" justifyContent="space-between" top="100" width="100%">
         <StackLayout alignSelf="center" width="100%">
           <Label class="mdi text-center text-cyan" fontSize="36" :text="'\ue2c1'"  color="#32DAC4"></Label>

@@ -26,4 +26,4 @@ const store = new Vuex.Store({
 
 Vue.prototype.$store = store;
 
-module.exports = store;
+export default store;

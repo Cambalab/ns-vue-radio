@@ -1,7 +1,5 @@
 <template>
   <ScrollView backgroundColor="#000028">
-    <!-- <Label style="text-align:center; font-weight:bold" color="#32DAC4" padding="5">Compartir Ahijuna FM </Label>
-    <Button class="sci text-cyan" @tap="shareUrl()" :text="'\ue072'" fontSize="50" style="background-color: #2e2e2e"/> -->
     <StackLayout>
       <StackLayout
         @tap="shareUrl()"
@@ -21,7 +19,7 @@
       <Label style="text-align:center; font-weight:bold" color="white" opacity="0.5" marginBottom="20">Visitanos en nuestras redes sociales:</Label>
       <StackLayout width="100%">
       <Button class="sci" @tap="openFb()" :text="'\ue028'" fontSize="50" borderRadius="2" margin="5" style="background-color: #365899" color="white"/>
-      <Button class="sci" @tap="openIg()" :text="'\ue044'" fontSize="50" borderRadius="2" margin="5" style="background-image: ~/images/instagram.png; backgroundSize: cover" color="white"/>
+      <Button class="sci" @tap="openIg()" :text="'\ue044'" fontSize="50" borderRadius="2" margin="5" style="background-image: ~/assets/images/instagram.png; backgroundSize: cover" color="white"/>
       <Button class="sci" @tap="openTwitter()" :text="'\ue08d'" fontSize="50" borderRadius="2" margin="5" style="background-color: #006dbf" color="white"/>
       </StackLayout>
     </StackLayout>

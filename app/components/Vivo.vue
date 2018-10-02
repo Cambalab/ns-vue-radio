@@ -1,10 +1,10 @@
 <template>
     <AbsoluteLayout>
       <Image :src="imageProgActual" stretch="aspectFill" height="100%" width="100%" top="0"/>
-      <Image src="~/images/blackgradient.png" stretch="aspectFit" top="0" width="100%"/>
+      <Image src="~/assets/images/blackgradient.png" stretch="aspectFit" top="0" width="100%"/>
       <FlexboxLayout flexDirection="column" justifyContent="space-between" top="100" width="100%">
         <StackLayout alignSelf="center" width="100%">
-          <Image src="~/images/microphone.png" width="30" opacity="0.7"/>
+          <Image src="~/assets/images/microphone.png" width="30" opacity="0.7"/>
           <Label text="Estas escuchando" class="text-center text-cyan font-italic" marginTop="10" fontSize="14" />
           <Label :text="progActual" class="h2 bold text-center m-b-0" color="white" textWrap="true"/>
         </StackLayout>
