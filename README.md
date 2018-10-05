@@ -26,6 +26,9 @@ npm install
 # Build for production
 tns build <platform> --bundle
 
+# Build for development
+tns build <platform> --bundle --env.development
+
 # Build, watch for changes and debug the application
 tns debug <platform> --bundle
 
