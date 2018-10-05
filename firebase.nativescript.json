@@ -3,6 +3,7 @@
     "using_android": true,
     "firestore": false,
     "realtimedb": false,
+    "authentication": true,
     "remote_config": false,
     "messaging": true,
     "crashlytics": false,

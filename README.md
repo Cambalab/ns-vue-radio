@@ -24,16 +24,23 @@ Don't forget to copy your google-services.json to -> template/app/App_Resources/
 npm install
 
 # Build for production
-npm run build
-npm run build:<platform>
+tns build <platform> --bundle
+
+# Build for development
+tns build <platform> --bundle --env.development
 
 # Build, watch for changes and debug the application
-npm run debug
-npm run debug:<platform>
+tns debug <platform> --bundle
+
+# Build, watch for changes and debug the application for development
+tns debug <platform> --bundle --env.development
 
 # Build, watch for changes and run the application
-npm run watch
-npm run watch:<platform>
+tns run <platform> --bundle
+
+# Build, watch for changes and run the application for development
+tns run <platform> --bundle --env.development
+```
 
 # Clean the NativeScript application instance (i.e. rm -rf dist)
 npm run clean
