@@ -32,8 +32,14 @@ tns build <platform> --bundle --env.development
 # Build, watch for changes and debug the application
 tns debug <platform> --bundle
 
+# Build, watch for changes and debug the application for development
+tns debug <platform> --bundle --env.development
+
 # Build, watch for changes and run the application
 tns run <platform> --bundle
+
+# Build, watch for changes and run the application for development
+tns run <platform> --bundle --env.development
 ```
 
 # Clean the NativeScript application instance (i.e. rm -rf dist)
