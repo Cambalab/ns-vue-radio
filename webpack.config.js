@@ -47,6 +47,7 @@ module.exports = env => {
             production, // --env.production
             report, // --env.report
             hmr, // --env.hmr
+            development,
     } = env;
 
     const externals = (env.externals || []).map((e) => { // --env.externals
@@ -54,6 +55,9 @@ module.exports = env => {
     });
 
     const mode = production ? "production" : "development"
+
+    const back = require("./environments/backend")
+    const api_url = development ? back.development : back.production
 
     const appFullPath = resolve(projectRoot, appPath);
     const appResourcesFullPath = resolve(projectRoot, appResourcesPath);
@@ -201,14 +205,15 @@ module.exports = env => {
             ],
         },
         plugins: [
-            // new webpack.EnvironmentPlugin(env),
+
             // ... Vue Loader plugin omitted
             // make sure to include the plugin!
             new VueLoaderPlugin(),
             // Define useful constants like TNS_WEBPACK
             new webpack.DefinePlugin({
                 "global.TNS_WEBPACK": "true",
-                "TNS_ENV": JSON.stringify(mode)
+                "TNS_ENV": JSON.stringify(mode),
+                "API_URL": JSON.stringify(api_url)
             }),
             // Remove all files from the out dir.
             new CleanWebpackPlugin([`${dist}/**/*`]),

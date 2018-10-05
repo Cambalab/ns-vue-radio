@@ -2,7 +2,7 @@ import axios from 'axios/dist/axios'
 
 export default() => {
     return axios.create({
-        baseURL: process.env.API_BASE,
+        baseURL: API_URL,
         withCredentials: false,
         headers: {
             'Accept': 'application/json',
