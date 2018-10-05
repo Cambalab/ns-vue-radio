@@ -1,6 +1,6 @@
-# Ahijuna Radio
+# Nativescript Vue Radio
 
-> A native application built with NativeScript-Vue
+> A native white-label application built with NativeScript-Vue for community radios
 
 ## Download and Install
 
