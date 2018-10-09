@@ -25,7 +25,7 @@
       return {
         playing: 'paused',
         progActual: '',
-        url: 'http://stream.ahijuna.fm/aire.mp3',
+        url: 'http://', // stream
         programas: [],
         imageProgActual: ''
       }
