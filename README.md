@@ -40,6 +40,9 @@ tns run <platform> --bundle
 
 # Build, watch for changes and run the application for development
 tns run <platform> --bundle --env.development
+
+# Build, watch for changes and run the application using json_data
+tns run <platform> --bundle --env.jsondata
 ```
 
 # Clean the NativeScript application instance (i.e. rm -rf dist)
