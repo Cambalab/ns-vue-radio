@@ -14,7 +14,7 @@
         width="200">
 
         <Label class="sci" color="#F63E00" :text="'\ue072'" fontSize="30" verticalAlignment="center"></Label>
-        <Label fontSize="12" class="bold" color="white" opacity="0.7" paddingLeft="10" width="150" verticalAlignment="center">Compartir Ahijuna FM</Label>
+        <Label fontSize="12" class="bold" color="white" opacity="0.7" paddingLeft="10" width="150" verticalAlignment="center">Compartir página</Label>
       </StackLayout>
       <Label style="text-align:center; font-weight:bold" color="white" opacity="0.5" marginBottom="20">Visitanos en nuestras redes sociales:</Label>
       <StackLayout width="100%">
@@ -45,16 +45,16 @@
   export default {
     methods: {
       openFb () {
-        openSocialNetwork("com.facebook.radioahijuna", "https://www.facebook.com/radioahijuna")
+        openSocialNetwork("com.facebook", "https://www.facebook.com/")
       },
       openIg () {
-        openSocialNetwork("com.instagram.android.radioahijuna", "https://www.instagram.com/radioahijuna/")
+        openSocialNetwork("com.instagram.android", "https://www.instagram.com/")
       },
       openTwitter () {
-        openSocialNetwork("com.twitter.android.radioahijuna", "https://twitter.com/radioahijuna")
+        openSocialNetwork("com.twitter.android", "https://twitter.com/")
       },
       shareUrl () {
-        SocialShare.shareUrl("http://ahijuna.fm/", "Radio Ahijuna");
+        SocialShare.shareUrl("http://", "Radio");
       }
     }
   }
