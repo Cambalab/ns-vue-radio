@@ -3,6 +3,6 @@
     "v8Flags": "--expose_gc"
   },
   "main": "main",
-  "name": "ahijuna",
+  "name": "radio",
   "version": "1.0.0"
 }
