@@ -68,7 +68,8 @@ export default {
   created() {
     // cuando se vuelve del background o arranca la aplicacion siempre se muestra el primer tab
     this.$store.commit("SET_CURRENT_TAB", 0);
-    this.$store.commit("FIREBASE_INIT", this.$store);
+    
+    // this.$store.commit("FIREBASE_INIT", this.$store);
   },
   beforeMount() {
     this.$store.subscribe((mutation, state) => {
