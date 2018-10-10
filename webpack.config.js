@@ -48,6 +48,7 @@ module.exports = env => {
             report, // --env.report
             hmr, // --env.hmr
             development,
+            jsondata,
     } = env;
 
     const externals = (env.externals || []).map((e) => { // --env.externals
@@ -59,7 +60,8 @@ module.exports = env => {
     const back = require("./environments/backend")
     const api_url = development ? back.development : back.production
 
-    const json_data = back.jsondata || false
+    console.log(jsondata)
+    const json_data = jsondata || false
 
     const appFullPath = resolve(projectRoot, appPath);
     const appResourcesFullPath = resolve(projectRoot, appResourcesPath);
