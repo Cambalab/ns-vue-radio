@@ -17,6 +17,8 @@ Follow steps here:
 Don't forget to copy your google-services.json to -> template/app/App_Resources/Android/ folder, follow steps here:
 - (firebase conguration guide)[]
 
+"nativescript-plugin-firebase": "7.1.2",
+
 ## Usage
 
 ``` bash
