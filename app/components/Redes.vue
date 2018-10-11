@@ -63,7 +63,7 @@
     },
     methods: {
       shareUrl () {
-        SocialShare.shareUrl("http://ahijuna.fm/", "Radio Ahijuna");
+        SocialShare.shareUrl("http://tu.link.playstore/", "Tu Link de Playstore");
       },
       openSocialNetwork (app, url) {
         appAvailability.available(app).then(function(avail) {
