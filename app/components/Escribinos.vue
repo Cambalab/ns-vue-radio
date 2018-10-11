@@ -28,7 +28,7 @@
       openWsp () {
         appAvailability.available("com.whatsapp").then(function(avail) {
           if (avail) {
-            openUrl("https://wa.me/5491157995025");
+            openUrl("https://wa.me/1122334455");
           }else{
             openApp("com.whatsapp");
           }
@@ -37,7 +37,7 @@
       openEmail () {
         email.compose({
           body: "",
-          to: ['radio@ahijuna.fm']
+          to: ['radio@email.fm']
         }).then(
           function() {
             console.log("Email composer closed");

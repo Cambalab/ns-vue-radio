@@ -2,7 +2,7 @@
   <Page class="page">
     <ActionBar class="action-bar grey">
       <StackLayout orientation="horizontal">
-        <Image src="~/assets/images/ahijuna-logo.png" width="140" />
+        <Image src="~/assets/images/logo.png" width="140" />
       </StackLayout>
     </ActionBar>
     <GridLayout columns="*" rows="*, auto">
