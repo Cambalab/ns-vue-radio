@@ -47,8 +47,7 @@ module.exports = env => {
             production, // --env.production
             report, // --env.report
             hmr, // --env.hmr
-            development,
-            jsondata,
+            development
     } = env;
 
     const externals = (env.externals || []).map((e) => { // --env.externals
@@ -59,9 +58,6 @@ module.exports = env => {
 
     const back = require("./environments/backend")
     const api_url = development ? back.development : back.production
-
-    console.log(jsondata)
-    const json_data = jsondata || false
 
     const appFullPath = resolve(projectRoot, appPath);
     const appResourcesFullPath = resolve(projectRoot, appResourcesPath);
@@ -217,8 +213,7 @@ module.exports = env => {
             new webpack.DefinePlugin({
                 "global.TNS_WEBPACK": "true",
                 "TNS_ENV": JSON.stringify(mode),
-                "API_URL": JSON.stringify(api_url),
-                "JSON_DATA": JSON.stringify(json_data)
+                "API_URL": JSON.stringify(api_url)
             }),
             // Remove all files from the out dir.
             new CleanWebpackPlugin([`${dist}/**/*`]),

@@ -1,11 +1,10 @@
 import axios from 'axios/dist/axios'
-
-console.log(JSON_DATA)
-console.log(typeof JSON_DATA)
+import config from '../config'
 
 let api = null
+console.log(config)
 
-if (JSON_DATA) {
+if (config.jsondata) {
     api = new class n {
         get() {
             return Promise.resolve({})
