@@ -6,11 +6,11 @@
       </StackLayout>
     </ActionBar>
     <GridLayout columns="*" rows="*, auto">
-      <Vivo v-if="currentTab === 0 && conexion" />
-      <Programacion v-if="currentTab === 1 && conexion" />
-      <Escribinos v-if="currentTab === 2 && conexion"/>
-      <Podcasts v-if="currentTab === 3 && conexion" />
-      <Redes v-if="currentTab === 4 && conexion" />
+      <Vivo v-show="currentTab === 0 && conexion" v-if="existe('Vivo')"/>
+      <Programacion v-show="currentTab === 1 && conexion" v-if="existe('Programacion')"/>
+      <Escribinos v-show="currentTab === 2 && conexion" v-if="existe('Escribinos')"/>
+      <Podcasts v-show="currentTab === 3 && conexion" v-if="existe('Podcasts')"/>
+      <Redes v-show="currentTab === 4 && conexion" v-if="existe('Redes')"/>
       <SinConexion v-if="!conexion" />
       <BottomNavigation activeColor="#f63e00"
                         inactiveColor="gray"
@@ -45,7 +45,8 @@ export default {
         'Programacion',
         'Podcasts',
         'Redes',
-        'Escribinos'      ]
+        'Escribinos'      
+      ]
     }
   },
   components: {
