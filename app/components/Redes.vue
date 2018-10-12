@@ -19,7 +19,7 @@
       <Label style="text-align:center; font-weight:bold" color="white" opacity="0.5" marginBottom="20">Visitanos en nuestras redes sociales:</Label>
       <ListView for="socialNetwork in socialNetworks">
         <v-template>
-          <Button class="sci" @tap="openSocialNetwork(socialNetwork.link2App, socialNetwork.link2Page)" :text="socialNetwork.iconId" fontSize="50" borderRadius="2" margin="5" :backgroundColor="socialNetwork.background" :backgroundImage="socialNetwork.backgroundImage" :color="socialNetwork.iconColor"/>
+          <Button class="sci" @tap="openSocialNetwork(socialNetwork.link2App, socialNetwork.link2Page)" :text="socialNetwork.iconId" fontSize="50" borderRadius="2" margin="5" :backgroundColor="socialNetwork.background" :backgroundImage="socialNetwork.backgroundImage" :color="socialNetwork.iconColor" style="backgroundSize: cover"/>
         </v-template>
       </ListView>
     </StackLayout>
