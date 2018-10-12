@@ -6,12 +6,12 @@
       </StackLayout>
     </ActionBar>
     <GridLayout columns="*" rows="*, auto">
-      <Vivo v-show="currentTab === 0 && conexion" />
-      <Programacion v-show="currentTab === 1 && conexion" />
-      <Escribinos v-show="currentTab === 2 && conexion" />
-      <Podcasts v-show="currentTab === 3 && conexion" />
-      <Redes v-show="currentTab === 4 && conexion" />
-      <SinConexion v-show="!conexion" />
+      <Vivo v-if="currentTab === 0 && conexion" />
+      <Programacion v-if="currentTab === 1 && conexion" />
+      <Escribinos v-if="currentTab === 2 && conexion"/>
+      <Podcasts v-if="currentTab === 3 && conexion" />
+      <Redes v-if="currentTab === 4 && conexion" />
+      <SinConexion v-if="!conexion" />
       <BottomNavigation activeColor="#f63e00"
                         inactiveColor="gray"
                         class="grey"
@@ -20,11 +20,11 @@
                         @tabSelected="changeTabTo($event)"
                         ref="bottomNavigation"
                         @loaded="bottomNavigationLoaded">
-          <BottomNavigationTab title="Vivo" icon="round_radio_black_36"></BottomNavigationTab>
-          <BottomNavigationTab title="Programación" icon="round_ballot_black_36"></BottomNavigationTab>
-          <BottomNavigationTab title="Escribinos" icon="round_message_black_36"></BottomNavigationTab>
-          <BottomNavigationTab title="Podcasts" icon="round_mic_black_36"></BottomNavigationTab>
-          <BottomNavigationTab title="Redes" icon="round_share_black_36"></BottomNavigationTab>
+          <BottomNavigationTab title="Vivo" icon="round_radio_black_36" v-if="existe('Vivo')"></BottomNavigationTab>
+          <BottomNavigationTab title="Programación" icon="round_ballot_black_36" v-if="existe('Programacion')"></BottomNavigationTab>
+          <BottomNavigationTab title="Escribinos" icon="round_message_black_36" v-if="existe('Escribinos')"></BottomNavigationTab>
+          <BottomNavigationTab title="Podcasts" icon="round_mic_black_36" v-if="existe('Podcasts')"></BottomNavigationTab>
+          <BottomNavigationTab title="Redes" icon="round_share_black_36" v-if="existe('Redes')"></BottomNavigationTab>
       </BottomNavigation>
     </GridLayout>
   </Page>
@@ -38,6 +38,16 @@ import Escribinos from "./Escribinos.vue";
 import SinConexion from "./SinConexion.vue";
 
 export default {
+  data: () => {
+    return {
+      secciones: [
+        'Vivo',
+        'Programacion',
+        'Podcasts',
+        'Redes',
+        'Escribinos'      ]
+    }
+  },
   components: {
     Vivo,
     Programacion,
@@ -63,6 +73,9 @@ export default {
       // muestra activa la pestaña correspondiente al data.topic del mensaje
       let bottomNavigation = argv.object;
       bottomNavigation.selectTab(this.$store.getters.getCurrentTab);
+    },
+    existe(seccion){
+      return this.secciones.includes(seccion)
     }
   },
   created() {
