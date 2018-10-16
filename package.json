@@ -1,5 +1,5 @@
 {
-  "name": "ahijuna",
+  "name": "radio",
   "version": "1.0.0",
   "description": "A native application built with NativeScript-Vue",
   "author": "Camba <info@camba.coop>",
@@ -17,7 +17,7 @@
     "clean": "rimraf platforms"
   },
   "nativescript": {
-    "id": "org.camba.ahijuna",
+    "id": "org.camba.radio",
     "tns-ios": {
       "version": "4.2.0"
     },
@@ -39,7 +39,6 @@
     "nativescript-cardview": "^3.1.1",
     "nativescript-email": "^1.5.3",
     "nativescript-open-app": "git+https://github.com/ludwiktrammer/nativescript-open-app.git",
-    "nativescript-plugin-firebase": "7.1.2",
     "nativescript-social-share": "^1.5.0",
     "nativescript-theme-core": "^1.0.4",
     "nativescript-vue": "^2.0.0",

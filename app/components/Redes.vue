@@ -1,5 +1,5 @@
 <template>
-  <ScrollView backgroundColor="#000028">
+  <FlexboxLayout flexDirection="column">
     <StackLayout>
       <StackLayout
         @tap="shareUrl()"
@@ -14,16 +14,16 @@
         width="200">
 
         <Label class="sci" color="#F63E00" :text="'\ue072'" fontSize="30" verticalAlignment="center"></Label>
-        <Label fontSize="12" class="bold" color="white" opacity="0.7" paddingLeft="10" width="150" verticalAlignment="center">Compartir Ahijuna FM</Label>
+        <Label fontSize="12" class="bold" color="white" opacity="0.7" paddingLeft="10" width="150" verticalAlignment="center">Compartir página</Label>
       </StackLayout>
       <Label style="text-align:center; font-weight:bold" color="white" opacity="0.5" marginBottom="20">Visitanos en nuestras redes sociales:</Label>
-      <StackLayout width="100%">
-      <Button class="sci" @tap="openFb()" :text="'\ue028'" fontSize="50" borderRadius="2" margin="5" style="background-color: #365899" color="white"/>
-      <Button class="sci" @tap="openIg()" :text="'\ue044'" fontSize="50" borderRadius="2" margin="5" style="background-image: ~/assets/images/instagram.png; backgroundSize: cover" color="white"/>
-      <Button class="sci" @tap="openTwitter()" :text="'\ue08d'" fontSize="50" borderRadius="2" margin="5" style="background-color: #006dbf" color="white"/>
-      </StackLayout>
+      <ListView for="socialNetwork in socialNetworks">
+        <v-template>
+          <Button class="sci" @tap="openSocialNetwork(socialNetwork.link2App, socialNetwork.link2Page)" :text="socialNetwork.iconId" fontSize="50" borderRadius="2" margin="5" :backgroundColor="socialNetwork.background" :backgroundImage="socialNetwork.backgroundImage" :color="socialNetwork.iconColor" style="backgroundSize: cover"/>
+        </v-template>
+      </ListView>
     </StackLayout>
-  </ScrollView>
+  </FlexboxLayout>
 </template>
 <script>
   import { openApp } from "nativescript-open-app";
@@ -32,29 +32,47 @@
   const appAvailability = require("nativescript-appavailability");
   const SocialShare = require("nativescript-social-share");
 
-  function openSocialNetwork (app, url) {
-    appAvailability.available(app).then(function(avail) {
-      if (avail) {
-        openApp(app);
-      }else{
-        openUrl(url);
-      }
-    })
-  }
-
   export default {
+
+    data: () => {
+      return {
+        socialNetworks: [
+          {
+            link2App: 'com.facebook',
+            link2Page: 'https://www.facebook.com/',
+            iconId: '\ue028',
+            iconColor: '#fafafa',
+            background: '#365899',
+          },
+          {
+            link2App: 'com.instagram',
+            link2Page: 'https://www.instagram.com/',
+            iconId: '\ue044',
+            iconColor: '#fafafa',
+            backgroundImage: '~/assets/images/instagram.png'
+          },
+          {
+            link2App: 'com.twitter',
+            link2Page: 'https://www.twitter.com/',
+            iconId: '\ue08d',
+            iconColor: '#fafafa',
+            background: '#006dbf',
+          }
+        ]
+      }
+    },
     methods: {
-      openFb () {
-        openSocialNetwork("com.facebook.radioahijuna", "https://www.facebook.com/radioahijuna")
-      },
-      openIg () {
-        openSocialNetwork("com.instagram.android.radioahijuna", "https://www.instagram.com/radioahijuna/")
-      },
-      openTwitter () {
-        openSocialNetwork("com.twitter.android.radioahijuna", "https://twitter.com/radioahijuna")
-      },
       shareUrl () {
-        SocialShare.shareUrl("http://ahijuna.fm/", "Radio Ahijuna");
+        SocialShare.shareUrl("http://tu.link.playstore/", "Tu Link de Playstore");
+      },
+      openSocialNetwork (app, url) {
+        appAvailability.available(app).then(function(avail) {
+          if (avail) {
+            openApp(app);
+          }else{
+            openUrl(url);
+          }
+        })
       }
     }
   }
