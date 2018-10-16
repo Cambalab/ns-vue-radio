@@ -39,3 +39,25 @@
 .bold {
   font-weight: bold;
 }
+
+// Colors to customize app
+
+.backgroundColorApp {
+  background-color: $violet;
+}
+
+.panelBackgroundColorApp {
+  background-color: $dark-violet;
+}
+
+.panelIconColorApp {
+  tab-active-color: $purple;
+}
+
+.primaryTextColorApp {
+  color: $purple;
+}
+
+.secondaryTextColorApp {
+  color: $white;
+}

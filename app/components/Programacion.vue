@@ -1,7 +1,7 @@
 <template>
-  <FlexboxLayout flexDirection="column" justifyContent="space-between" backgroundColor="#32DAC4">
+  <FlexboxLayout class="backgroundColorApp" flexDirection="column" justifyContent="space-between">
     <StackLayout flexGrow="2" height="100%">
-      <ListView for="programa in programasFiltrados" height="100%" backgroundColor="#32DAC4" separatorColor="transparent">
+      <ListView for="programa in programasFiltrados" height="100%" separatorColor="transparent">
         <v-template>
           <StackLayout xmlns:Card="nativescript-cardview" width="100%">
             <CardView radius="6" margin="10" backgroundColor="white" elevation="5" ripple="true">
@@ -21,7 +21,7 @@
       </ListView>
     </StackLayout>
     <StackLayout class="spacer" height="22%" flexShrink="0">
-      <ListPicker :items="dias" :selectedIndex="diaPicker" @selectedIndexChange="cambioDeDia" class="grey" color="white"/>
+      <ListPicker :items="dias" :selectedIndex="diaPicker" @selectedIndexChange="cambioDeDia" class="panelBackgroundColorApp secondaryTextColorApp"/>
     </StackLayout>
   </FlexboxLayout>
 </template>
@@ -42,7 +42,7 @@
       ProgramasService.getProgramas().then((programas) => {
         if (programas.status===200) {
           this.programas = programas.data;
-        } 
+        }
       }).catch((err) => console.log(err))
     },
     computed: {
