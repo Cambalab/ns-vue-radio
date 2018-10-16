@@ -40,7 +40,6 @@
     },
     mounted() {
       ProgramasService.getProgramas().then((programas) => {
-        console.log(programas)
         if (programas.status===200) {
           this.programas = programas.data;
         } 

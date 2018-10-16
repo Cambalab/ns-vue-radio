@@ -96,7 +96,6 @@ export const FIREBASE_INIT = (state, store) => {
   }
 
   function changeTab(tabName) {
-    console.log(tabName)
     switch (tabName){
       case 'programacion':
         store.commit('SET_CURRENT_TAB', 1);

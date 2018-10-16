@@ -9,26 +9,28 @@ class LocalApi {
         let res = [];
         console.log(id)
         switch (true) {
-            case id.includes('/programas/api'):
+            case id.includes('/programas/api', 0):
                 res = {
                     status : 200,
                     data : this.data.programas
                 }
                 break;
-            case id.includes('/programas/progactual'):
+            case id.includes('/programas/progactual', 0):
                     res = {
                     status : 200,
                     data : this.data.progactual
                 }
                 break;
-            /*
-            case id.includes('/podcasts/api'):
-                data = {
+            
+            case id.includes('/podcasts/api', 0):
+                res = {
                     status : 200,
-                    data : this.data.podcasts
+                    data : { 
+                        "results": this.data.podcasts
+                    }
                 }
                 break;
-            */
+            
             default:
                 res = {
                     status : 200,
