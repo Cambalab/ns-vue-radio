@@ -47,7 +47,7 @@ module.exports = env => {
             production, // --env.production
             report, // --env.report
             hmr, // --env.hmr
-            development,
+            development
     } = env;
 
     const externals = (env.externals || []).map((e) => { // --env.externals

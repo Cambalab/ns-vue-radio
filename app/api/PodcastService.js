@@ -6,6 +6,6 @@ export default {
     if (qty > 0) {
       options += '?limit='+qty
     }
-    return api().get('/podcasts/api'+options);
+    return api.get('/podcasts/api'+options);
   }
 }

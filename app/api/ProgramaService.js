@@ -2,9 +2,9 @@ import api from './api'
 
 export default {
   getProgramaActual () {
-    return api().get('/programas/progactual');
+    return api.get('/programas/progactual');
   },
   getProgramas () {
-    return api().get('/programas/api');
+    return api.get('/programas/api');
   }
 }

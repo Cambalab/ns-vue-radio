@@ -30,6 +30,7 @@
     },
     mounted() {
       PodcastService.getPodcasts(30).then((podcasts) => {
+        console.log('podcasts', podcasts)
         this.podcasts = podcasts.data.results.map((podcast) => {
           podcast.playing = 'paused';
           podcast.content = h2p(podcast.content);

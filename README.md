@@ -19,6 +19,11 @@ Don't forget to copy your google-services.json to -> template/app/App_Resources/
 
 "nativescript-plugin-firebase": "7.1.2",
 
+## Local data
+
+change 'jsondata': to true in /app/configure.js
+and put your data in /lib/resources/data.js
+
 ## Usage
 
 ``` bash
@@ -42,6 +47,9 @@ tns run <platform> --bundle
 
 # Build, watch for changes and run the application for development
 tns run <platform> --bundle --env.development
+
+# Build, watch for changes and run the application using json_data
+tns run <platform> --bundle --env.jsondata
 ```
 
 # Clean the NativeScript application instance (i.e. rm -rf dist)
