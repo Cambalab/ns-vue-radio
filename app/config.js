@@ -1,5 +1,5 @@
 let config = {
-    'jsondata': true
+    'jsondata': false
 }
 
 export default config

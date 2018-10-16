@@ -17,6 +17,11 @@ Follow steps here:
 Don't forget to copy your google-services.json to -> template/app/App_Resources/Android/ folder, follow steps here:
 - https://gitlab.camba.coop/camba/radio-ahijuna-app/wikis/firebase-cloud-messaging
 
+## Local data
+
+change 'jsondata': to true in /app/configure.js
+and put your data in /lib/resources/data.js
+
 ## Usage
 
 ``` bash
