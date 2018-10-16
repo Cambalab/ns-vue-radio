@@ -37,7 +37,7 @@ const data = {
 
     ],
     "progactual": {
-        "programa": "Error de carga"
+        "programa": "Radio Ga Ga (no lady!)"
     } 
 }
 

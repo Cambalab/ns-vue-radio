@@ -1,6 +1,6 @@
 import axios from 'axios/dist/axios'
 import config from '../config'
-import apijson from '../lib/jsonreader'
+import LocalApi from '../lib/local-api'
 
 let api = null
 console.log(config)
@@ -13,7 +13,7 @@ if (config.jsondata) {
         }
     }
     */
-   api = new apijson()
+   api = new LocalApi()
 } else {
     api = axios.create({
         baseURL: API_URL,
