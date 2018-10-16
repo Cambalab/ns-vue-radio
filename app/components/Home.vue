@@ -1,6 +1,6 @@
 <template>
   <Page class="page">
-    <ActionBar class="action-bar grey">
+    <ActionBar class="panelBackgroundColorApp action-bar">
       <StackLayout orientation="horizontal">
         <Image src="~/assets/images/logo.png" width="140" />
       </StackLayout>
@@ -12,9 +12,9 @@
       <Podcasts v-show="currentTab === 3 && conexion" v-if="existe('Podcasts')"/>
       <Redes v-show="currentTab === 4 && conexion" v-if="existe('Redes')"/>
       <SinConexion v-if="!conexion" />
-      <BottomNavigation activeColor="#f63e00"
+      <BottomNavigation
                         inactiveColor="gray"
-                        class="grey"
+                        class="panelBackgroundColorApp panelIconColorApp"
                         keyLineColor="gray"
                         row="1"
                         @tabSelected="changeTabTo($event)"
@@ -45,7 +45,7 @@ export default {
         'Programacion',
         'Podcasts',
         'Redes',
-        'Escribinos'      
+        'Escribinos'
       ]
     }
   },
@@ -82,7 +82,7 @@ export default {
   created() {
     // cuando se vuelve del background o arranca la aplicacion siempre se muestra el primer tab
     this.$store.commit("SET_CURRENT_TAB", 0);
-    
+
     // this.$store.commit("FIREBASE_INIT", this.$store);
   },
   beforeMount() {

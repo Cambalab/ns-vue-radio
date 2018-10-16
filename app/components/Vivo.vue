@@ -1,12 +1,12 @@
 <template>
     <AbsoluteLayout>
-      <Image :src="imageProgActual" stretch="aspectFill" height="100%" width="100%" top="0"/>
+      <Image :src="imageProgActual" stretch="aspectFill" height="100%" width="100%" top="0"  class="backgroundColorApp"/>
       <Image src="~/assets/images/blackgradient.png" stretch="aspectFit" top="0" width="100%"/>
       <FlexboxLayout flexDirection="column" justifyContent="space-between" top="100" width="100%">
         <StackLayout alignSelf="center" width="100%">
           <Image src="~/assets/images/microphone.png" width="30" opacity="0.7"/>
-          <Label text="Estas escuchando" class="text-center text-cyan font-italic" marginTop="10" fontSize="14" />
-          <Label :text="progActual" class="h2 bold text-center m-b-0" color="white" textWrap="true"/>
+          <Label text="Estas escuchando" class="text-center primaryTextColorApp font-italic" marginTop="10" fontSize="14" />
+          <Label :text="progActual" class="h2 bold text-center m-b-0 secondaryTextColorApp" textWrap="true"/>
         </StackLayout>
         <StackLayout class="spacer" style="height: 110;" alignSelf="center" marginTop="20">
           <Label v-show="playing === 'paused'"  @tap="play" :text="'\ue037'" fontSize="110" class="mdi text-center" color="white"/>

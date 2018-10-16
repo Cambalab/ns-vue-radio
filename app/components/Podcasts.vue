@@ -1,17 +1,17 @@
 <template>
-  <ListView ref="listView" for="podcast in podcasts" @itemTap="onPodcastTap" backgroundColor="#000028" separatorColor="transparent">
+  <ListView class="backgroundColorApp" ref="listView" for="podcast in podcasts" @itemTap="onPodcastTap" separatorColor="transparent">
     <v-template>
       <StackLayout width="100%" class="p-x-10 p-y-10">
         <FlexboxLayout orientation="horizontal" justifyContent="space-between" flexWrap="nowrap">
           <ActivityIndicator v-show="podcast.playing === 'loading'" busy="true" flexShrink="0" class="text-orange" alignSelf="flex-start" width="30" fontSize="30"/>
-          <Label :text="'\ue038'" v-show="podcast.playing === 'paused'" flexShrink="0" class="mdi text-orange" width="30" fontSize="30" />
-          <Label :text="'\ue034'" v-show="podcast.playing === 'playing'" flexShrink="0" class="mdi text-orange" width="30" fontSize="30"/>
-          <Label :text="podcast.title" class="text-orange p-l-5" flexGrow="2" flexShrink="2" fontWeight="300" textWrap="true"/>
-          <Label :text="podcast.duration" class="pull-right bold m-r-5" color="white" width="30" flexShrink="0" fontSize="9" opacity="0.4" alignSelf="flext-end"/>
+          <Label :text="'\ue038'" v-show="podcast.playing === 'paused'" flexShrink="0" class="mdi primaryTextColorApp" width="30" fontSize="30" />
+          <Label :text="'\ue034'" v-show="podcast.playing === 'playing'" flexShrink="0" class="mdi primaryTextColorApp" width="30" fontSize="30"/>
+          <Label :text="podcast.title" class="primaryTextColorApp p-l-5" flexGrow="2" flexShrink="2" fontWeight="300" textWrap="true"/>
+          <Label :text="podcast.duration" class="pull-right bold m-r-5 secondaryTextColorApp" width="30" flexShrink="0" fontSize="9" opacity="0.4" alignSelf="flext-end"/>
         </FlexboxLayout>
-        <Label :text="podcast.content" opacity="0.6" padding="8 0 8 35" color="white" fontWeight="300" fontSize="11" width="100%" textWrap="true"/>
+        <Label :text="podcast.content" class="secondaryTextColorApp" opacity="0.6" padding="8 0 8 35" fontWeight="300" fontSize="11" width="100%" textWrap="true"/>
         <StackLayout width="100%" paddingLeft="30">
-          <StackLayout width="100%" height="1" class="orange m-t-10" opacity="0.3"></StackLayout>
+          <StackLayout width="100%" height="1" class="primaryTextColorApp m-t-10" opacity="0.3"></StackLayout>
         </StackLayout>
       </StackLayout>
     </v-template>
