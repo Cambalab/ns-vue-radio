@@ -53,6 +53,7 @@ tns run <platform> --bundle --env.jsondata
 ```
 
 # Clean the NativeScript application instance (i.e. rm -rf dist)
+```
 npm run clean
 ```
 
