@@ -1,8 +1,8 @@
 <template>
   <ScrollView class="backgroundColorApp text-center">
     <StackLayout padding="10">
-      <Label fontSize="22" class="m-t-25 bold primaryTextColorApp" opacity="0.5">Escribinos</Label>
-      <Label fontSize="14" fontWeight="300" textWrap="true" opacity="0.7" class="m-y-10 secondaryTextColorApp" >Envianos un mensaje por email o whatsapp haciendo click en los botones de abajo.</Label>
+      <Label fontSize="22" class="m-t-25 bold primaryTextColorApp" opacity="0.5">{{ $t('writeUs') }}</Label>
+      <Label fontSize="14" fontWeight="300" textWrap="true" opacity="0.7" class="m-y-10 secondaryTextColorApp" >{{ $t('sendUs') }}</Label>
       <StackLayout @tap="openEmail()" class="text-left" orientation="horizontal" margin="20 0 10" padding="10 20" width="260" color="darkblue" backgroundColor="#eee">
         <Label class="sci" :text="'\ue050'" color="darkblue" backgroundColor="#eee" fontSize="36" verticalAlignment="center"></Label>
         <Label fontSize="12" class="bold" padding="0 10" color="#333" width="170" verticalAlignment="center">Contactanos vía email</Label>
