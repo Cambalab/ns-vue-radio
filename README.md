@@ -61,6 +61,23 @@ npm run clean
 
 For detailed instructions, see https://github.com/nativescript-vue/vue-cli-template
 
+---
+
+## Eslint Configuration
+
+### Atom
+
+> Install **linter-eslint** from the Atom Packages Manager or run:
+```
+  apm install linter-eslint
+```
+> Go into Settings -> Packages -> linter-eslint and add **text.html.vue** to the “List of scopes to run eslint on” option. You may need to restart Atom.
+```
+  source.js, source.jsx, source.js.jsx, source.babel, source.js-semantic, text.html.vue
+```
+
+---
+
 ## License
 
 This software is licensed under the [GNU GPLv3 License](LICENSE), and sponsored by [Cambá](https://www.camba.coop).
