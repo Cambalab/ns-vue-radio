@@ -26,11 +26,7 @@
     }
   },
   "dependencies": {
-    "vuex": "^3.0.1",
     "@vue/devtools": "5.0.0-beta.3",
-    "nativescript-socket.io": "^0.9.0",
-    "nativescript-vue-devtools": "^1.0.0",
-    "nativescript-toast": "^1.4.6",
     "axios": "^0.18.0",
     "html2plaintext": "^2.0.1",
     "nativescript-appavailability": "^1.3.1",
@@ -40,13 +36,21 @@
     "nativescript-email": "^1.5.3",
     "nativescript-open-app": "git+https://github.com/ludwiktrammer/nativescript-open-app.git",
     "nativescript-social-share": "^1.5.0",
+    "nativescript-socket.io": "^0.9.0",
     "nativescript-theme-core": "^1.0.4",
+    "nativescript-toast": "^1.4.6",
     "nativescript-vue": "^2.0.0",
-    "tns-core-modules": "^4.2.0"
+    "nativescript-vue-devtools": "^1.0.0",
+    "tns-core-modules": "^4.2.0",
+    "vue-i18n": "^8.2.1",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
+    "babel-cli": "^6.26.0",
     "babel-loader": "^8.0.2",
     "babel-traverse": "6.26.0",
     "babel-types": "6.26.0",
