@@ -36,17 +36,12 @@ import Podcasts from "./Podcasts.vue";
 import Redes from "./Redes.vue";
 import Escribinos from "./Escribinos.vue";
 import SinConexion from "./SinConexion.vue";
+import config from "../config"
 
 export default {
   data: () => {
     return {
-      secciones: [
-        'Vivo',
-        'Programacion',
-        'Podcasts',
-        'Redes',
-        'Escribinos'
-      ]
+      secciones: config.sections
     }
   },
   components: {
