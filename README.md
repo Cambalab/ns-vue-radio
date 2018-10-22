@@ -53,9 +53,14 @@ tns run <platform> --bundle --env.jsondata
 ```
 
 # Clean the NativeScript application instance (i.e. rm -rf dist)
+```
 npm run clean
 ```
 
 > When invoking the various npm scripts, omitting the platform will attempt to launch `tns` for both platforms, which will only work in a properly configured OSX environment.
 
 For detailed instructions, see https://github.com/nativescript-vue/vue-cli-template
+
+## License
+
+This software is licensed under the [GNU GPLv3 License](LICENSE), and sponsored by [Cambá](https://www.camba.coop).
