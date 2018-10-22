@@ -1,8 +1,10 @@
 # Nativescript Vue Radio
 
-![NativeScript Vue Radio Logo](/design/logo520x520.png)
+<img style="" src="/design/logo520x520.png" width="400">
 
-Released by  ![Cambá Logo](/design/logo-telegram.png)
+Released by
+
+<img style="" src="/design/logo-telegram.png" width="100">
 
 http://camba.coop/
 
