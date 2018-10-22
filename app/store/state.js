@@ -7,6 +7,6 @@ export class State {
   foreground = true
   last_message_id = 0
   conexion = true
-  language = 'en'
-  loadedLanguages = ['en']
+  language = 'es'
+  loadedLanguages = ['en', 'es']
 }

@@ -1,4 +1,6 @@
 import Vue from 'nativescript-vue'
+import { i18n } from './langs/i18n'
+
 //import App from './components/App'
 //import VueDevtools from 'nativescript-vue-devtools'
 
@@ -23,6 +25,7 @@ Vue.registerElement('CardView', () => require('nativescript-cardview').CardView)
 
 const app = new Vue({
   store,
+  i18n,
   render: h => h('frame', [h(Home)])
 })
 

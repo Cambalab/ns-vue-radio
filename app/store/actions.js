@@ -1,8 +1,8 @@
 import { setLanguage, setLanguageAndLocale, loadLanguageFile } from '../langs/utils'
+const lang = require('tns-core-modules/platform').device.language
 
 export function loadDefaultLanguage({ dispatch }) {
-  // const currentLanguage = window.navigator.language.split('-')[0]
-  const currentLanguage = 'en'
+  const currentLanguage = lang.split('-')[0]
   dispatch('changeLanguage', currentLanguage)
 }
 
