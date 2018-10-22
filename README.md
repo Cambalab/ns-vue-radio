@@ -1,5 +1,11 @@
 # Nativescript Vue Radio
 
+![NativeScript Vue Radio Logo](/design/logo520x520.png)
+
+Released by  ![Cambá Logo](/design/logo-telegram.png)
+
+http://camba.coop/
+
 > A native white-label application built with NativeScript-Vue for community radios
 
 ## Download and Install
