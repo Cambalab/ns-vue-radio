@@ -6,7 +6,7 @@ Released by
 
 <img style="" src="/design/logo-telegram.png" width="100">
 
-http://camba.coop/
+https://camba.coop/
 
 > A native white-label application built with NativeScript-Vue for community radios
 
