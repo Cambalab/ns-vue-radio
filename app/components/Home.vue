@@ -7,7 +7,7 @@
     </ActionBar>
     <GridLayout columns="*" rows="*, auto">
       <Live v-show="currentTab === 0 && conexion" v-if="existe('Live')"/>
-      <Programacion v-show="currentTab === 1 && conexion" v-if="existe('Programacion')"/>
+      <Schedule v-show="currentTab === 1 && conexion" v-if="existe('Schedule')"/>
       <WriteUs v-show="currentTab === 2 && conexion" v-if="existe('WriteUs')"/>
       <Podcasts v-show="currentTab === 3 && conexion" v-if="existe('Podcasts')"/>
       <Social v-show="currentTab === 4 && conexion" v-if="existe('Social')"/>
@@ -21,7 +21,7 @@
                         ref="bottomNavigation"
                         @loaded="bottomNavigationLoaded">
           <BottomNavigationTab :title="$t('live')" icon="round_radio_black_36" v-if="existe('Live')"></BottomNavigationTab>
-          <BottomNavigationTab title="Programación" icon="round_ballot_black_36" v-if="existe('Programacion')"></BottomNavigationTab>
+          <BottomNavigationTab :title="$t('schedule')" icon="round_ballot_black_36" v-if="existe('Schedule')"></BottomNavigationTab>
           <BottomNavigationTab :title="$t('writeUs')" icon="round_message_black_36" v-if="existe('WriteUs')"></BottomNavigationTab>
           <BottomNavigationTab title="Podcasts" icon="round_mic_black_36" v-if="existe('Podcasts')"></BottomNavigationTab>
           <BottomNavigationTab :title="$t('social')" icon="round_share_black_36" v-if="existe('Social')"></BottomNavigationTab>
@@ -31,7 +31,7 @@
 </template>
 <script>
 import Live from './Live.vue'
-import Programacion from './Programacion.vue'
+import Schedule from './Schedule.vue'
 import Podcasts from './Podcasts.vue'
 import Social from './Social.vue'
 import WriteUs from './WriteUs.vue'
@@ -46,7 +46,7 @@ export default {
   },
   components: {
     Live,
-    Programacion,
+    Schedule,
     Podcasts,
     Social,
     WriteUs,
