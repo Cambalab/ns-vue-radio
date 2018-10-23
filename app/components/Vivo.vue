@@ -17,75 +17,75 @@
     </AbsoluteLayout>
 </template>
 <script>
-  import { TNSPlayer } from 'nativescript-audio';
-  import ProgramaService from '../api/ProgramaService';
+import { TNSPlayer } from 'nativescript-audio'
+import ProgramaService from '../api/ProgramaService'
 
-  export default {
-    data: () => {
-      return {
-        playing: 'paused',
-        progActual: '',
-        url: 'http://', // stream
-        programas: [],
-        imageProgActual: ''
-      }
-    },
-    computed: {
-      player_screen() {
-        return this.$store.getters.getPlayerScreen
-      }
-    },
-    watch: {
-      player_screen(newPlayerScreen) {
-        if(newPlayerScreen !== 'VIVO') {
-          this.playing = 'paused';
-        }
-      }
-    },
-    methods: {
-      play() {
-        this.$store.commit('SET_PLAYER_SCREEN', 'VIVO');
-        this.playing = 'loading';
-        this.$store.commit('PLAY_URL', this.url);
-        this.$store.getters.getPlayPromise.then((res) => {
-            this.playing = 'playing';
-          })
-          .catch((err) => {
-            this.playing = 'paused';
-            alert({
-              title: "Error",
-              message: "Hubo un problema reproduciendo la transmisión",
-              okButtonText: "Entendido"
-            })
-          });
-      },
-      pause() {
-        this.playing = 'paused';
-        this.$store.commit('PAUSE');
-      },
-      setProgramaActual() {
-        ProgramaService.getProgramaActual().then((resp)=>{
-          if(this.progActual !== resp.data.programa) {
-            this.progActual = resp.data.programa;
-            this.setImage()
-          }
-        })
-      },
-      setImage() {
-        ProgramaService.getProgramas().then((programas) => {
-          this.programas = programas.data;
-          this.imageProgActual = this.programas.find((p) => {return p.title === this.progActual}).image
-        }).catch((err) => console.log(err));
-      }
-    },
-    mounted() {
-      setTimeout(()=>{
-        this.$store.commit('SET_PLAYER', new TNSPlayer());
-      }, 0);
-      this.setProgramaActual();
-      setInterval(()=>{
-        this.setProgramaActual();
-      }, 60000);
+export default {
+  data: () => {
+    return {
+      playing: 'paused',
+      progActual: '',
+      url: 'http://', // stream
+      programas: [],
+      imageProgActual: ''
     }
-  };
+  },
+  computed: {
+    player_screen () {
+      return this.$store.getters.getPlayerScreen
+    }
+  },
+  watch: {
+    player_screen (newPlayerScreen) {
+      if (newPlayerScreen !== 'VIVO') {
+        this.playing = 'paused'
+      }
+    }
+  },
+  methods: {
+    play () {
+      this.$store.commit('SET_PLAYER_SCREEN', 'VIVO')
+      this.playing = 'loading'
+      this.$store.commit('PLAY_URL', this.url)
+      this.$store.getters.getPlayPromise.then((res) => {
+        this.playing = 'playing'
+      })
+      .catch(() => {
+        this.playing = 'paused'
+        alert({
+          title: 'Error',
+          message: 'Hubo un problema reproduciendo la transmisión',
+          okButtonText: 'Entendido'
+        })
+      })
+    },
+    pause () {
+      this.playing = 'paused'
+      this.$store.commit('PAUSE')
+    },
+    setProgramaActual () {
+      ProgramaService.getProgramaActual().then((resp) => {
+        if (this.progActual !== resp.data.programa) {
+          this.progActual = resp.data.programa
+          this.setImage()
+        }
+      })
+    },
+    setImage () {
+      ProgramaService.getProgramas().then((programas) => {
+        this.programas = programas.data
+        this.imageProgActual = this.programas.find((p) => { return p.title === this.progActual }).image
+      }).catch((err) => console.log(err))
+    }
+  },
+  mounted () {
+    setTimeout(() => {
+      this.$store.commit('SET_PLAYER', new TNSPlayer())
+    }, 0)
+    this.setProgramaActual()
+    setInterval(() => {
+      this.setProgramaActual()
+    }, 60000)
+  }
+}
 </script>

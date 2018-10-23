@@ -14,36 +14,36 @@
     </AbsoluteLayout>
 </template>
 <script>
-  import ConexionService from '../api/ConexionService';
+import ConexionService from '../api/ConexionService'
 
-  export default {
-    data: () => {
-      return {}
-    },
-    methods: {
-      actualizarConexion() {
-        ConexionService.getProgramaActual().then((resp) => {
-            if(resp.status !== null) {
-              ConexionService.getProgramas().then((programas) => {
-                if(programas.status !== null) {
-                  ConexionService.getPodcasts().then((podcasts) => {
-                    this.$store.commit('SET_CONEXION', podcasts.status !== null);
-                  }).catch((err) => console.log(err))
-                }else {
-                  this.$store.commit('SET_CONEXION', false);
-                }
+export default {
+  data: () => {
+    return {}
+  },
+  methods: {
+    actualizarConexion () {
+      ConexionService.getProgramaActual().then((resp) => {
+        if (resp.status !== null) {
+          ConexionService.getProgramas().then((programas) => {
+            if (programas.status !== null) {
+              ConexionService.getPodcasts().then((podcasts) => {
+                this.$store.commit('SET_CONEXION', podcasts.status !== null)
               }).catch((err) => console.log(err))
-            }else {
-              this.$store.commit('SET_CONEXION', false);
+            } else {
+              this.$store.commit('SET_CONEXION', false)
             }
-        }).catch((err) => console.log(err))
-      }
-    },
-    mounted() {
-      this.actualizarConexion();
-      setInterval(()=>{
-        this.actualizarConexion();
-      }, 20000);
+          }).catch((err) => console.log(err))
+        } else {
+          this.$store.commit('SET_CONEXION', false)
+        }
+      }).catch((err) => console.log(err))
     }
-  };
+  },
+  mounted () {
+    this.actualizarConexion()
+    setInterval(() => {
+      this.actualizarConexion()
+    }, 20000)
+  }
+}
 </script>

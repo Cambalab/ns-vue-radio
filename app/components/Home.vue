@@ -30,13 +30,13 @@
   </Page>
 </template>
 <script>
-import Vivo from "./Vivo.vue";
-import Programacion from "./Programacion.vue";
-import Podcasts from "./Podcasts.vue";
-import Redes from "./Redes.vue";
-import Escribinos from "./Escribinos.vue";
-import SinConexion from "./SinConexion.vue";
-import config from "../config"
+import Vivo from './Vivo.vue'
+import Programacion from './Programacion.vue'
+import Podcasts from './Podcasts.vue'
+import Redes from './Redes.vue'
+import Escribinos from './Escribinos.vue'
+import SinConexion from './SinConexion.vue'
+import config from '../config'
 
 export default {
   data: () => {
@@ -53,46 +53,46 @@ export default {
     SinConexion
   },
   computed: {
-    currentTab() {
-      return this.$store.getters.getCurrentTab;
+    currentTab () {
+      return this.$store.getters.getCurrentTab
     },
-    conexion() {
-      return this.$store.getters.getConexion;
+    conexion () {
+      return this.$store.getters.getConexion
     }
   },
   methods: {
-    changeTabTo(event) {
-      this.$store.commit("SET_CURRENT_TAB", event.newIndex);
+    changeTabTo (event) {
+      this.$store.commit('SET_CURRENT_TAB', event.newIndex)
     },
-    bottomNavigationLoaded(argv) {
+    bottomNavigationLoaded (argv) {
       // cuando se recibe un msj con la aplicacion en background
       // muestra activa la pestaña correspondiente al data.topic del mensaje
-      let bottomNavigation = argv.object;
-      bottomNavigation.selectTab(this.$store.getters.getCurrentTab);
+      const bottomNavigation = argv.object
+      bottomNavigation.selectTab(this.$store.getters.getCurrentTab)
     },
-    existe(seccion){
+    existe (seccion) {
       return this.secciones.includes(seccion)
     }
   },
-  created() {
+  created () {
     // cuando se vuelve del background o arranca la aplicacion siempre se muestra el primer tab
-    this.$store.commit("SET_CURRENT_TAB", 0);
+    this.$store.commit('SET_CURRENT_TAB', 0)
 
     // this.$store.commit("FIREBASE_INIT", this.$store);
   },
-  beforeMount() {
+  beforeMount () {
     this.$store.subscribe((mutation, state) => {
-      if (mutation.type == "SET_CURRENT_TAB") {
+      if (mutation.type === 'SET_CURRENT_TAB') {
         if (
           this.$refs.bottomNavigation !== undefined &&
           this.$store.getters.getForeground
         ) {
           // cuando se recibe un msj con la aplicacion en foreground
           // muestra activa la pestaña correspondiente al data.topic del mensaje
-          this.$refs.bottomNavigation._nativeView.selectTab(mutation.payload);
+          this.$refs.bottomNavigation._nativeView.selectTab(mutation.payload)
         }
       }
-    });
+    })
   }
-};
+}
 </script>
