@@ -1,12 +1,12 @@
 import { setLanguage, setLanguageAndLocale, loadLanguageFile } from '../langs/utils'
 const lang = require('tns-core-modules/platform').device.language
 
-export function loadDefaultLanguage({ dispatch }) {
+export function loadDefaultLanguage ({ dispatch }) {
   const currentLanguage = lang.split('-')[0]
   dispatch('changeLanguage', currentLanguage)
 }
 
-export async function changeLanguage({ commit, state }, language) {
+export async function changeLanguage ({ commit, state }, language) {
   if (state.loadedLanguages.includes(language)) {
     setLanguage(language)
     commit('SET_LANGUAGE', { language })
