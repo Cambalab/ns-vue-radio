@@ -1,7 +1,6 @@
 import Vue from 'nativescript-vue'
 import { i18n } from './langs/i18n'
 
-// import App from './components/App'
 // import VueDevtools from 'nativescript-vue-devtools'
 
 import store from './store'

@@ -16,7 +16,7 @@ export const PLAY_URL = (state, url) => {
     }
   }
 
-  state.play_promise = state.player.playFromUrl(playerOptions)
+  state.playPromise = state.player.playFromUrl(playerOptions)
 }
 
 export const PAUSE = state => {
@@ -24,15 +24,15 @@ export const PAUSE = state => {
 }
 
 export const SET_PLAY_PROMISE = (state, promise) => {
-  state.play_promise = promise
+  state.playPromise = promise
 }
 
-export const SET_PLAYER_SCREEN = (state, player_screen) => {
-  state.player_screen = player_screen
+export const SET_PLAYER_SCREEN = (state, playerScreen) => {
+  state.playerScreen = playerScreen
 }
 
 export const SET_CURRENT_TAB = (state, newTab) => {
-  state.current_tab = newTab
+  state.currentTab = newTab
 }
 
 export const SET_FOREGROUND = (state, value) => {
@@ -40,14 +40,14 @@ export const SET_FOREGROUND = (state, value) => {
 }
 
 export const SET_LAST_MESSAGE_ID = (state, value) => {
-  state.last_message_id = value
+  state.lastMessageId = value
 }
 
 export const FIREBASE_INIT = (state, store) => {
   state.firebase
     .init({
-      onMessageReceivedCallback: function(message) {
-        let tabName = getTabName(message)
+      onMessageReceivedCallback: function (message) {
+        const tabName = getTabName(message)
         if (message.foreground) {
           alert({
             title: message.title,
@@ -84,35 +84,35 @@ export const FIREBASE_INIT = (state, store) => {
       }
     )
 
-  function getTabName(message) {
+  function getTabName (message) {
     // data.topic is priority
-    let topic = undefined
+    let topic
     if (message.from !== undefined) {
       topic = message.from.slice(8)
     } else {
       topic = 'default'
     }
-    let tabName = message.data.topic || topic
+    const tabName = message.data.topic || topic
     return tabName
   }
 
-  function changeTab(tabName) {
+  function changeTab (tabName) {
     switch (tabName) {
-      case 'programacion':
-        store.commit('SET_CURRENT_TAB', 1)
-        break
-      case 'escribinos':
-        store.commit('SET_CURRENT_TAB', 2)
-        break
-      case 'podcasts':
-        store.commit('SET_CURRENT_TAB', 3)
-        break
-      case 'redes':
-        store.commit('SET_CURRENT_TAB', 4)
-        break
-      default:
-        store.commit('SET_CURRENT_TAB', 0)
-        break
+    case 'programacion':
+      store.commit('SET_CURRENT_TAB', 1)
+      break
+    case 'escribinos':
+      store.commit('SET_CURRENT_TAB', 2)
+      break
+    case 'podcasts':
+      store.commit('SET_CURRENT_TAB', 3)
+      break
+    case 'redes':
+      store.commit('SET_CURRENT_TAB', 4)
+      break
+    default:
+      store.commit('SET_CURRENT_TAB', 0)
+      break
     }
   }
 }
