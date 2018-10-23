@@ -5,7 +5,7 @@ const config = {
     'Programacion',
     'Podcasts',
     'Redes',
-    'Escribinos'
+    'WriteUs'
   ],
   'socialNetworks': [
     {
