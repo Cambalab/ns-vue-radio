@@ -2,5 +2,10 @@
   "writeUs": "Write us",
   "sendUs": "Send us a message by email or whatsapp by clicking on the buttons below.",
   "contactUsViaEmail": "Contact us via Email",
-  "contactUsViaWhatsapp": "Contact us via Whatsapp"
+  "contactUsViaWhatsapp": "Contact us via Whatsapp",
+  "thereWasAProblemPlayingTheStream": "There was a problem playing the stream",
+  "understood": "Understood",
+  "error": "Error",
+  "youAreListeningTo": "You Are Listening to",
+  "live": "Live"
 }

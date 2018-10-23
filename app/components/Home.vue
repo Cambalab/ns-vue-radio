@@ -6,7 +6,7 @@
       </StackLayout>
     </ActionBar>
     <GridLayout columns="*" rows="*, auto">
-      <Vivo v-show="currentTab === 0 && conexion" v-if="existe('Vivo')"/>
+      <Live v-show="currentTab === 0 && conexion" v-if="existe('Live')"/>
       <Programacion v-show="currentTab === 1 && conexion" v-if="existe('Programacion')"/>
       <WriteUs v-show="currentTab === 2 && conexion" v-if="existe('WriteUs')"/>
       <Podcasts v-show="currentTab === 3 && conexion" v-if="existe('Podcasts')"/>
@@ -20,7 +20,7 @@
                         @tabSelected="changeTabTo($event)"
                         ref="bottomNavigation"
                         @loaded="bottomNavigationLoaded">
-          <BottomNavigationTab title="Vivo" icon="round_radio_black_36" v-if="existe('Vivo')"></BottomNavigationTab>
+          <BottomNavigationTab :title="$t('live')" icon="round_radio_black_36" v-if="existe('Live')"></BottomNavigationTab>
           <BottomNavigationTab title="Programación" icon="round_ballot_black_36" v-if="existe('Programacion')"></BottomNavigationTab>
           <BottomNavigationTab :title="$t('writeUs')" icon="round_message_black_36" v-if="existe('WriteUs')"></BottomNavigationTab>
           <BottomNavigationTab title="Podcasts" icon="round_mic_black_36" v-if="existe('Podcasts')"></BottomNavigationTab>
@@ -30,7 +30,7 @@
   </Page>
 </template>
 <script>
-import Vivo from './Vivo.vue'
+import Live from './Live.vue'
 import Programacion from './Programacion.vue'
 import Podcasts from './Podcasts.vue'
 import Redes from './Redes.vue'
@@ -45,7 +45,7 @@ export default {
     }
   },
   components: {
-    Vivo,
+    Live,
     Programacion,
     Podcasts,
     Redes,

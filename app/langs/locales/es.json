@@ -2,5 +2,10 @@
   "writeUs": "Escríbenos",
   "sendUs": "Envianos un mensaje por email o whatsapp haciendo click en los botones de abajo.",
   "contactUsViaEmail": "Contáctanos vía Email",
-  "contactUsViaWhatsapp": "Contáctanos vía Whatsapp"
+  "contactUsViaWhatsapp": "Contáctanos vía Whatsapp",
+  "thereWasAProblemPlayingTheStream": "Hubo un problema reproduciendo la transmisión",
+  "understood": "Entendido",
+  "error": "Error",
+  "youAreListeningTo": "Estas escuchando",
+  "live": "Vivo"
 }

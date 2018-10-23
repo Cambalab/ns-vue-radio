@@ -1,7 +1,7 @@
 const config = {
   'jsondata': true,
   'sections': [
-    'Vivo',
+    'Live',
     'Programacion',
     'Podcasts',
     'Redes',
