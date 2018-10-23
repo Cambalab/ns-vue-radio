@@ -16,7 +16,7 @@ export const PLAY_URL = (state, url) => {
     }
   }
 
-  state.play_promise = state.player.playFromUrl(playerOptions)
+  state.playPromise = state.player.playFromUrl(playerOptions)
 }
 
 export const PAUSE = state => {
@@ -24,15 +24,15 @@ export const PAUSE = state => {
 }
 
 export const SET_PLAY_PROMISE = (state, promise) => {
-  state.play_promise = promise
+  state.playPromise = promise
 }
 
 export const SET_PLAYER_SCREEN = (state, playerScreen) => {
-  state.player_screen = playerScreen
+  state.playerScreen = playerScreen
 }
 
 export const SET_CURRENT_TAB = (state, newTab) => {
-  state.current_tab = newTab
+  state.currentTab = newTab
 }
 
 export const SET_FOREGROUND = (state, value) => {
@@ -40,7 +40,7 @@ export const SET_FOREGROUND = (state, value) => {
 }
 
 export const SET_LAST_MESSAGE_ID = (state, value) => {
-  state.last_message_id = value
+  state.lastMessageId = value
 }
 
 export const FIREBASE_INIT = (state, store) => {

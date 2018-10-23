@@ -3,15 +3,15 @@ export const getPlayer = state => {
 }
 
 export const getPlayPromise = state => {
-  return state.play_promise
+  return state.playPromise
 }
 
 export const getPlayerScreen = state => {
-  return state.player_scree
+  return state.playerScreen
 }
 
 export const getCurrentTab = state => {
-  return state.current_tab
+  return state.currentTab
 }
 
 export const getFirebase = state => {
@@ -23,7 +23,7 @@ export const getForeground = state => {
 }
 
 export const getLastMessageId = state => {
-  return state.last_message_id
+  return state.lastMessageId
 }
 
 export const getConexion = state => {
