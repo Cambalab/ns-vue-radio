@@ -2,7 +2,7 @@ const config = {
   'jsondata': true,
   'sections': [
     'Live',
-    'Programacion',
+    'Schedule',
     'Podcasts',
     'Social',
     'WriteUs'
