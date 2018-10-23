@@ -17,35 +17,35 @@
   </ScrollView>
 </template>
 <script>
-  import { openApp } from "nativescript-open-app";
-  import { openUrl } from "tns-core-modules/utils/utils";
+import { openApp } from 'nativescript-open-app'
+import { openUrl } from 'tns-core-modules/utils/utils'
 
-  var email = require("nativescript-email");
-  var appAvailability = require("nativescript-appavailability");
+var email = require('nativescript-email')
+var appAvailability = require('nativescript-appavailability')
 
-  export default {
-    methods: {
-      openWsp () {
-        appAvailability.available("com.whatsapp").then(function(avail) {
-          if (avail) {
-            openUrl("https://wa.me/1122334455");
-          }else{
-            openApp("com.whatsapp");
-          }
-        })
-      },
-      openEmail () {
-        email.compose({
-          body: "",
-          to: ['radio@email.fm']
-        }).then(
-          function() {
-            console.log("Email composer closed");
-          }, function(err) {
-            console.log("Error: " + err);
-          });
+export default {
+  methods: {
+    openWsp () {
+      appAvailability.available('com.whatsapp').then(function (avail) {
+        if (avail) {
+          openUrl('https://wa.me/1122334455')
+        } else {
+          openApp('com.whatsapp')
         }
+      })
+    },
+    openEmail () {
+      email.compose({
+        body: '',
+        to: ['radio@email.fm']
+      }).then(
+        function () {
+          console.log('Email composer closed')
+        }, function (err) {
+          console.log('Error: ' + err)
+        })
     }
+  }
 
-  };
+}
 </script>
