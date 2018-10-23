@@ -10,7 +10,7 @@
       <Programacion v-show="currentTab === 1 && conexion" v-if="existe('Programacion')"/>
       <WriteUs v-show="currentTab === 2 && conexion" v-if="existe('WriteUs')"/>
       <Podcasts v-show="currentTab === 3 && conexion" v-if="existe('Podcasts')"/>
-      <Redes v-show="currentTab === 4 && conexion" v-if="existe('Redes')"/>
+      <Social v-show="currentTab === 4 && conexion" v-if="existe('Social')"/>
       <SinConexion v-if="!conexion" />
       <BottomNavigation
                         inactiveColor="gray"
@@ -24,7 +24,7 @@
           <BottomNavigationTab title="Programación" icon="round_ballot_black_36" v-if="existe('Programacion')"></BottomNavigationTab>
           <BottomNavigationTab :title="$t('writeUs')" icon="round_message_black_36" v-if="existe('WriteUs')"></BottomNavigationTab>
           <BottomNavigationTab title="Podcasts" icon="round_mic_black_36" v-if="existe('Podcasts')"></BottomNavigationTab>
-          <BottomNavigationTab title="Redes" icon="round_share_black_36" v-if="existe('Redes')"></BottomNavigationTab>
+          <BottomNavigationTab :title="$t('social')" icon="round_share_black_36" v-if="existe('Social')"></BottomNavigationTab>
       </BottomNavigation>
     </GridLayout>
   </Page>
@@ -33,7 +33,7 @@
 import Live from './Live.vue'
 import Programacion from './Programacion.vue'
 import Podcasts from './Podcasts.vue'
-import Redes from './Redes.vue'
+import Social from './Social.vue'
 import WriteUs from './WriteUs.vue'
 import SinConexion from './SinConexion.vue'
 import config from '../config'
@@ -48,7 +48,7 @@ export default {
     Live,
     Programacion,
     Podcasts,
-    Redes,
+    Social,
     WriteUs,
     SinConexion
   },

@@ -4,7 +4,7 @@ const config = {
     'Live',
     'Programacion',
     'Podcasts',
-    'Redes',
+    'Social',
     'WriteUs'
   ],
   'socialNetworks': [
