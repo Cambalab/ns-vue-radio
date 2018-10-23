@@ -156,7 +156,18 @@ module.exports = env => {
             ],
         },
         module: {
-            rules: [{
+            rules: [
+                // only lint local *.vue files
+                {
+                  enforce: 'pre',
+                  test: /\.(js|vue)$/,
+                  loader: 'eslint-loader',
+                  exclude: /node_modules/,
+                  options: {
+                    failOnError: true
+                  }
+                },
+                {
                     test: new RegExp(entryPath),
                     use: [
                         // Require all Android app components
