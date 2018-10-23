@@ -4,8 +4,8 @@ export default {
   getPodcasts (qty) {
     let options = ''
     if (qty > 0) {
-      options += '?limit='+qty
+      options += '?limit=' + qty
     }
-    return api.get('/podcasts/api'+options);
+    return api.get('/podcasts/api' + options)
   }
 }
