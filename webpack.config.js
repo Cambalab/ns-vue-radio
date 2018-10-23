@@ -154,51 +154,62 @@ module.exports = env => {
       ]
     },
     module: {
-      rules: [{
-        test: new RegExp(entryPath),
-        use: [
-          // Require all Android app components
-          platform === 'android' && {
-            loader: 'nativescript-dev-webpack/android-app-components-loader',
-            options: { modules: appComponents }
-          },
-          {
-            loader: 'nativescript-dev-webpack/bundle-config-loader',
-            options: {
-              registerPages: true, // applicable only for non-angular apps
-              loadCss: !snapshot // load the application css if in debug mode
-            }
+      rules: [
+        // only lint local *.js and *.vue files
+        {
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /node_modules/,
+          options: {
+            failOnError: true
           }
-        ].filter(loader => Boolean(loader))
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'nativescript-dev-webpack/style-hot-loader',
-          'nativescript-dev-webpack/apply-css-loader.js',
-          { loader: 'css-loader', options: { minimize: false, url: false }}
-        ]
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          'nativescript-dev-webpack/style-hot-loader',
-          'nativescript-dev-webpack/apply-css-loader.js',
-          { loader: 'css-loader', options: { minimize: false, url: false }},
-          'sass-loader'
-        ]
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          compiler: NsVueTemplateCompiler
-        }
-      }]
+        },
+        {
+          test: new RegExp(entryPath),
+          use: [
+            // Require all Android app components
+            platform === 'android' && {
+              loader: 'nativescript-dev-webpack/android-app-components-loader',
+              options: { modules: appComponents }
+            },
+            {
+              loader: 'nativescript-dev-webpack/bundle-config-loader',
+              options: {
+                registerPages: true, // applicable only for non-angular apps
+                loadCss: !snapshot // load the application css if in debug mode
+              }
+            }
+          ].filter(loader => Boolean(loader))
+        },
+        {
+          test: /\.css$/,
+          use: [
+            'nativescript-dev-webpack/style-hot-loader',
+            'nativescript-dev-webpack/apply-css-loader.js',
+            { loader: 'css-loader', options: { minimize: false, url: false }}
+          ]
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            'nativescript-dev-webpack/style-hot-loader',
+            'nativescript-dev-webpack/apply-css-loader.js',
+            { loader: 'css-loader', options: { minimize: false, url: false }},
+            'sass-loader'
+          ]
+        },
+        {
+          test: /\.js$/,
+          loader: 'babel-loader'
+        },
+        {
+          test: /\.vue$/,
+          loader: 'vue-loader',
+          options: {
+            compiler: NsVueTemplateCompiler
+          }
+        }]
     },
     plugins: [
 

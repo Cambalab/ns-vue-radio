@@ -18,72 +18,71 @@
   </ListView>
 </template>
 <script>
-  import { TNSPlayer } from 'nativescript-audio';
-  import PodcastService from '../api/PodcastService';
-  import h2p from 'html2plaintext';
+import PodcastService from '../api/PodcastService'
+import h2p from 'html2plaintext'
 
-  export default {
-    data: () => {
-      return {
-        podcasts: undefined
-      }
-    },
-    mounted() {
-      PodcastService.getPodcasts(30).then((podcasts) => {
-        console.log('podcasts', podcasts)
-        this.podcasts = podcasts.data.results.map((podcast) => {
-          podcast.playing = 'paused';
-          podcast.content = h2p(podcast.content);
-          return podcast
-        })
-      }).catch((err) => console.log(err))
-    },
-    computed: {
-      player_screen() {
-        return this.$store.getters.getPlayerScreen
-      }
-    },
-    watch: {
-      player_screen(newPlayerScreen) {
-        if(newPlayerScreen !== 'PODCAST') {
-          this.pauseAll();
-        }
-      }
-    },
-    methods: {
-      play(podcast) {
-        this.$store.commit('SET_PLAYER_SCREEN', 'PODCAST');
-        podcast.playing = 'loading';
-        this.$store.commit('PLAY_URL', podcast.file_download);
-        this.$store.getters.getPlayPromise.then((res) => {
-            podcast.playing = 'playing';
-          })
-          .catch((err) => {
-            this.pause(podcast);
-            alert({
-              title: "Error",
-              message: "Hubo un problema reproduciendo este podcast",
-              okButtonText: "Entendido"
-            })
-          });
-      },
-      pause(podcast) {
-        podcast.playing = 'paused';
-      },
-      pauseAll() {
-        this.podcasts.map(podcast => this.pause(podcast));
-      },
-      onPodcastTap(event) {
-        this.$store.commit('PAUSE');
-        let willPlay = false;
-        if(event.item.playing === 'paused') {
-          willPlay = true;
-        }
-        this.pauseAll();
-        if(willPlay) {
-          this.play(event.item);
-        }
+export default {
+  data: () => {
+    return {
+      podcasts: undefined
+    }
+  },
+  mounted () {
+    PodcastService.getPodcasts(30).then((podcasts) => {
+      console.log('podcasts', podcasts)
+      this.podcasts = podcasts.data.results.map((podcast) => {
+        podcast.playing = 'paused'
+        podcast.content = h2p(podcast.content)
+        return podcast
+      })
+    }).catch((err) => console.log(err))
+  },
+  computed: {
+    player_screen () {
+      return this.$store.getters.getPlayerScreen
+    }
+  },
+  watch: {
+    player_screen (newPlayerScreen) {
+      if (newPlayerScreen !== 'PODCAST') {
+        this.pauseAll()
       }
     }
-  };
+  },
+  methods: {
+    play (podcast) {
+      this.$store.commit('SET_PLAYER_SCREEN', 'PODCAST')
+      podcast.playing = 'loading'
+      this.$store.commit('PLAY_URL', podcast.file_download)
+      this.$store.getters.getPlayPromise.then((res) => {
+        podcast.playing = 'playing'
+      })
+        .catch(() => {
+          this.pause(podcast)
+          alert({
+            title: 'Error',
+            message: 'Hubo un problema reproduciendo este podcast',
+            okButtonText: 'Entendido'
+          })
+        })
+    },
+    pause (podcast) {
+      podcast.playing = 'paused'
+    },
+    pauseAll () {
+      this.podcasts.map(podcast => this.pause(podcast))
+    },
+    onPodcastTap (event) {
+      this.$store.commit('PAUSE')
+      let willPlay = false
+      if (event.item.playing === 'paused') {
+        willPlay = true
+      }
+      this.pauseAll()
+      if (willPlay) {
+        this.play(event.item)
+      }
+    }
+  }
+}
 </script>
