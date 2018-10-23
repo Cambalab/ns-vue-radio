@@ -18,7 +18,7 @@
 </template>
 <script>
 import { TNSPlayer } from 'nativescript-audio'
-import ProgramaService from '../api/ProgramaService'
+import ProgramService from '../api/ProgramService'
 
 export default {
   data: () => {
@@ -64,7 +64,7 @@ export default {
       this.$store.commit('PAUSE')
     },
     setCurrentShow () {
-      ProgramaService.getProgramaActual().then((resp) => {
+      ShowService.getCurrentShow().then((resp) => {
         if (this.currentShow !== resp.data.programa) {
           this.currentShow = resp.data.programa
           this.setImage()
@@ -72,7 +72,7 @@ export default {
       })
     },
     setImage () {
-      ProgramaService.getProgramas().then((programas) => {
+      ShowService.getShows().then((programas) => {
         this.shows = programas.data
         this.currentShowImage = this.shows.find((p) => { return p.title === this.currentShow }).image
       }).catch((err) => console.log(err))
