@@ -1,11 +1,8 @@
 # Nativescript Vue Radio
 
-<img style="" src="/design/logo520x520.png" width="300">
-<img style="" src="/design/screen_live.png" width="300">
+<img style="margin-top:100px" src="/design/logo520x520.png" width="300"> <img style="" src="/design/screen_live.png" width="200">
 
-<img style="" src="/design/screen_podcasts.png" width="200">
-<img style="" src="/design/screen_social.png" width="200">
-<img style="" src="/design/screen_write_us.png" width="200">
+<img style="" src="/design/screen_podcasts.png" width="200"> <img style="" src="/design/screen_social.png" width="200"> <img style="" src="/design/screen_write_us.png" width="200">
 
 > A native white-label application built with NativeScript-Vue for community radios
 
