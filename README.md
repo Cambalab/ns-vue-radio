@@ -1,12 +1,8 @@
 # Nativescript Vue Radio
 
-<img style="" src="/design/logo520x520.png" width="400">
+<img style="" src="/design/logo520x520.png" width="300"> <img style="" src="/design/screen_live.png" width="200">
 
-Released by
-
-<img style="" src="/design/logo-telegram.png" width="100">
-
-https://camba.coop/
+<img style="" src="/design/screen_podcasts.png" width="200"> <img style="" src="/design/screen_social.png" width="200"> <img style="" src="/design/screen_write_us.png" width="200">
 
 > A native white-label application built with NativeScript-Vue for community radios
 
@@ -72,3 +68,4 @@ For detailed instructions, see https://github.com/nativescript-vue/vue-cli-templ
 ## License
 
 This software is licensed under the [GNU GPLv3 License](LICENSE), and sponsored by [Cambá](https://www.camba.coop).
+<img style="" src="/design/logo-telegram.png" width="35">
