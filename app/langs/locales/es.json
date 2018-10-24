@@ -12,5 +12,7 @@
   "visitOurSocialNetworks": "Visitanos en nuestras redes sociales",
   "shareApp": "Compartir aplicación",
   "social": "Redes",
-  "schedule": "Programación"
+  "schedule": "Programación",
+  "thereWasAnErrorWithTheConnection":"Se produjo un error de conexión",
+  "updateConnection":"Actualizar conexión"
 }

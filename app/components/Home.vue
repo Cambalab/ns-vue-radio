@@ -6,12 +6,12 @@
       </StackLayout>
     </ActionBar>
     <GridLayout columns="*" rows="*, auto">
-      <Live v-show="currentTab === 0 && conexion" v-if="existe('Live')"/>
-      <Schedule v-show="currentTab === 1 && conexion" v-if="existe('Schedule')"/>
-      <WriteUs v-show="currentTab === 2 && conexion" v-if="existe('WriteUs')"/>
-      <Podcasts v-show="currentTab === 3 && conexion" v-if="existe('Podcasts')"/>
-      <Social v-show="currentTab === 4 && conexion" v-if="existe('Social')"/>
-      <SinConexion v-if="!conexion" />
+      <Live v-show="currentTab === 0 && connection" v-if="exists('Live')"/>
+      <Schedule v-show="currentTab === 1 && connection" v-if="exists('Schedule')"/>
+      <WriteUs v-show="currentTab === 2 && connection" v-if="exists('WriteUs')"/>
+      <Podcasts v-show="currentTab === 3 && connection" v-if="exists('Podcasts')"/>
+      <Social v-show="currentTab === 4 && connection" v-if="exists('Social')"/>
+      <NoConnection v-show="!connection" />
       <BottomNavigation
                         inactiveColor="gray"
                         class="panelBackgroundColorApp panelIconColorApp"
@@ -20,11 +20,11 @@
                         @tabSelected="changeTabTo($event)"
                         ref="bottomNavigation"
                         @loaded="bottomNavigationLoaded">
-          <BottomNavigationTab :title="$t('live')" icon="round_radio_black_36" v-if="existe('Live')"></BottomNavigationTab>
-          <BottomNavigationTab :title="$t('schedule')" icon="round_ballot_black_36" v-if="existe('Schedule')"></BottomNavigationTab>
-          <BottomNavigationTab :title="$t('writeUs')" icon="round_message_black_36" v-if="existe('WriteUs')"></BottomNavigationTab>
-          <BottomNavigationTab title="Podcasts" icon="round_mic_black_36" v-if="existe('Podcasts')"></BottomNavigationTab>
-          <BottomNavigationTab :title="$t('social')" icon="round_share_black_36" v-if="existe('Social')"></BottomNavigationTab>
+          <BottomNavigationTab :title="$t('live')" icon="round_radio_black_36" v-if="exists('Live')"></BottomNavigationTab>
+          <BottomNavigationTab :title="$t('schedule')" icon="round_ballot_black_36" v-if="exists('Schedule')"></BottomNavigationTab>
+          <BottomNavigationTab :title="$t('writeUs')" icon="round_message_black_36" v-if="exists('WriteUs')"></BottomNavigationTab>
+          <BottomNavigationTab title="Podcasts" icon="round_mic_black_36" v-if="exists('Podcasts')"></BottomNavigationTab>
+          <BottomNavigationTab :title="$t('social')" icon="round_share_black_36" v-if="exists('Social')"></BottomNavigationTab>
       </BottomNavigation>
     </GridLayout>
   </Page>
@@ -35,13 +35,13 @@ import Schedule from './Schedule.vue'
 import Podcasts from './Podcasts.vue'
 import Social from './Social.vue'
 import WriteUs from './WriteUs.vue'
-import SinConexion from './SinConexion.vue'
+import NoConnection from './NoConnection.vue'
 import config from '../config'
 
 export default {
   data: () => {
     return {
-      secciones: config.sections
+      sections: config.sections
     }
   },
   components: {
@@ -50,14 +50,14 @@ export default {
     Podcasts,
     Social,
     WriteUs,
-    SinConexion
+    NoConnection
   },
   computed: {
     currentTab () {
       return this.$store.getters.getCurrentTab
     },
-    conexion () {
-      return this.$store.getters.getConexion
+    connection () {
+      return this.$store.getters.getConnection
     }
   },
   methods: {
@@ -70,8 +70,8 @@ export default {
       const bottomNavigation = argv.object
       bottomNavigation.selectTab(this.$store.getters.getCurrentTab)
     },
-    existe (seccion) {
-      return this.secciones.includes(seccion)
+    exists (section) {
+      return this.sections.includes(section)
     }
   },
   created () {

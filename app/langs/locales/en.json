@@ -12,5 +12,7 @@
   "visitOurSocialNetworks": "Visit our social networks",
   "shareApp": "Share application",
   "social": "Social",
-  "schedule": "Schedule"
+  "schedule": "Schedule",
+  "thereWasAnErrorWithTheConnection":"There was an error with the connection",
+  "updateConnection":"Update Connection"
 }
