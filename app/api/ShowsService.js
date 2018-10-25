@@ -1,7 +1,7 @@
 import api from './api'
 
 export default {
-  getPrograms () {
+  getShows () {
     return api.get('/programas/api')
   }
 }

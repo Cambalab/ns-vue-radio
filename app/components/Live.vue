@@ -18,7 +18,7 @@
 </template>
 <script>
 import { TNSPlayer } from 'nativescript-audio'
-import ProgramService from '../api/ProgramService'
+import ShowService from '../api/ShowService'
 
 export default {
   data: () => {
