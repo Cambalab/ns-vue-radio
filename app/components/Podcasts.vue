@@ -60,9 +60,9 @@ export default {
         .catch(() => {
           this.pause(podcast)
           alert({
-            title: 'Error',
-            message: 'Hubo un problema reproduciendo este podcast',
-            okButtonText: 'Entendido'
+            title: this.$t('error'),
+            message: this.$t('thereWasAProblemPlayingThisPodcast'),
+            okButtonText: this.$t('understood')
           })
         })
     },

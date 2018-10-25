@@ -1,11 +1,11 @@
 const config = {
   'jsondata': true,
   'sections': [
-    'Vivo',
-    'Programacion',
+    'Live',
+    'Schedule',
     'Podcasts',
-    'Redes',
-    'Escribinos'
+    'Social',
+    'WriteUs'
   ],
   'socialNetworks': [
     {

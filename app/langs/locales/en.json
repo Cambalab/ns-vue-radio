@@ -1,4 +1,18 @@
 {
   "writeUs": "Write us",
-  "sendUs": "Send us a message by email or whatsapp by clicking on the buttons below."
+  "sendUs": "Send us a message by email or whatsapp by clicking on the buttons below.",
+  "contactUsViaEmail": "Contact us via Email",
+  "contactUsViaWhatsapp": "Contact us via Whatsapp",
+  "thereWasAProblemPlayingTheStream": "There was a problem playing the stream",
+  "thereWasAProblemPlayingThisPodcast": "There was a problem playing this podcast",
+  "understood": "Understood",
+  "error": "Error",
+  "youAreListeningTo": "You Are Listening to",
+  "live": "Live",
+  "visitOurSocialNetworks": "Visit our social networks",
+  "shareApp": "Share application",
+  "social": "Social",
+  "schedule": "Schedule",
+  "thereWasAnErrorWithTheConnection":"There was an error with the connection",
+  "updateConnection":"Update Connection"
 }

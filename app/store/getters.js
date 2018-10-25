@@ -26,6 +26,6 @@ export const getLastMessageId = state => {
   return state.lastMessageId
 }
 
-export const getConexion = state => {
+export const getConnection = state => {
   return state.conexion
 }

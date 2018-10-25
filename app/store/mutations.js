@@ -1,3 +1,5 @@
+import { i18n } from '../langs/i18n.js'
+
 export const SET_PLAYER = (state, player) => {
   state.player = player
 }
@@ -9,9 +11,9 @@ export const PLAY_URL = (state, url) => {
     errorCallback: err => {
       console.log(err)
       alert({
-        title: 'Error',
-        message: 'Hubo un problema reproduciendo la transmisión',
-        okButtonText: 'Entendido'
+        title: i18n.t('error'),
+        message: i18n.t('thereWasAProblemPlayingTheStream'),
+        okButtonText: i18n.t('understood')
       })
     }
   }
