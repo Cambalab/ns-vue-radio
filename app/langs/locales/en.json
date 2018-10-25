@@ -13,6 +13,13 @@
   "shareApp": "Share application",
   "social": "Social",
   "schedule": "Schedule",
-  "thereWasAnErrorWithTheConnection":"There was an error with the connection",
-  "updateConnection":"Update Connection"
+  "thereWasAnErrorWithTheConnection": "There was an error with the connection",
+  "updateConnection": "Update Connection",
+  "monday": "Monday",
+  "tuesday": "Tuesday",
+  "wednesday": "Wednesday",
+  "thursday": "Thursday",
+  "friday": "Friday",
+  "saturday": "Saturday",
+  "sunday": "Sunday"
 }
