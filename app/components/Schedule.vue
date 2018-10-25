@@ -52,11 +52,11 @@ export default {
   },
   methods: {
     selectDay () {
-      this.selectedDay = this.diaPicker + 1
+      this.selectedDay = this.dayPicker + 1
     },
     dayChange (event) {
       this.lastChange = new Date()
-      this.diaPicker = event.value
+      this.dayPicker = event.value
       setTimeout(() => {
         if ((new Date() - this.lastChange) >= 500) {
           this.selectDay()
