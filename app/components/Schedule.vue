@@ -34,7 +34,6 @@ export default {
       lastChange: new Date(),
       selectedDay: 1,
       dayPicker: 0,
-      days: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
       shows: []
     }
   },
@@ -46,6 +45,9 @@ export default {
     }).catch((err) => console.log(err))
   },
   computed: {
+    days () {
+      return [this.$t('monday'), this.$t('tuesday'), this.$t('wednesday'), this.$t('thursday'), this.$t('friday'), this.$t('saturday'), this.$t('sunday')]
+    },
     filteredShows () {
       return this.shows.filter(this.isAiredOn).sort((a, b) => { return a.hora_inicio < b.hora_inicio ? -1 : 1 })
     }

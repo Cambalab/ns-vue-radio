@@ -13,6 +13,13 @@
   "shareApp": "Compartir aplicación",
   "social": "Redes",
   "schedule": "Programación",
-  "thereWasAnErrorWithTheConnection":"Se produjo un error de conexión",
-  "updateConnection":"Actualizar conexión"
+  "thereWasAnErrorWithTheConnection": "Se produjo un error de conexión",
+  "updateConnection": "Actualizar conexión",
+  "monday": "Lunes",
+  "tuesday": "Martes",
+  "wednesday": "Miércoles",
+  "thursday": "Jueves",
+  "friday": "Viernes",
+  "saturday": "Sábado",
+  "sunday": "Domingo"
 }
