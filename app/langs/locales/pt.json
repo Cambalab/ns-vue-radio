@@ -8,11 +8,18 @@
   "understood": "Entendido",
   "error": "Erro",
   "youAreListeningTo": "Você está ouvindo",
-  "live": "Viver",
+  "live": "Ao Vivo",
   "visitOurSocialNetworks": "Visite nossas redes sociais",
   "shareApp": "Compartilhar aplicativo",
   "social": "Social",
-  "schedule": "Cronograma",
+  "schedule": "Programação",
   "thereWasAnErrorWithTheConnection": "Houve um erro com a conexão",
-  "updateConnection": "Atualizar conexão"
+  "updateConnection": "Atualizar conexão",
+  "monday": "Segunda",
+  "tuesday": "Terça",
+  "wednesday": "Quarta",
+  "thursday": "Quinta",
+  "friday": "Sexta",
+  "saturday": "Sábado",
+  "sunday": "Domingo"
 }
