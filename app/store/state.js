@@ -8,5 +8,5 @@ export class State {
   lastMessageId = 0
   conexion = true
   language = 'es'
-  loadedLanguages = ['en', 'es']
+  loadedLanguages = ['en', 'es', 'pt']
 }
