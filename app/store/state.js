@@ -1,6 +1,6 @@
 export class State {
   player = undefined
-  playerScreen = 'VIVO'
+  playerScreen = 'LIVE'
   playPromise = undefined
   currentTab = 0
   firebase = null // firebase,
