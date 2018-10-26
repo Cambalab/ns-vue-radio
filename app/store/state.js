@@ -6,7 +6,7 @@ export class State {
   firebase = null // firebase,
   foreground = true
   lastMessageId = 0
-  conexion = true
+  connection = true
   language = 'es'
   loadedLanguages = ['en', 'es']
 }
