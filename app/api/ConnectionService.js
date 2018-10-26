@@ -1,10 +1,7 @@
 import api from './api'
 
 export default {
-  getProgramaActual () {
+  getCurrentShow () {
     return api.get('/programas/progactual')
-  },
-  getProgramas () {
-    return api.get('/programas/api')
   }
 }

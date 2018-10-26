@@ -1,13 +1,10 @@
 import api from './api'
 
 export default {
-  getProgramaActual () {
+  getCurrentShow () {
     return api.get('/programas/progactual')
   },
-  getProgramas () {
+  getShows () {
     return api.get('/programas/api')
-  },
-  getPodcasts () {
-    return api.get('/podcasts/api?limit=0')
   }
 }

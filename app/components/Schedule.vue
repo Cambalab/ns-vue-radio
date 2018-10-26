@@ -26,7 +26,7 @@
   </FlexboxLayout>
 </template>
 <script>
-import ProgramasService from '../api/ProgramasService'
+import ShowsService from '../api/ShowsService'
 
 export default {
   data: () => {
@@ -38,7 +38,7 @@ export default {
     }
   },
   mounted () {
-    ProgramasService.getProgramas().then((shows) => {
+    ShowsService.getShows().then((shows) => {
       if (shows.status === 200) {
         this.shows = shows.data
       }
