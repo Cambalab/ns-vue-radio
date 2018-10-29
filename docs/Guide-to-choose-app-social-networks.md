@@ -6,13 +6,13 @@
 
 ![02](./images/Guide-to-choose-app-social-networks/02s.png)
 
-* Remove the sections that your app not use
+* Remove the social networks that your app doesn't use
 
 ![03](./images/Guide-to-choose-app-social-networks/03s.png)
 
 ![04](./images/Guide-to-choose-app-social-networks/04s.png)
 
-* Add the sections that need your app
+* Add the social network that your app needs
 
   - Go to [Social Icon](http://www.socicon.com/chart.php)
 
