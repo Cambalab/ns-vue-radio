@@ -119,8 +119,8 @@ export const FIREBASE_INIT = (state, store) => {
   }
 }
 
-export const SET_CONEXION = (state, conexion) => {
-  state.conexion = conexion
+export const SET_CONNECTION = (state, connection) => {
+  state.connection = connection
 }
 
 export const SET_LANGUAGE = (state, language) => {

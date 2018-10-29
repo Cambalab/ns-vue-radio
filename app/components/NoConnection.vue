@@ -27,9 +27,9 @@ export default {
           if (!this.connection && this.player.isAudioPlaying()) {
             this.$store.commit('PLAY_URL', this.stream_url)
           }
-          this.$store.commit('SET_CONEXION', true)
+          this.$store.commit('SET_CONNECTION', true)
         } else {
-          this.$store.commit('SET_CONEXION', false)
+          this.$store.commit('SET_CONNECTION', false)
         }
       }).catch((err) => console.log(err))
     }

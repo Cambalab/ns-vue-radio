@@ -27,5 +27,5 @@ export const getLastMessageId = state => {
 }
 
 export const getConnection = state => {
-  return state.conexion
+  return state.connection
 }

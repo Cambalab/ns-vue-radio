@@ -37,14 +37,14 @@ export default {
   },
   watch: {
     player_screen (newPlayerScreen) {
-      if (newPlayerScreen !== 'VIVO') {
+      if (newPlayerScreen !== 'LIVE') {
         this.playing = 'paused'
       }
     }
   },
   methods: {
     play () {
-      this.$store.commit('SET_PLAYER_SCREEN', 'VIVO')
+      this.$store.commit('SET_PLAYER_SCREEN', 'LIVE')
       this.playing = 'loading'
       this.$store.commit('PLAY_URL', this.url)
       this.$store.getters.getPlayPromise.then((res) => {
