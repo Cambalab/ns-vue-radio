@@ -1,12 +1,15 @@
+import config from '../config'
+
 export class State {
   player = undefined
   playerScreen = 'LIVE'
   playPromise = undefined
-  currentTab = 0
+  currentTab = config.sections[0]
   firebase = null // firebase,
   foreground = true
   lastMessageId = 0
   connection = true
   language = 'es'
+  sections = config.sections
   loadedLanguages = ['en', 'es', 'pt']
 }

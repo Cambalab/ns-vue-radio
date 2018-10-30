@@ -6,11 +6,11 @@
       </StackLayout>
     </ActionBar>
     <GridLayout columns="*" rows="*, auto">
-      <Live v-show="currentTab === 0 && connection" v-if="exists('Live')"/>
-      <Schedule v-show="currentTab === 1 && connection" v-if="exists('Schedule')"/>
-      <WriteUs v-show="currentTab === 2 && connection" v-if="exists('WriteUs')"/>
-      <Podcasts v-show="currentTab === 3 && connection" v-if="exists('Podcasts')"/>
-      <Social v-show="currentTab === 4 && connection" v-if="exists('Social')"/>
+      <Live v-show="currentTab === 'Live' && connection" v-if="exists('Live')"/>
+      <Schedule v-show="currentTab === 'Schedule' && connection" v-if="exists('Schedule')"/>
+      <WriteUs v-show="currentTab === 'WriteUs' && connection" v-if="exists('WriteUs')"/>
+      <Podcasts v-show="currentTab === 'Podcasts' && connection" v-if="exists('Podcasts')"/>
+      <Social v-show="currentTab === 'Social' && connection" v-if="exists('Social')"/>
       <NoConnection v-show="!connection" />
       <BottomNavigation
                         inactiveColor="gray"

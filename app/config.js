@@ -3,9 +3,9 @@ const config = {
   'sections': [
     'Live',
     'Schedule',
+    'WriteUs',
     'Podcasts',
-    'Social',
-    'WriteUs'
+    'Social'
   ],
   'socialNetworks': [
     {
