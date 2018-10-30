@@ -34,7 +34,7 @@ export const SET_PLAYER_SCREEN = (state, playerScreen) => {
 }
 
 export const SET_CURRENT_TAB = (state, newTab) => {
-  state.currentTab = newTab
+  state.currentTab = state.sections[newTab]
 }
 
 export const SET_FOREGROUND = (state, value) => {
