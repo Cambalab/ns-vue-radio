@@ -8,25 +8,23 @@
 
 ## Download and Install
 
-Download Command line tools from android:
-- https://developer.android.com/studio/#downloads
+Download [Command line tools](https://developer.android.com/studio/#downloads) from android
 
 Follow steps here:
-- https://docs.nativescript.org/start/ns-setup-linux
-- https://docs.nativescript.org/tooling/android-virtual-devices
+- [NativeScript Advanced Setup: Linux](https://docs.nativescript.org/start/ns-setup-linux)
+- [Setup Android Emulators](https://docs.nativescript.org/tooling/android-virtual-devices)
+
+## Generate your radio application
+
+With the [guide to generate your radio app](./docs/Guide-to-generate-your-radio-app)
 
 ## FCM Firebase Cloud Messaging
-- https://github.com/EddyVerbruggen/nativescript-plugin-firebase/blob/master/docs/MESSAGING.md
+- [Enabling Firebase Cloud Messaging](https://github.com/EddyVerbruggen/nativescript-plugin-firebase/blob/master/docs/MESSAGING.md)
 
-Don't forget to copy your google-services.json to -> template/app/App_Resources/Android/ folder, follow steps here:
-- (firebase conguration guide)[]
+Don't forget to copy your `google-services.json` to ->  `template/app/App_Resources/Android/` folder, follow steps here:
+- [firebase conguration guide]()
 
 "nativescript-plugin-firebase": "7.1.2",
-
-## Local data
-
-change 'jsondata': to true in /app/configure.js
-and put your data in /lib/resources/data.js
 
 ## Usage
 
@@ -56,14 +54,12 @@ tns run <platform> --bundle --env.development
 tns run <platform> --bundle --env.jsondata
 ```
 
-# Clean the NativeScript application instance (i.e. rm -rf dist)
+# Clean the NativeScript application instance (i.e. rm -rf platforms)
 ```
 npm run clean
 ```
 
-> When invoking the various npm scripts, omitting the platform will attempt to launch `tns` for both platforms, which will only work in a properly configured OSX environment.
-
-For detailed instructions, see https://github.com/nativescript-vue/vue-cli-template
+For detailed instructions, see [vue-cli-template](https://github.com/nativescript-vue/vue-cli-template)
 
 ## License
 
