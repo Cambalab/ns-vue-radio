@@ -14,7 +14,7 @@
     </AbsoluteLayout>
 </template>
 <script>
-import ConnectionService from '../api/ConnectionService'
+import ShowService from '../api/ShowService'
 
 export default {
   data: () => {
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     updateConnection () {
-      ConnectionService.getCurrentShow().then((resp) => {
+      ShowService.getCurrentShow().then((resp) => {
         if (resp.status !== null) {
           if (!this.connection && this.player.isAudioPlaying()) {
             this.$store.commit('PLAY_URL', this.stream_url)
