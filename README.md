@@ -16,7 +16,7 @@ Follow steps here:
 
 ## Generate your radio application
 
-With the [guide to generate your radio app](./docs/Guide-to-generate-your-radio-app)
+With the [guide to generate your radio app](./docs/Guide-to-generate-your-radio-app.md)
 
 ## FCM Firebase Cloud Messaging
 - [Enabling Firebase Cloud Messaging](https://github.com/EddyVerbruggen/nativescript-plugin-firebase/blob/master/docs/MESSAGING.md)

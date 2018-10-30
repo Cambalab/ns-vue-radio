@@ -9,11 +9,11 @@
 `cd ns-vue-radio`
 
 * You can customize your app
-  - With the [Guide to choose app sections](./Guide-to-choose-the-sections)
-  - If you have chosen the social section, you can [choose the app social networks](./Guide-to-choose-app-social-networks)
-  - And finally, you can [change the app colors](./Guide-to-change-app-colors)
+  - With the [Guide to choose app sections](./Guide-to-choose-the-sections.md)
+  - If you have chosen the social section, you can [choose the app social networks](./Guide-to-choose-app-social-networks.md)
+  - And finally, you can [change the app colors](./Guide-to-change-app-colors.md)
 
-* [Configure your data source](./Guide-to-configure-your-data-source)
+* [Configure your data source](./Guide-to-configure-your-data-source.md)
 
 * Install the dependencies
 
