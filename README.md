@@ -54,7 +54,9 @@ tns run <platform> --bundle --env.development
 tns run <platform> --bundle --env.jsondata
 ```
 
-# Clean the NativeScript application instance (i.e. rm -rf platforms)
+# Clean the NativeScript application instance
+
+> i.e. rm -rf platforms
 ```
 npm run clean
 ```

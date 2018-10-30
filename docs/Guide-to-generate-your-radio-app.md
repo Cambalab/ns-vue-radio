@@ -13,7 +13,7 @@
   - If you have chosen the social section, you can [choose the app social networks](./Guide-to-choose-app-social-networks)
   - And finally, you can [change the app colors](./Guide-to-change-app-colors)
 
-* [Configure your database](./Guide-to-configure-your-database)
+* [Configure your data source](./Guide-to-configure-your-data-source)
 
 * Install the dependencies
 
