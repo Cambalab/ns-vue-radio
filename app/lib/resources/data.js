@@ -29,8 +29,8 @@ const data = {
       'file_download': 'https://' // audio file
     }
   ],
-  'progactual': {
-    'programa': 'Current program name'
+  'currentshow': {
+    'show': 'Show title'
   }
 }
 

@@ -15,10 +15,10 @@ class LocalApi {
         data: this.data.shows
       }
       break
-    case id.includes('/programas/progactual', 0):
+    case id.includes('/shows/currentshow', 0):
       res = {
         status: 200,
-        data: this.data.progactual
+        data: this.data.currentshow
       }
       break
     case id.includes('/podcasts/api', 0):
