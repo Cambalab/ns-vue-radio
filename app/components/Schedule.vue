@@ -11,7 +11,7 @@
                 </StackLayout>
                 <StackLayout class="p-x-12 p-y-12" borderTopWidth="1px" borderTopColor="#eee">
                   <Label :text="show.title" color="#333" textWrap="true"/>
-                  <Label :text="show.horario" fontSize="10" color="#555" textWrap="true"/>
+                  <Label :text="show.hours" fontSize="10" color="#555" textWrap="true"/>
                   <Label :text="show.content" fontSize="11" marginTop="10" color="#555" textWrap="true"/>
                 </StackLayout>
               </StackLayout>
@@ -49,7 +49,7 @@ export default {
       return [this.$t('monday'), this.$t('tuesday'), this.$t('wednesday'), this.$t('thursday'), this.$t('friday'), this.$t('saturday'), this.$t('sunday')]
     },
     filteredShows () {
-      return this.shows.filter(this.isAiredOn).sort((a, b) => { return a.hora_inicio < b.hora_inicio ? -1 : 1 })
+      return this.shows.filter(this.isAiredOn).sort((a, b) => { return a.init_hour < b.init_hour ? -1 : 1 })
     }
   },
   methods: {
@@ -66,7 +66,7 @@ export default {
       }, 500)
     },
     isAiredOn (show) {
-      return show.dias.includes(this.selectedDay)
+      return show.days.includes(this.selectedDay)
     }
   }
 }

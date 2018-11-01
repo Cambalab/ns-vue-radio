@@ -1,13 +1,20 @@
 const data = {
-  'programas': [
+  'shows': [
     {
-      'title': 'title',
-      'horario': 'horario',
-      'content': 'Description',
-      'hora_inicio': '09:00:00',
-      'hora_fin': '10:00:00',
-      'dias': '[u"1", u"2", u"3", u"4", u"5"]',
-      'image': '' // url image
+      'title': 'Show title',
+      'hours': 'From 11:00 - 13:00, on Monday to Friday',
+      'content': 'Show description',
+      'init_hour': '11:00:00', // hh:mm:ss
+      'days': '[u"1", u"2", u"3", u"4", u"5"]', // [Monday, Tuesday, Wednesday, Thursday, Friday]
+      'image': '~/lib/resources/showsImages/purple.jpg' // url image
+    },
+    {
+      'title': 'Show title',
+      'hours': 'From 14:00 - 16:00, on Saturday and Sunday',
+      'content': 'Show description',
+      'init_hour': '14:00:00', // hh:mm:ss
+      'days': '[u"6", u"7"]', // [Saturday, Sunday]
+      'image': '~/lib/resources/showsImages/red.png' // url image
     }
   ],
   'podcasts': [

@@ -5,6 +5,6 @@ export default {
     return api.get('/programas/progactual')
   },
   getShows () {
-    return api.get('/programas/api')
+    return api.get('/shows/api')
   }
 }
