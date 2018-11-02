@@ -2,9 +2,9 @@ import api from './api'
 
 export default {
   getCurrentShow () {
-    return api.get('/programas/progactual')
+    return api.get('/shows/currentshow')
   },
   getShows () {
-    return api.get('/programas/api')
+    return api.get('/shows/api')
   }
 }
