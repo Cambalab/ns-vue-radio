@@ -40,6 +40,9 @@
   * Go to `app/config.js`
 
   * Replace *jsondata* field value from `true` to `false`
+
+![06](./images/Guide-to-configure-your-data-source/06s.png)
+
   * And your API, should have the following url:
     - `<url's API>/shows/currentShow`, here the `.status` field, seted in `200` to verify connection and `.data` with the field:
       + `show`: here set the current show.
