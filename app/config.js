@@ -29,7 +29,8 @@ const config = {
       iconColor: '#fafafa',
       background: '#006dbf'
     }
-  ]
+  ],
+  'stream': 'https://'
 }
 
 export default config

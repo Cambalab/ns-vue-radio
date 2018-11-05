@@ -19,13 +19,14 @@
 <script>
 import { TNSPlayer } from 'nativescript-audio'
 import ShowService from '../api/ShowService'
+import config from '../config'
 
 export default {
   data: () => {
     return {
       playing: 'paused',
       currentShow: '',
-      url: 'http://', // stream
+      url: config.stream,
       shows: [],
       currentShowImage: ''
     }
