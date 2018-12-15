@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A native application built with NativeScript-Vue",
   "author": "Camba <info@camba.coop>",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "scripts": {
     "build": "webpack --env.tnsAction build",
     "build:android": "npm run build -- --env.android",
