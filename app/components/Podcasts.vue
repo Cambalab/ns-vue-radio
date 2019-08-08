@@ -24,7 +24,7 @@ import htmlToText from 'html-to-text';
 export default {
   data: () => {
     return {
-      podcasts: undefined
+      podcasts: []
     }
   },
   mounted () {
