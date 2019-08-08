@@ -12,20 +12,20 @@
       <Podcasts v-show="currentTab === 'Podcasts' && connection" v-if="exists('Podcasts')"/>
       <Social v-show="currentTab === 'Social' && connection" v-if="exists('Social')"/>
       <NoConnection v-show="!connection" />
-      <BottomNavigation
+      <BottomNavigationBar
                         inactiveColor="gray"
                         class="panelBackgroundColorApp panelIconColorApp"
                         keyLineColor="gray"
                         row="1"
                         @tabSelected="changeTabTo($event)"
-                        ref="bottomNavigation"
+                        ref="bottomNavigationBar"
                         @loaded="bottomNavigationLoaded">
           <BottomNavigationTab :title="$t('live')" icon="round_radio_black_36" v-if="exists('Live')"></BottomNavigationTab>
           <BottomNavigationTab :title="$t('schedule')" icon="round_ballot_black_36" v-if="exists('Schedule')"></BottomNavigationTab>
           <BottomNavigationTab :title="$t('writeUs')" icon="round_message_black_36" v-if="exists('WriteUs')"></BottomNavigationTab>
           <BottomNavigationTab title="Podcasts" icon="round_mic_black_36" v-if="exists('Podcasts')"></BottomNavigationTab>
           <BottomNavigationTab :title="$t('social')" icon="round_share_black_36" v-if="exists('Social')"></BottomNavigationTab>
-      </BottomNavigation>
+      </BottomNavigationBar>
     </GridLayout>
   </Page>
 </template>
@@ -67,8 +67,8 @@ export default {
     bottomNavigationLoaded (argv) {
       // cuando se recibe un msj con la aplicacion en background
       // muestra activa la pestaña correspondiente al data.topic del mensaje
-      const bottomNavigation = argv.object
-      bottomNavigation.selectTab(this.$store.getters.getCurrentTab)
+      const bottomNavigationBar = argv.object
+      bottomNavigationBar.selectTab(this.$store.getters.getCurrentTab)
     },
     exists (section) {
       return this.sections.includes(section)
@@ -84,12 +84,12 @@ export default {
     this.$store.subscribe((mutation, state) => {
       if (mutation.type === 'SET_CURRENT_TAB') {
         if (
-          this.$refs.bottomNavigation !== undefined &&
+          this.$refs.bottomNavigationBar !== undefined &&
           this.$store.getters.getForeground
         ) {
           // cuando se recibe un msj con la aplicacion en foreground
           // muestra activa la pestaña correspondiente al data.topic del mensaje
-          this.$refs.bottomNavigation._nativeView.selectTab(mutation.payload)
+          this.$refs.bottomNavigationBar._nativeView.selectTab(mutation.payload)
         }
       }
     })

@@ -17,7 +17,7 @@ import Home from './components/Home.vue'
 
 Vue.config.silent = false
 
-Vue.registerElement('BottomNavigation', () => require('nativescript-bottom-navigation').BottomNavigation)
+Vue.registerElement('BottomNavigationBar', () => require('nativescript-bottom-navigation').BottomNavigation)
 Vue.registerElement('BottomNavigationTab', () => require('nativescript-bottom-navigation').BottomNavigationTab)
 Vue.registerElement('OnTabSelectedEventData', () => require('nativescript-bottom-navigation'))
 Vue.registerElement('CardView', () => require('nativescript-cardview').CardView)
