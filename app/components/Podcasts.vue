@@ -19,7 +19,7 @@
 </template>
 <script>
 import PodcastService from '../api/PodcastService'
-import h2p from 'html2plaintext'
+import htmlToText from 'html-to-text';
 
 export default {
   data: () => {
@@ -32,7 +32,7 @@ export default {
       console.log('podcasts', podcasts)
       this.podcasts = podcasts.data.results.map((podcast) => {
         podcast.playing = 'paused'
-        podcast.content = h2p(podcast.content)
+        podcast.content = htmlToText.fromString(podcast.content, { wordwrap: 200 });
         return podcast
       })
     }).catch((err) => console.log(err))
