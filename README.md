@@ -54,6 +54,8 @@ tns run <platform> --bundle --env.development
 tns run <platform> --bundle --env.jsondata
 ```
 
+ - Instructions to debug using [VueDevtools](https://nativescript-vue.org/en/docs/getting-started/vue-devtools/)
+
 # Clean the NativeScript application instance
 
 > i.e. rm -rf platforms
