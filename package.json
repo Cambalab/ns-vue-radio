@@ -19,10 +19,10 @@
   "nativescript": {
     "id": "org.camba.radio",
     "tns-ios": {
-      "version": "4.2.0"
+      "version": "6.0.1"
     },
     "tns-android": {
-      "version": "4.2.0"
+      "version": "6.0.0"
     }
   },
   "dependencies": {
@@ -41,7 +41,7 @@
     "nativescript-toast": "^1.4.6",
     "nativescript-vue": "^2.0.0",
     "nativescript-vue-devtools": "^1.0.0",
-    "tns-core-modules": "^4.2.0",
+    "tns-core-modules": "6.0.1",
     "vue-i18n": "^8.2.1",
     "vue-router": "^3.0.7",
     "vuex": "^3.0.1"

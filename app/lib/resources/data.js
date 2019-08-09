@@ -6,7 +6,7 @@ const data = {
       'content': 'Show description',
       'init_hour': '11:00:00', // hh:mm:ss
       'days': '[u"1", u"2", u"3", u"4", u"5"]', // [Monday, Tuesday, Wednesday, Thursday, Friday]
-      'image': '~/lib/resources/showsImages/purple.jpg' // url image
+      'image': '~/lib/resources/showsImages/groot.jpg' // url image
     },
     {
       'title': 'Show title',
@@ -14,7 +14,7 @@ const data = {
       'content': 'Show description',
       'init_hour': '14:00:00', // hh:mm:ss
       'days': '[u"6", u"7"]', // [Saturday, Sunday]
-      'image': '~/lib/resources/showsImages/red.png' // url image
+      'image': '~/lib/resources/showsImages/morita.jpg' // url image
     }
   ],
   'podcasts': [
