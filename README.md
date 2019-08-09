@@ -66,4 +66,4 @@ For detailed instructions, see [vue-cli-template](https://github.com/nativescrip
 ## License
 
 This software is licensed under the [GNU GPLv3 License](LICENSE), and sponsored by [Cambá](https://www.camba.coop).
-<img style="" src="/design/logo-telegram.png" width="35">
+<img style="" src="/design/logo-telegram.jpg" width="35">
