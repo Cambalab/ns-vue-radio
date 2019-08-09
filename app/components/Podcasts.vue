@@ -29,7 +29,6 @@ export default {
   },
   mounted () {
     PodcastService.getPodcasts(30).then((podcasts) => {
-      console.log('podcasts', podcasts)
       this.podcasts = podcasts.data.results.map((podcast) => {
         podcast.playing = 'paused'
         podcast.content = htmlToText.fromString(podcast.content, { wordwrap: 200 });
