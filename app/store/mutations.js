@@ -73,11 +73,11 @@ export const FIREBASE_INIT = (state, store) => {
     .then(
       () => {
         state.firebase.subscribeToTopic('general').then(() => console.log('Subscribed to topic general'))
-        state.firebase.subscribeToTopic('vivo').then(() => console.log('Subscribed to topic vivo'))
-        state.firebase.subscribeToTopic('programacion').then(() => console.log('Subscribed to topic programacion'))
-        state.firebase.subscribeToTopic('escribinos').then(() => console.log('Subscribed to topic escribinos'))
+        state.firebase.subscribeToTopic('live').then(() => console.log('Subscribed to topic live'))
+        state.firebase.subscribeToTopic('schedule').then(() => console.log('Subscribed to topic schedule'))
+        state.firebase.subscribeToTopic('writeus').then(() => console.log('Subscribed to topic writeus'))
         state.firebase.subscribeToTopic('podcasts').then(() => console.log('Subscribed to topic podcasts'))
-        state.firebase.subscribeToTopic('redes').then(() => console.log('Subscribed to topic redes'))
+        state.firebase.subscribeToTopic('social').then(() => console.log('Subscribed to topic social'))
       },
       error => {
         console.log('firebase.init error: ' + error)
@@ -98,16 +98,16 @@ export const FIREBASE_INIT = (state, store) => {
 
   function changeTab (tabName) {
     switch (tabName) {
-    case 'programacion':
+    case 'schedule':
       store.commit('SET_CURRENT_TAB', 1)
       break
-    case 'escribinos':
+    case 'writeus':
       store.commit('SET_CURRENT_TAB', 2)
       break
     case 'podcasts':
       store.commit('SET_CURRENT_TAB', 3)
       break
-    case 'redes':
+    case 'social':
       store.commit('SET_CURRENT_TAB', 4)
       break
     default:
