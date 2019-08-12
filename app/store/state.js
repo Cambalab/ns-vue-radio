@@ -9,7 +9,7 @@ export class State {
   foreground = true
   lastMessageId = 0
   connection = true
-  language = 'es'
+  language = 'en'
   sections = config.sections
   loadedLanguages = ['en', 'es', 'pt']
 }
