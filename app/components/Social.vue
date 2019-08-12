@@ -27,9 +27,8 @@
 import { openApp } from 'nativescript-open-app'
 import { openUrl } from 'tns-core-modules/utils/utils'
 import config from '../config.js'
-
-const appAvailability = require('nativescript-appavailability')
-const SocialShare = require('nativescript-social-share')
+import appAvailability from 'nativescript-appavailability'
+import * as SocialShare from 'nativescript-social-share'
 
 export default {
   data: () => {

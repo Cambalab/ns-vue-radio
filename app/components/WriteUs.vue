@@ -19,9 +19,8 @@
 <script>
 import { openApp } from 'nativescript-open-app'
 import { openUrl } from 'tns-core-modules/utils/utils'
-
-var email = require('nativescript-email')
-var appAvailability = require('nativescript-appavailability')
+import * as email from 'nativescript-email'
+import appAvailability from 'nativescript-appavailability'
 
 export default {
   methods: {
@@ -40,7 +39,6 @@ export default {
         to: ['radio@email.fm']
       }).then(
         function () {
-          console.log('Email composer closed')
         }, function (err) {
           console.log('Error: ' + err)
         })
