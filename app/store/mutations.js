@@ -48,6 +48,8 @@ export const SET_LAST_MESSAGE_ID = (state, value) => {
 export const FIREBASE_INIT = (state, store) => {
   state.firebase
     .init({
+      // If the app is in the foreground, onMessageReceivedCallback will be
+      // called when either notification type is received.
       onMessageReceivedCallback: function (message) {
         const tabName = getTabName(message)
         if (message.foreground) {
@@ -61,8 +63,6 @@ export const FIREBASE_INIT = (state, store) => {
           })
         } else {
           store.commit('SET_FOREGROUND', false)
-          // cuando la aplicacion vuelve de a de background, si recibio con anterioridad
-          // un mensaje en ese estado se ejecuta siempre onMessageReceivedCallback
           if (message.data['google.message_id'] !== store.getters.getLastMessageId) {
             changeTab(tabName)
             store.commit('SET_LAST_MESSAGE_ID', message.data['google.message_id'])
@@ -85,7 +85,6 @@ export const FIREBASE_INIT = (state, store) => {
     )
 
   function getTabName (message) {
-    // data.topic is priority
     let topic
     if (message.from !== undefined) {
       topic = message.from.slice(8)
