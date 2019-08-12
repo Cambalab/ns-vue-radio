@@ -15,6 +15,7 @@
 </template>
 <script>
 import ShowService from '../api/ShowService'
+import ActionTypes from '../store/constants'
 
 export default {
   data: () => {
@@ -25,11 +26,11 @@ export default {
       ShowService.getCurrentShow().then((resp) => {
         if (resp.status !== null) {
           if (!this.connection && this.player.isAudioPlaying()) {
-            this.$store.commit('PLAY_URL', this.stream_url)
+            this.$store.commit(ActionTypes.PLAY_URL, this.stream_url)
           }
-          this.$store.commit('SET_CONNECTION', true)
+          this.$store.commit(ActionTypes.SET_CONNECTION, true)
         } else {
-          this.$store.commit('SET_CONNECTION', false)
+          this.$store.commit(ActionTypes.SET_CONNECTION, false)
         }
       }).catch((err) => console.log(err))
     }

@@ -20,6 +20,7 @@
 import { TNSPlayer } from 'nativescript-audio'
 import ShowService from '../api/ShowService'
 import config from '../config'
+import ActionTypes from '../store/constants'
 
 export default {
   data: () => {
@@ -45,9 +46,9 @@ export default {
   },
   methods: {
     play () {
-      this.$store.commit('SET_PLAYER_SCREEN', 'LIVE')
+      this.$store.commit(ActionTypes.SET_PLAYER_SCREEN, 'LIVE')
       this.playing = 'loading'
-      this.$store.commit('PLAY_URL', this.url)
+      this.$store.commit(ActionTypes.PLAY_URL, this.url)
       this.$store.getters.getPlayPromise.then((res) => {
         this.playing = 'playing'
       })
@@ -62,7 +63,7 @@ export default {
     },
     pause () {
       this.playing = 'paused'
-      this.$store.commit('PAUSE')
+      this.$store.commit(ActionTypes.PAUSE)
     },
     setCurrentShow () {
       ShowService.getCurrentShow().then((resp) => {
@@ -81,7 +82,7 @@ export default {
   },
   mounted () {
     setTimeout(() => {
-      this.$store.commit('SET_PLAYER', new TNSPlayer())
+      this.$store.commit(ActionTypes.SET_PLAYER, new TNSPlayer())
     }, 0)
     this.setCurrentShow()
     setInterval(() => {
