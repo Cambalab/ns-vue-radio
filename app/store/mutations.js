@@ -1,4 +1,5 @@
 import { i18n } from '../langs/i18n.js'
+import ActionTypes from 'constants'
 
 export const SET_PLAYER = (state, player) => {
   state.player = player
@@ -57,16 +58,16 @@ export const FIREBASE_INIT = (state, store) => {
             okButtonText: 'OK'
           }).then(() => {
             console.log('Alert dialog closed')
-            store.commit('SET_FOREGROUND', true)
+            store.commit(ActionTypes.SET_FOREGROUN, true)
             changeTab(tabName)
           })
         } else {
-          store.commit('SET_FOREGROUND', false)
+          store.commit(ActionTypes.SET_FOREGROUND, false)
           // cuando la aplicacion vuelve de a de background, si recibio con anterioridad
           // un mensaje en ese estado se ejecuta siempre onMessageReceivedCallback
           if (message.data['google.message_id'] !== store.getters.getLastMessageId) {
             changeTab(tabName)
-            store.commit('SET_LAST_MESSAGE_ID', message.data['google.message_id'])
+            store.commit(ActionTypes.SET_LAST_MESSAGE_ID, message.data['google.message_id'])
           }
         }
       }
@@ -101,19 +102,19 @@ export const FIREBASE_INIT = (state, store) => {
   function changeTab (tabName) {
     switch (tabName) {
     case 'programacion':
-      store.commit('SET_CURRENT_TAB', 1)
+      store.commit(ActionTypes.SET_CURRENT_TAB, 1)
       break
     case 'escribinos':
-      store.commit('SET_CURRENT_TAB', 2)
+      store.commit(ActionTypes.SET_CURRENT_TAB, 2)
       break
     case 'podcasts':
-      store.commit('SET_CURRENT_TAB', 3)
+      store.commit(ActionTypes.SET_CURRENT_TAB, 3)
       break
     case 'redes':
-      store.commit('SET_CURRENT_TAB', 4)
+      store.commit(ActionTypes.SET_CURRENT_TAB, 4)
       break
     default:
-      store.commit('SET_CURRENT_TAB', 0)
+      store.commit(ActionTypes.SET_CURRENT_TAB, 0)
       break
     }
   }
