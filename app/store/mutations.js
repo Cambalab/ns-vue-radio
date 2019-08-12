@@ -56,7 +56,6 @@ export const FIREBASE_INIT = (state, store) => {
             message: message.body,
             okButtonText: 'OK'
           }).then(() => {
-            console.log('Alert dialog closed')
             store.commit('SET_FOREGROUND', true)
             changeTab(tabName)
           })
@@ -73,7 +72,6 @@ export const FIREBASE_INIT = (state, store) => {
     })
     .then(
       () => {
-        console.log('Firebase is ready')
         state.firebase.subscribeToTopic('general').then(() => console.log('Subscribed to topic general'))
         state.firebase.subscribeToTopic('vivo').then(() => console.log('Subscribed to topic vivo'))
         state.firebase.subscribeToTopic('programacion').then(() => console.log('Subscribed to topic programacion'))
