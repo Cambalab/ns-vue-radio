@@ -1,7 +1,8 @@
 {
   "env": {
     "node": true,
-    "es6": true
+    "es6": true,
+    "TNS_ENV": true
   },
   "parser": "vue-eslint-parser",
   "parserOptions": {
