@@ -39,7 +39,6 @@ export default {
         to: ['radio@email.fm']
       }).then(
         function () {
-          console.log('Email composer closed')
         }, function (err) {
           console.log('Error: ' + err)
         })
