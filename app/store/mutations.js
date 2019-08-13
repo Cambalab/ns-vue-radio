@@ -58,7 +58,7 @@ export const FIREBASE_INIT = (state, store) => {
             okButtonText: 'OK'
           }).then(() => {
             console.log('Alert dialog closed')
-            store.commit(ActionTypes.SET_FOREGROUN, true)
+            store.commit(ActionTypes.SET_FOREGROUND, true)
             changeTab(tabName)
           })
         } else {
