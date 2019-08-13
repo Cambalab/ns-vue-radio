@@ -1,5 +1,5 @@
 import { i18n } from '../langs/i18n.js'
-import ActionTypes from 'constants'
+import { SET_FOREGROUND as action_SET_FOREGROUND, SET_LAST_MESSAGE_ID as action_SET_LAST_MESSAGE_ID, SET_CURRENT_TAB as action_SET_CURRENT_TAB } from './constants'
 
 export const SET_PLAYER = (state, player) => {
   state.player = player
@@ -58,16 +58,16 @@ export const FIREBASE_INIT = (state, store) => {
             okButtonText: 'OK'
           }).then(() => {
             console.log('Alert dialog closed')
-            store.commit(ActionTypes.SET_FOREGROUND, true)
+            store.commit(action_SET_FOREGROUND, true)
             changeTab(tabName)
           })
         } else {
-          store.commit(ActionTypes.SET_FOREGROUND, false)
+          store.commit(action_SET_FOREGROUND, false)
           // cuando la aplicacion vuelve de a de background, si recibio con anterioridad
           // un mensaje en ese estado se ejecuta siempre onMessageReceivedCallback
           if (message.data['google.message_id'] !== store.getters.getLastMessageId) {
             changeTab(tabName)
-            store.commit(ActionTypes.SET_LAST_MESSAGE_ID, message.data['google.message_id'])
+            store.commit(action_SET_LAST_MESSAGE_ID, message.data['google.message_id'])
           }
         }
       }
@@ -102,19 +102,19 @@ export const FIREBASE_INIT = (state, store) => {
   function changeTab (tabName) {
     switch (tabName) {
     case 'programacion':
-      store.commit(ActionTypes.SET_CURRENT_TAB, 1)
+      store.commit(action_SET_CURRENT_TAB, 1)
       break
     case 'escribinos':
-      store.commit(ActionTypes.SET_CURRENT_TAB, 2)
+      store.commit(action_SET_CURRENT_TAB, 2)
       break
     case 'podcasts':
-      store.commit(ActionTypes.SET_CURRENT_TAB, 3)
+      store.commit(action_SET_CURRENT_TAB, 3)
       break
     case 'redes':
-      store.commit(ActionTypes.SET_CURRENT_TAB, 4)
+      store.commit(action_SET_CURRENT_TAB, 4)
       break
     default:
-      store.commit(ActionTypes.SET_CURRENT_TAB, 0)
+      store.commit(action_SET_CURRENT_TAB, 0)
       break
     }
   }

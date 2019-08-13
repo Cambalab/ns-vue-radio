@@ -37,7 +37,7 @@ import Social from './Social.vue'
 import WriteUs from './WriteUs.vue'
 import NoConnection from './NoConnection.vue'
 import config from '../config'
-import ActionTypes from '../store/constants'
+import { SET_CURRENT_TAB, FIREBASE_INIT } from '../store/constants'
 
 export default {
   data: () => {
@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     changeTabTo (event) {
-      this.$store.commit(ActionTypes.SET_CURRENT_TAB, event.newIndex)
+      this.$store.commit(SET_CURRENT_TAB, event.newIndex)
     },
     bottomNavigationLoaded (argv) {
       // cuando se recibe un msj con la aplicacion en background
@@ -77,13 +77,13 @@ export default {
   },
   created () {
     // cuando se vuelve del background o arranca la aplicacion siempre se muestra el primer tab
-    this.$store.commit(ActionTypes.SET_CURRENT_TAB, 0)
+    this.$store.commit(SET_CURRENT_TAB, 0)
 
-    // this.$store.commit(ActionTypes.FIREBASE_INIT, this.$store);
+    // this.$store.commit(FIREBASE_INIT, this.$store);
   },
   beforeMount () {
     this.$store.subscribe((mutation, state) => {
-      if (mutation.type === ActionTypes.SET_CURRENT_TAB) {
+      if (mutation.type === SET_CURRENT_TAB) {
         if (
           this.$refs.bottomNavigationBar !== undefined &&
           this.$store.getters.getForeground
