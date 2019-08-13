@@ -48,6 +48,8 @@ export const SET_LAST_MESSAGE_ID = (state, value) => {
 export const FIREBASE_INIT = (state, store) => {
   state.firebase
     .init({
+      // If the app is in the foreground, onMessageReceivedCallback will be
+      // called when either notification type is received.
       onMessageReceivedCallback: function (message) {
         const tabName = getTabName(message)
         if (message.foreground) {
@@ -56,14 +58,11 @@ export const FIREBASE_INIT = (state, store) => {
             message: message.body,
             okButtonText: 'OK'
           }).then(() => {
-            console.log('Alert dialog closed')
             store.commit('SET_FOREGROUND', true)
             changeTab(tabName)
           })
         } else {
           store.commit('SET_FOREGROUND', false)
-          // cuando la aplicacion vuelve de a de background, si recibio con anterioridad
-          // un mensaje en ese estado se ejecuta siempre onMessageReceivedCallback
           if (message.data['google.message_id'] !== store.getters.getLastMessageId) {
             changeTab(tabName)
             store.commit('SET_LAST_MESSAGE_ID', message.data['google.message_id'])
@@ -73,13 +72,12 @@ export const FIREBASE_INIT = (state, store) => {
     })
     .then(
       () => {
-        console.log('Firebase is ready')
         state.firebase.subscribeToTopic('general').then(() => console.log('Subscribed to topic general'))
-        state.firebase.subscribeToTopic('vivo').then(() => console.log('Subscribed to topic vivo'))
-        state.firebase.subscribeToTopic('programacion').then(() => console.log('Subscribed to topic programacion'))
-        state.firebase.subscribeToTopic('escribinos').then(() => console.log('Subscribed to topic escribinos'))
+        state.firebase.subscribeToTopic('live').then(() => console.log('Subscribed to topic live'))
+        state.firebase.subscribeToTopic('schedule').then(() => console.log('Subscribed to topic schedule'))
+        state.firebase.subscribeToTopic('writeus').then(() => console.log('Subscribed to topic writeus'))
         state.firebase.subscribeToTopic('podcasts').then(() => console.log('Subscribed to topic podcasts'))
-        state.firebase.subscribeToTopic('redes').then(() => console.log('Subscribed to topic redes'))
+        state.firebase.subscribeToTopic('social').then(() => console.log('Subscribed to topic social'))
       },
       error => {
         console.log('firebase.init error: ' + error)
@@ -87,7 +85,6 @@ export const FIREBASE_INIT = (state, store) => {
     )
 
   function getTabName (message) {
-    // data.topic is priority
     let topic
     if (message.from !== undefined) {
       topic = message.from.slice(8)
@@ -100,16 +97,16 @@ export const FIREBASE_INIT = (state, store) => {
 
   function changeTab (tabName) {
     switch (tabName) {
-    case 'programacion':
+    case 'schedule':
       store.commit('SET_CURRENT_TAB', 1)
       break
-    case 'escribinos':
+    case 'writeus':
       store.commit('SET_CURRENT_TAB', 2)
       break
     case 'podcasts':
       store.commit('SET_CURRENT_TAB', 3)
       break
-    case 'redes':
+    case 'social':
       store.commit('SET_CURRENT_TAB', 4)
       break
     default:
