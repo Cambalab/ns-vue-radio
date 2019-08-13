@@ -66,8 +66,6 @@ export default {
       this.$store.commit(SET_CURRENT_TAB, event.newIndex)
     },
     bottomNavigationLoaded (argv) {
-      // cuando se recibe un msj con la aplicacion en background
-      // muestra activa la pestaña correspondiente al data.topic del mensaje
       const bottomNavigationBar = argv.object
       bottomNavigationBar.selectTab(this.$store.getters.getCurrentTab)
     },
@@ -76,7 +74,6 @@ export default {
     }
   },
   created () {
-    // cuando se vuelve del background o arranca la aplicacion siempre se muestra el primer tab
     this.$store.commit(SET_CURRENT_TAB, 0)
 
     // this.$store.commit(FIREBASE_INIT, this.$store);
