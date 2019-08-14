@@ -48,12 +48,16 @@ module.exports = env => {
         hiddenSourceMap, // --env.hiddenSourceMap
         unitTesting, // --env.unitTesting
         verbose, // --env.verbose
+        development
     } = env;
 
     const isAnySourceMapEnabled = !!sourceMap || !!hiddenSourceMap;
     const externals = nsWebpack.getConvertedExternals(env.externals);
 
     const mode = production ? "production" : "development"
+
+    const back = require("./environments/backend")
+    const api_url = development ? back.development : back.production
 
     const appFullPath = resolve(projectRoot, appPath);
     const appResourcesFullPath = resolve(projectRoot, appResourcesPath);
@@ -240,7 +244,8 @@ module.exports = env => {
             new webpack.DefinePlugin({
                 "global.TNS_WEBPACK": "true",
                 "TNS_ENV": JSON.stringify(mode),
-                "process": "global.process"
+                "process": "global.process",
+                "API_URL": JSON.stringify(api_url)
             }),
             // Remove all files from the out dir.
             new CleanWebpackPlugin(itemsToClean, { verbose: !!verbose }),
