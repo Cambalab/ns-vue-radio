@@ -1,8 +1,7 @@
 {
   "env": {
     "node": true,
-    "es6": true,
-    "TNS_ENV": true
+    "es6": true
   },
   "parser": "vue-eslint-parser",
   "parserOptions": {
@@ -20,7 +19,8 @@
     "vue"
   ],
   "globals": {
-    "API_URL": true
+    "API_URL": true,
+    "TNS_ENV": true
   },
   rules: {
     "indent": ["error", 2, {
