@@ -54,10 +54,10 @@ module.exports = env => {
     const isAnySourceMapEnabled = !!sourceMap || !!hiddenSourceMap;
     const externals = nsWebpack.getConvertedExternals(env.externals);
 
-    const mode = production ? "production" : "development"
+    const mode = development ? "development" : "production";
 
-    const back = require("./environments/backend")
-    const api_url = development ? back.development : back.production
+    const environment = require(`./environments/${mode}`);
+    const api_url = environment.API_URL;
 
     const appFullPath = resolve(projectRoot, appPath);
     const appResourcesFullPath = resolve(projectRoot, appResourcesPath);
