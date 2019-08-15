@@ -39,13 +39,13 @@
 
 ![06](./images/Guide-to-configure-your-data-source/06s.png)
 
-* Create the enviroments/development.json and enviroments/production.json files.
+  * Create the enviroments/development.json and enviroments/production.json files.
 
-* In both files, set your appropiate API url, like as:
+  * Set an appropiate API url for each file:
 
 ```JSON
 {
-"API_URL": "your-lan-ip"
+  "API_URL": "your-lan-ip"
 }
 ```
 
