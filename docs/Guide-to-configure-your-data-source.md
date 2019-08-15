@@ -39,7 +39,7 @@
 
 ![06](./images/Guide-to-configure-your-data-source/06s.png)
 
-  * Create the enviroments/development.json and enviroments/production.json files.
+  * Create the environments/development.json and environments/production.json files.
 
   * Set an appropiate API url for each file:
 
@@ -49,7 +49,7 @@
 }
 ```
 
-  * Your API should have the following url:
+  * Your API should have the following services:
     - `<url's API>/shows/currentShow`, here the `.status` field, seted in `200` to verify connection and `.data` with the field:
       + `show`: here set the current show.
     - `<url's API>/shows/api`, here the `.status` field, seted in `200` to verify connection and `.data` with the programs' list. For each program a json, with the fields:
