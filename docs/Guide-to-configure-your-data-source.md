@@ -33,17 +33,23 @@
 
 #### Or configure to use your own API
 
-  * Go to `enviroments/backend.json`
-
-  * In `production` field, set your `url's API`.
-
   * Go to `app/config.js`
 
   * Replace *jsondata* field value from `true` to `false`
 
 ![06](./images/Guide-to-configure-your-data-source/06s.png)
 
-  * And your API, should have the following url:
+* Create the enviroments/development.json and enviroments/production.json files.
+
+* In both files, set your appropiate API url, like as:
+
+```JSON
+{
+"API_URL": "your-lan-ip"
+}
+```
+
+  * Your API should have the following url:
     - `<url's API>/shows/currentShow`, here the `.status` field, seted in `200` to verify connection and `.data` with the field:
       + `show`: here set the current show.
     - `<url's API>/shows/api`, here the `.status` field, seted in `200` to verify connection and `.data` with the programs' list. For each program a json, with the fields:
