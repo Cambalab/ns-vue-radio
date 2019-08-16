@@ -4,7 +4,7 @@
 
 * Andare sulla [console](https://console.firebase.google.com/)
 
-![01](./imagenesDeConfigFirebase/01s.png)
+![01](./images/01s.png)
 
 * Aggiungere un progetto
 
@@ -20,7 +20,7 @@
 
 * Quando é stato presto il progetto, aggiungi l'applicazione android:
 
-![07](./imageS/07s.png)
+![07](./images/07s.png)
 
 * Nome del pacchetto android (id dell'applicazione): `org.camba.radio`
 * Registrare l'applicazione
@@ -65,20 +65,20 @@ in
 
 * Andare su Console>Espandi>Cloud Messaging
 
-![15](./imagenesDeConfigFirebase/15s.png)
+![15](./images/15s.png)
 
 * Scrivi il titolo ed il testo della notifica
 
-![17](./imagenesDeConfigFirebase/17s.png)
+![17](./images/17s.png)
 
 * Selezioni l'applicazione
 
-![18](./imagenesDeConfigFirebase/18s.png)
+![18](./images/18s.png)
 
 * In opzioni aggiuntive>dati personalizzati dove dice "chiave" scrivere "topic" e dove dice "valore" scrivere il nome del canale che si desidera mostrare dopo avere visualizzato il messaggio nell'applicazione (live, programmazione, script, podcast, reti)
 
-![21](./imagenesDeConfigFirebase/21s.png)
+![21](./images/21s.png)
 
 * Vedremo questo annuncio perche non avvete ancora suscriti alle notfica. Ignoralo e avvia l'applicazione
 
-![22](./imagenesDeConfigFirebase/22s.png)
+![22](./images/22s.png)
