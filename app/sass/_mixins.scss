@@ -22,6 +22,11 @@
   background-color: $blue;
 }
 
+.green {
+  background-color: $darkgreen;
+}
+
+
 // Text
 
 .text-orange {
@@ -43,19 +48,19 @@
 // Colors to customize app
 
 .backgroundColorApp {
-  background-color: $violet;
+  background-color: $darkgreen;
 }
 
 .panelBackgroundColorApp {
-  background-color: $dark-violet;
+  background-color: $orange;
 }
 
 .panelIconColorApp {
-  tab-active-color: $purple;
+  tab-active-color: $white;
 }
 
 .primaryTextColorApp {
-  color: $purple;
+  color: $black;
 }
 
 .secondaryTextColorApp {
