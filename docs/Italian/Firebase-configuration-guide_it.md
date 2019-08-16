@@ -12,11 +12,11 @@
 
 * Inserisci il nome del progetto e accetti i termini di Firebase
 
-![03](./images/05s.png)
+![03](./images/03s.png)
 
 * Continuare e scogli si vuoi fare la configurazione di Google Analytics:
 
-![04](./images/06s.png)
+![04](./images/04s.png)
 
 * Quando é stato presto il progetto, aggiungi l'applicazione android:
 
