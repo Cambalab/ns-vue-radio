@@ -1,6 +1,6 @@
 import Vue from 'nativescript-vue'
 import Vuex from 'vuex'
-import * as mutations from './mutations'
+import mutations from './mutations'
 import * as getters from './getters'
 import { actions } from './actions'
 import { State } from './state'

@@ -20,6 +20,7 @@
 <script>
 import PodcastService from '../api/PodcastService'
 import htmlToText from 'html-to-text'
+import { SET_PLAYER_SCREEN, PLAY_URL, PAUSE } from '../store/constants'
 
 export default {
   data: () => {
@@ -50,9 +51,9 @@ export default {
   },
   methods: {
     play (podcast) {
-      this.$store.commit('SET_PLAYER_SCREEN', 'PODCAST')
+      this.$store.commit(SET_PLAYER_SCREEN, 'PODCAST')
       podcast.playing = 'loading'
-      this.$store.commit('PLAY_URL', podcast.file_download)
+      this.$store.commit(PLAY_URL, podcast.file_download)
       this.$store.getters.getPlayPromise.then((res) => {
         podcast.playing = 'playing'
       })
@@ -72,7 +73,7 @@ export default {
       this.podcasts.map(podcast => this.pause(podcast))
     },
     onPodcastTap (event) {
-      this.$store.commit('PAUSE')
+      this.$store.commit(PAUSE)
       let willPlay = false
       if (event.item.playing === 'paused') {
         willPlay = true
