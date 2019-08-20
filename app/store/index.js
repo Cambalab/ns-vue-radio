@@ -4,7 +4,7 @@ import mutations from './mutations'
 import * as getters from './getters'
 import { actions } from './actions'
 import { State } from './state'
-// import firebase from 'nativescript-plugin-firebase'
+import firebase from 'nativescript-plugin-firebase'
 
 Vue.use(Vuex)
 
