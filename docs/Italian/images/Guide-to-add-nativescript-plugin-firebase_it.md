@@ -10,23 +10,23 @@
 
 * Modificare nel file `package.json` la versione di nativescript-plugin-firebase, per la versione "9.0.4"
 
-![01](./images/01b.png)
+![01](./imagenesDeGuiaParaAgregarFirebase/01s.png)
 
 * Andare nel file `app/components/Home.vue`
   - decommentare la riga `// this.$store.commit("FIREBASE_INIT", this.$store);`
 
-![02](./images/02b.png)
-![03](./images/03b.png)
+![02](./imagenesDeGuiaParaAgregarFirebase/02s.png)
+
+![03](./imagenesDeGuiaParaAgregarFirebase/03s.png)
 
 * Andare nel file `app/store/index.js`
   - decommentare la riga `import firebase from 'nativescript-plugin-firebase'`
 
-![04](./images/04b.png)
-![05](./images/05b.png)
-
+![04](./imagenesDeGuiaParaAgregarFirebase/04s.png)
+![05](./imagenesDeGuiaParaAgregarFirebase/05s.png)
   - modificare la riga `firebase: null, //firebase,` in `firebase: firebase,`
 
-![06](./images/06b.png)
-![07](./images/07b.png)
+![06](./imagenesDeGuiaParaAgregarFirebase/06s.png)
+![07](./imagenesDeGuiaParaAgregarFirebase/07s.png)
 
-Con questa procedura avremo aggiunto `nativescript-plugin-firebase`, rimane solo da configurare, se non si realizza la [configurazione](Firebase-configuration-guide_it.md) l'applicazione non funzionerà correttamente.
+Con questa procedura avremo aggiunto `nativescript-plugin-firebase`, rimane solo da configurare, se non si realizza la [configurazione](Guia-de-configuracion-de-firebase.md) l'applicazione non funzionerà correttamente.
