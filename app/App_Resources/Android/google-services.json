@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "261883316154",
+    "firebase_url": "https://ns-vue-radio-72d7c.firebaseio.com",
+    "project_id": "ns-vue-radio-72d7c",
+    "storage_bucket": "ns-vue-radio-72d7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261883316154:android:93e80df21cf7d983",
+        "android_client_info": {
+          "package_name": "org.camba.radio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "261883316154-hf9tstdjv3jehf4h4qr79ctusbvbk0na.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_x-lkP6_mkHxje6jvWtWpiwmWkWSPxC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "261883316154-hf9tstdjv3jehf4h4qr79ctusbvbk0na.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

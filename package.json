@@ -35,6 +35,7 @@
     "nativescript-cardview": "^3.1.1",
     "nativescript-email": "^1.5.3",
     "nativescript-open-app": "git+https://github.com/ludwiktrammer/nativescript-open-app.git",
+    "nativescript-plugin-firebase": "^9.0.4",
     "nativescript-social-share": "^1.5.0",
     "nativescript-socket.io": "^0.9.0",
     "nativescript-socketio": "^3.3.1",
@@ -71,7 +72,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "fs-extra": "^5.0.0",
     "lazy": "1.0.11",
-    "nativescript-dev-webpack": "next",
+    "nativescript-dev-webpack": "^1.2.0-next-2019-08-14-181951-02",
     "nativescript-vue-template-compiler": "^2.0.0",
     "nativescript-worker-loader": "~0.9.0",
     "node-sass": "^4.9.2",
@@ -80,8 +81,8 @@
     "terser-webpack-plugin": "^1.1.0",
     "vue-eslint-parser": "^3.2.2",
     "vue-loader": "^15.2.6",
-    "webpack": "^4.16.4",
-    "webpack-bundle-analyzer": "~2.13.1",
+    "webpack": "^4.39.2",
+    "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.1.0",
     "winston-color": "^1.0.0"
   }
