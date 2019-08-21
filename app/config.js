@@ -1,5 +1,6 @@
 const config = {
   'jsondata': true,
+  'phoneNumber': '',
   'sections': [
     'Live',
     'Schedule',
