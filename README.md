@@ -22,7 +22,7 @@ With the [guide to generate your radio app](./docs/Guide-to-generate-your-radio-
 - [Enabling Firebase Cloud Messaging](https://github.com/EddyVerbruggen/nativescript-plugin-firebase/blob/master/docs/MESSAGING.md)
 
 Don't forget to copy your `google-services.json` to ->  `template/app/App_Resources/Android/` folder, follow steps here:
-- [firebase conguration guide]()
+- [firebase conguration guide](./docs/Spanish/Firebase-configuration-guide_es.md)
 
 "nativescript-plugin-firebase": "7.1.2",
 
