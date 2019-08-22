@@ -21,13 +21,14 @@ import { openApp } from 'nativescript-open-app'
 import { openUrl } from 'tns-core-modules/utils/utils'
 import * as email from 'nativescript-email'
 import appAvailability from 'nativescript-appavailability'
+import config from '../config.js'
 
 export default {
   methods: {
     openWsp () {
       appAvailability.available('com.whatsapp').then(function (avail) {
         if (avail) {
-          openUrl('https://wa.me/1122334455')
+          openUrl(`https://wa.me/${config.phoneNumber}`)
         } else {
           openApp('com.whatsapp')
         }
