@@ -35,7 +35,8 @@ const config = {
       background: '#006dbf'
     }
   ],
-  'stream': 'https://'
+  'stream': 'https://',
+  'writeEmailTo': []
 }
 
 export default config

@@ -37,7 +37,7 @@ export default {
     openEmail () {
       email.compose({
         body: '',
-        to: ['radio@email.fm']
+        to: config.writeEmailTo
       }).then(
         function () {
         }, function (err) {
