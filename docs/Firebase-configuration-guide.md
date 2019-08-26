@@ -51,7 +51,7 @@
 
 `tns run android --bundle`
 
-* When init the app and you are registered on Firebase
+* Once the application initialises you're registered in Firebase
 
 ![10](./images/FirebaseConfigurationGuide/10s.png)
 
