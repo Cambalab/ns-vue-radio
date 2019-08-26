@@ -1,6 +1,10 @@
 const config = {
   'jsondata': true,
   'phoneNumber': '',
+  'shareApp': {
+    'playStoreUrl': '',
+    'message': ''
+  },
   'sections': [
     'Live',
     'Schedule',
