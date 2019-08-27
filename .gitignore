@@ -11,5 +11,4 @@ platforms
 environments
 
 #Firebase
-
-app/App_Resources/Android/google-services.json
+google-services.json
