@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     shareUrl () {
-      SocialShare.shareUrl('http://your.playstore.link/', 'Your Playstore Link')
+      SocialShare.shareUrl(config.shareApp.playStoreUrl, config.shareApp.message)
     },
     openSocialNetwork (app, url) {
       appAvailability.available(app).then(function (avail) {

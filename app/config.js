@@ -1,5 +1,10 @@
 const config = {
   'jsondata': true,
+  'phoneNumber': '',
+  'shareApp': {
+    'playStoreUrl': '',
+    'message': ''
+  },
   'sections': [
     'Live',
     'Schedule',
@@ -30,7 +35,8 @@ const config = {
       background: '#006dbf'
     }
   ],
-  'stream': 'https://'
+  'stream': 'https://',
+  'writeEmailTo': []
 }
 
 export default config
