@@ -81,12 +81,12 @@ export default {
   beforeMount () {
     this.$store.subscribe((mutation, state) => {
       if (mutation.type === SET_CURRENT_TAB) {
+        // when the app is in the foreground and receives a message, the
+        // corresponding data.topic tab is shown
         if (
           this.$refs.bottomNavigationBar !== undefined &&
           this.$store.getters.getForeground
         ) {
-          // cuando se recibe un msj con la aplicacion en foreground
-          // muestra activa la pestaña correspondiente al data.topic del mensaje
           this.$refs.bottomNavigationBar._nativeView.selectTab(mutation.payload)
         }
       }
