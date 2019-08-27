@@ -10,6 +10,6 @@ To generate all splashscreens for Android and iOS platforms and places the gener
 
 ### App icons generation
 
-To generates all icons for Android and iOS platforms and places the generated images in the correct directories under App_Resources/ directory.
+Generates all icons for Android and iOS platforms and places the generated images under App_Resources/.
 
 `tns resources generate icons <./image>`
