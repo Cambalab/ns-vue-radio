@@ -7,7 +7,6 @@ class LocalApi {
 
   get (id) {
     let res = []
-    console.log(id)
     switch (true) {
     case id.includes('/shows/api', 0):
       res = {

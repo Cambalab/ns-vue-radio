@@ -1,11 +1,12 @@
 import config from '../config'
+import firebase from 'nativescript-plugin-firebase'
 
 export class State {
   player = undefined
   playerScreen = 'LIVE'
   playPromise = undefined
   currentTab = config.sections[0]
-  firebase = null // firebase,
+  firebase = firebase
   foreground = true
   lastMessageId = 0
   connection = true

@@ -9,3 +9,6 @@ hooks
 platforms
 
 environments
+
+#Firebase
+google-services.json
