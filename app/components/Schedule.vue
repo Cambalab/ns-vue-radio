@@ -1,5 +1,5 @@
 <template>
-  <FlexboxLayout class="backgroundColorApp" flexDirection="column" justifyContent="space-between">
+  <FlexboxLayout :style="backgroundColor" flexDirection="column" justifyContent="space-between">
     <StackLayout flexGrow="2" height="100%">
       <ListView for="show in filteredShows" height="100%" separatorColor="transparent">
         <v-template>
@@ -21,16 +21,20 @@
       </ListView>
     </StackLayout>
     <StackLayout class="spacer" height="22%" flexShrink="0">
-      <ListPicker :items="days" :selectedIndex="dayPicker" @selectedIndexChange="dayChange" class="panelBackgroundColorApp secondaryTextColorApp"/>
+      <ListPicker :items="days" :selectedIndex="dayPicker" @selectedIndexChange="dayChange" :style="panelBackgroundColor" :color="secondaryTextColor"/>
     </StackLayout>
   </FlexboxLayout>
 </template>
 <script>
 import ShowService from '../api/ShowService'
+import config from '../config.js'
 
 export default {
   data: () => {
     return {
+      backgroundColor: config.colors.appBackgroundColor,
+      panelBackgroundColor: config.colors.panelBackgroundColor,
+      secondaryTextColor: config.colors.secondaryText.color,
       lastChange: new Date(),
       selectedDay: 1,
       dayPicker: 0,

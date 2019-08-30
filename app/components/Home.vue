@@ -1,6 +1,6 @@
 <template>
   <Page class="page">
-    <ActionBar class="panelBackgroundColorApp action-bar">
+    <ActionBar :style="panelBackgroundColor" class="action-bar">
       <StackLayout orientation="horizontal">
         <Image src="~/assets/images/logo.png" width="140" />
       </StackLayout>
@@ -13,8 +13,9 @@
       <Social v-show="currentTab === 'Social' && connection" v-if="exists('Social')"/>
       <NoConnection v-show="!connection" />
       <BottomNavigationBar
-                        inactiveColor="gray"
-                        class="panelBackgroundColorApp panelIconColorApp"
+                        :inactiveColor="inactiveColor"
+                        :activeColor="activeColor"
+                        :backgroundColor="backgroundColor"
                         keyLineColor="gray"
                         row="1"
                         @tabSelected="changeTabTo($event)"
@@ -42,6 +43,10 @@ import { SET_CURRENT_TAB, FIREBASE_INIT } from '../store/constants'
 export default {
   data: () => {
     return {
+      inactiveColor: config.colors.bottomNavigationBar.inactiveColor,
+      activeColor: config.colors.bottomNavigationBar.activeColor,
+      backgroundColor: config.colors.bottomNavigationBar.backgroundColor,
+      panelBackgroundColor: config.colors.panelBackgroundColor,
       sections: config.sections
     }
   },
@@ -76,7 +81,7 @@ export default {
   created () {
     this.$store.commit(SET_CURRENT_TAB, 0)
 
-    this.$store.commit(FIREBASE_INIT, this.$store);
+    this.$store.commit(FIREBASE_INIT, this.$store)
   },
   beforeMount () {
     this.$store.subscribe((mutation, state) => {
