@@ -1,5 +1,24 @@
 const config = {
   'jsondata': true,
+  'colors': {
+    'appBackgroundColor': {
+      backgroundColor: '#432f4f'
+    },
+    'bottomNavigationBar': {
+      activeColor: '#E500A2',
+      backgroundColor: '#1a121f',
+      inactiveColor: '#808080'
+    },
+    'panelBackgroundColor': {
+      backgroundColor: '#1a121f'
+    },
+    'primaryText': {
+      color: '#E500A2'
+    },
+    'secondaryText': {
+      color: '#ffffff'
+    }
+  },
   'phoneNumber': '',
   'shareApp': {
     'playStoreUrl': '',

@@ -1,17 +1,17 @@
 <template>
-  <ListView class="backgroundColorApp" ref="listView" for="podcast in podcasts" @itemTap="onPodcastTap" separatorColor="transparent">
+  <ListView :style="appBackgroundColor" ref="listView" for="podcast in podcasts" @itemTap="onPodcastTap" separatorColor="transparent">
     <v-template>
       <StackLayout width="100%" class="p-x-10 p-y-10">
         <FlexboxLayout orientation="horizontal" justifyContent="space-between" flexWrap="nowrap">
-          <ActivityIndicator v-show="podcast.playing === 'loading'" busy="true" flexShrink="0" class="text-orange" alignSelf="flex-start" width="30" fontSize="30"/>
-          <Label :text="'\ue038'" v-show="podcast.playing === 'paused'" flexShrink="0" class="mdi primaryTextColorApp" width="30" fontSize="30" />
-          <Label :text="'\ue034'" v-show="podcast.playing === 'playing'" flexShrink="0" class="mdi primaryTextColorApp" width="30" fontSize="30"/>
-          <Label :text="podcast.title" class="primaryTextColorApp p-l-5" flexGrow="2" flexShrink="2" fontWeight="300" textWrap="true"/>
-          <Label :text="podcast.duration" class="pull-right bold m-r-5 secondaryTextColorApp" width="30" flexShrink="0" fontSize="9" opacity="0.4" alignSelf="flext-end"/>
+          <ActivityIndicator v-show="podcast.playing === 'loading'" busy="true" flexShrink="0" :style="primaryTextColor" alignSelf="flex-start" width="30" fontSize="30"/>
+          <Label :text="'\ue038'" v-show="podcast.playing === 'paused'" flexShrink="0" :style="primaryTextColor" class="mdi" width="30" fontSize="30" />
+          <Label :text="'\ue034'" v-show="podcast.playing === 'playing'" flexShrink="0" :style="primaryTextColor" class="mdi" width="30" fontSize="30"/>
+          <Label :text="podcast.title" :style="primaryTextColor" class="p-l-5" flexGrow="2" flexShrink="2" fontWeight="300" textWrap="true"/>
+          <Label :text="podcast.duration" :style="secondaryTextColor" class="pull-right bold m-r-5" width="30" flexShrink="0" fontSize="9" opacity="0.4" alignSelf="flext-end"/>
         </FlexboxLayout>
-        <Label :text="podcast.content" class="secondaryTextColorApp" opacity="0.6" padding="8 0 8 35" fontWeight="300" fontSize="11" width="100%" textWrap="true"/>
+        <Label :text="podcast.content" :style="secondaryTextColor" opacity="0.6" padding="8 0 8 35" fontWeight="300" fontSize="11" width="100%" textWrap="true"/>
         <StackLayout width="100%" paddingLeft="30">
-          <StackLayout width="100%" height="1" class="primaryTextColorApp m-t-10" opacity="0.3"></StackLayout>
+          <StackLayout width="100%" height="1" :style="primaryTextColor" class="m-t-10" opacity="0.3"></StackLayout>
         </StackLayout>
       </StackLayout>
     </v-template>
@@ -21,10 +21,22 @@
 import PodcastService from '../api/PodcastService'
 import htmlToText from 'html-to-text'
 import { SET_PLAYER_SCREEN, PLAY_URL, PAUSE } from '../store/constants'
+import config from '../config.js'
+
+const {
+  colors: {
+    primaryText: primaryTextColor,
+    secondaryText: secondaryTextColor,
+    appBackgroundColor
+  }
+} = config
 
 export default {
   data: () => {
     return {
+      primaryTextColor,
+      secondaryTextColor,
+      appBackgroundColor,
       podcasts: []
     }
   },

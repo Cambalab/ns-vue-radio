@@ -1,6 +1,6 @@
 <template>
   <Page class="page">
-    <ActionBar class="panelBackgroundColorApp action-bar">
+    <ActionBar :style="panelBackgroundColor" class="action-bar">
       <StackLayout orientation="horizontal">
         <Image src="~/assets/images/logo.png" width="140" />
       </StackLayout>
@@ -13,8 +13,9 @@
       <Social v-show="currentTab === 'Social' && connection" v-if="exists('Social')"/>
       <NoConnection v-show="!connection" />
       <BottomNavigationBar
-                        inactiveColor="gray"
-                        class="panelBackgroundColorApp panelIconColorApp"
+                        :inactiveColor="inactiveColor"
+                        :activeColor="activeColor"
+                        :backgroundColor="backgroundColor"
                         keyLineColor="gray"
                         row="1"
                         @tabSelected="changeTabTo($event)"
@@ -39,10 +40,26 @@ import NoConnection from './NoConnection.vue'
 import config from '../config'
 import { SET_CURRENT_TAB, FIREBASE_INIT } from '../store/constants'
 
+const {
+  colors: {
+    bottomNavigationBar: {
+      inactiveColor,
+      activeColor,
+      backgroundColor
+    },
+    panelBackgroundColor
+  },
+  sections
+} = config
+
 export default {
   data: () => {
     return {
-      sections: config.sections
+      inactiveColor,
+      activeColor,
+      backgroundColor,
+      panelBackgroundColor: panelBackgroundColor,
+      sections
     }
   },
   components: {
@@ -76,7 +93,7 @@ export default {
   created () {
     this.$store.commit(SET_CURRENT_TAB, 0)
 
-    this.$store.commit(FIREBASE_INIT, this.$store);
+    this.$store.commit(FIREBASE_INIT, this.$store)
   },
   beforeMount () {
     this.$store.subscribe((mutation, state) => {
