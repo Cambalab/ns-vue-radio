@@ -40,14 +40,26 @@ import NoConnection from './NoConnection.vue'
 import config from '../config'
 import { SET_CURRENT_TAB, FIREBASE_INIT } from '../store/constants'
 
+const {
+  colors: {
+    bottomNavigationBar: {
+      inactiveColor,
+      activeColor,
+      backgroundColor
+    },
+    panelBackgroundColor
+  },
+  sections
+} = config
+
 export default {
   data: () => {
     return {
-      inactiveColor: config.colors.bottomNavigationBar.inactiveColor,
-      activeColor: config.colors.bottomNavigationBar.activeColor,
-      backgroundColor: config.colors.bottomNavigationBar.backgroundColor,
-      panelBackgroundColor: config.colors.panelBackgroundColor,
-      sections: config.sections
+      inactiveColor,
+      activeColor,
+      backgroundColor,
+      panelBackgroundColor: panelBackgroundColor,
+      sections
     }
   },
   components: {

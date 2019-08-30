@@ -22,15 +22,24 @@ import ShowService from '../api/ShowService'
 import config from '../config'
 import { SET_PLAYER_SCREEN, PLAY_URL, PAUSE, SET_PLAYER } from '../store/constants'
 
+const {
+  colors: {
+    appBackgroundColor,
+    primaryText: primaryTextColor,
+    secondaryText: secondaryTextColor
+  },
+  stream: url
+} = config
+
 export default {
   data: () => {
     return {
-      appBackgroundColor: config.colors.appBackgroundColor,
-      primaryTextColor: config.colors.primaryText,
-      secondaryTextColor: config.colors.secondaryText,
+      appBackgroundColor,
+      primaryTextColor,
+      secondaryTextColor,
       playing: 'paused',
       currentShow: '',
-      url: config.stream,
+      url,
       shows: [],
       currentShowImage: ''
     }

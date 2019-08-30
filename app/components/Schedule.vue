@@ -29,12 +29,22 @@
 import ShowService from '../api/ShowService'
 import config from '../config.js'
 
+const {
+  colors: {
+    appBackgroundColor: backgroundColor,
+    panelBackgroundColor,
+    secondaryText: {
+      color: secondaryTextColor
+    }
+  }
+} = config
+
 export default {
   data: () => {
     return {
-      backgroundColor: config.colors.appBackgroundColor,
-      panelBackgroundColor: config.colors.panelBackgroundColor,
-      secondaryTextColor: config.colors.secondaryText.color,
+      backgroundColor,
+      panelBackgroundColor,
+      secondaryTextColor,
       lastChange: new Date(),
       selectedDay: 1,
       dayPicker: 0,

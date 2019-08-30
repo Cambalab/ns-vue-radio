@@ -23,12 +23,20 @@ import * as email from 'nativescript-email'
 import appAvailability from 'nativescript-appavailability'
 import config from '../config.js'
 
+const {
+  colors: {
+    appBackgroundColor: backgroundColor,
+    secondaryText: secondaryTextColor,
+    primaryText: primaryTextColor
+  }
+} = config
+
 export default {
   data: () => {
     return {
-      backgroundColor: config.colors.appBackgroundColor,
-      secondaryTextColor: config.colors.secondaryText,
-      primaryTextColor: config.colors.primaryText
+      backgroundColor,
+      secondaryTextColor,
+      primaryTextColor
     }
   },
   methods: {

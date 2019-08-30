@@ -31,14 +31,24 @@ import config from '../config.js'
 import appAvailability from 'nativescript-appavailability'
 import * as SocialShare from 'nativescript-social-share'
 
+const {
+  colors: {
+    appBackgroundColor: backgroundColor,
+    panelBackgroundColor,
+    primaryText: primaryTextColor,
+    secondaryText: secondaryTextColor
+  },
+  socialNetworks
+} = config
+
 export default {
   data: () => {
     return {
-      backgroundColor: config.colors.appBackgroundColor,
-      panelBackgroundColor: config.colors.panelBackgroundColor,
-      primaryTextColor: config.colors.primaryText,
-      secondaryTextColor: config.colors.secondaryText,
-      socialNetworks: config.socialNetworks
+      backgroundColor,
+      panelBackgroundColor,
+      primaryTextColor,
+      secondaryTextColor,
+      socialNetworks
     }
   },
   methods: {

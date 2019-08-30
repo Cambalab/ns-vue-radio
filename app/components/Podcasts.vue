@@ -23,12 +23,20 @@ import htmlToText from 'html-to-text'
 import { SET_PLAYER_SCREEN, PLAY_URL, PAUSE } from '../store/constants'
 import config from '../config.js'
 
+const {
+  colors: {
+    primaryText: primaryTextColor,
+    secondaryText: secondaryTextColor,
+    appBackgroundColor
+  }
+} = config
+
 export default {
   data: () => {
     return {
-      primaryTextColor: config.colors.primaryText,
-      secondaryTextColor: config.colors.secondaryText,
-      appBackgroundColor: config.colors.appBackgroundColor,
+      primaryTextColor,
+      secondaryTextColor,
+      appBackgroundColor,
       podcasts: []
     }
   },
