@@ -6,21 +6,21 @@
 ### Parameters ###
 
 OUTPUT_DIRECTORY = $1
-ASSETS = $2
+ASSETS_DIRECTORY = $2
 SPLASH_BACKGROUND_COLOR = $3
 
 ### Assets ###
 
 # Place logo in the assets directory
 FULL_PATH=$(realpath $0)
-DIR_PATH=$(dirname $FULL_PATH)
-mv $ASSETS/logo.png $DIR_PATH/../app/assets/images/
+DIRECTORY_PATH=$(dirname $FULL_PATH)
+mv $ASSETS_DIRECTORY/logo.png $DIRECTORY_PATH/../app/assets/images/
 
-# Generating splash screen
-tns resources generate splashes $ASSETS/splash.png --background $SPLASH_BACKGROUND_COLOR
+# Generate splash screen
+tns resources generate splashes $ASSETS_DIRECTORY/splash.png --background $SPLASH_BACKGROUND_COLOR
 
-# Generating app icon
-tns resources generate icons $ASSETS/icon.png
+# Generate app icon
+tns resources generate icons $ASSETS_DIRECTORY/icon.png
 
 ### Build ###
 
