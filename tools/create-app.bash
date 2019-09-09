@@ -5,7 +5,7 @@
 OUTPUT_DIRECTORY=$1
 ASSETS_DIRECTORY=$2
 SPLASH_BACKGROUND_COLOR=$3
-KEYSTORE_DIRECTORY=$4
+KEYSTORE_PATH=$4
 KEYSTORE_PASS=$5
 KEYSTORE_ALIAS=$6
 KEYSTORE_ALIAS_PASS=$7
@@ -26,7 +26,7 @@ tns resources generate icons $ASSETS_DIRECTORY/icon.png
 ### Build ###
 
 # Sign app for release
-tns build android --bundle --release --compileSdk 28 --key-store-path $KEYSTORE_DIRECTORY --key-store-password $KEYSTORE_PASS --key-store-alias $KEYSTORE_ALIAS --key-store-alias-password $KEYSTORE_ALIAS_PASS
+tns build android --bundle --release --compileSdk 28 --key-store-path $KEYSTORE_PATH --key-store-password $KEYSTORE_PASS --key-store-alias $KEYSTORE_ALIAS --key-store-alias-password $KEYSTORE_ALIAS_PASS
 
 # Generate a .aab file
-tns build android --bundle --release --compileSdk 28 --key-store-path $KEYSTORE_DIRECTORY --key-store-password $KEYSTORE_PASS --key-store-alias $KEYSTORE_ALIAS --key-store-alias-password $KEYSTORE_ALIAS_PASS --aab --copy-to $OUTPUT_DIRECTORY
+tns build android --bundle --release --compileSdk 28 --key-store-path $KEYSTORE_PATH --key-store-password $KEYSTORE_PASS --key-store-alias $KEYSTORE_ALIAS --key-store-alias-password $KEYSTORE_ALIAS_PASS --aab --copy-to $OUTPUT_DIRECTORY
