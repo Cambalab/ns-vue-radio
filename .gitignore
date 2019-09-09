@@ -10,5 +10,12 @@ platforms
 
 environments
 
-#Firebase
+# Firebase
 google-services.json
+
+# Assets
+app/App_Resources/iOS/Assets.xcassets/
+background.png
+icon.png
+logo.png
+!app/assets/images/logo.png
