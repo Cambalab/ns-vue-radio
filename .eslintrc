@@ -21,7 +21,7 @@
   "globals": {
     "API_URL": true,
     "TNS_ENV": true,
-    "customization": true
+    "CUSTOMIZATION": true
   },
   rules: {
     "indent": ["error", 2, {

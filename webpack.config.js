@@ -247,7 +247,7 @@ module.exports = env => {
                 "TNS_ENV": JSON.stringify(mode),
                 "process": "global.process",
                 "API_URL": JSON.stringify(api_url),
-                "customization": customization.split('\\').join('')
+                "CUSTOMIZATION": customization.split('\\').join('')
             }),
             // Remove all files from the out dir.
             new CleanWebpackPlugin(itemsToClean, { verbose: !!verbose }),
