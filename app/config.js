@@ -1,22 +1,43 @@
+const {
+  bottomNavigationBar: {
+    activeColor: navActiveColor,
+    backgroundColor: appBackgroundColor,
+    inactiveColor: navInactiveColor
+  },
+  colors: {
+    backgroundColor: navBackgroundColor,
+    primaryText,
+    secondaryText
+  },
+  sections,
+  social: {
+    facebookUrl,
+    instagramUrl,
+    twitterUrl
+  },
+  stream,
+  writeEmailTo
+} = CUSTOMIZATION
+
 const config = {
   'jsondata': true,
   'colors': {
     'appBackgroundColor': {
-      backgroundColor: customization.colors.backgroundColor || '#432f4f'
+      backgroundColor: appBackgroundColor || '#432f4f'
     },
     'bottomNavigationBar': {
-      activeColor: customization.bottomNavigationBar.activeColor || '#E500A2',
-      backgroundColor: customization.bottomNavigationBar.backgroundColor || '#1a121f',
-      inactiveColor: customization.bottomNavigationBar.inactiveColor || '#808080'
+      activeColor: navActiveColor || '#E500A2',
+      backgroundColor: navBackgroundColor || '#1a121f',
+      inactiveColor: navInactiveColor || '#808080'
     },
     'panelBackgroundColor': {
-      backgroundColor: customization.bottomNavigationBar.backgroundColor || '#1a121f'
+      backgroundColor: navBackgroundColor || '#1a121f'
     },
     'primaryText': {
-      color: customization.colors.primaryText || '#E500A2'
+      color: primaryText || '#E500A2'
     },
     'secondaryText': {
-      color: customization.colors.secondaryText || '#ffffff'
+      color: secondaryText || '#ffffff'
     }
   },
   'phoneNumber': '',
@@ -24,7 +45,7 @@ const config = {
     'playStoreUrl': '',
     'message': ''
   },
-  'sections': customization.sections || [
+  'sections': sections || [
     'Live',
     'Schedule',
     'WriteUs',
@@ -34,28 +55,28 @@ const config = {
   'socialNetworks': [
     {
       link2App: 'com.facebook',
-      link2Page: customization.social.facebookUrl,
+      link2Page: facebookUrl,
       iconId: '\ue028',
       iconColor: '#fafafa',
       background: '#365899'
     },
     {
       link2App: 'com.instagram',
-      link2Page: customization.social.instagramUrl,
+      link2Page: instagramUrl,
       iconId: '\ue044',
       iconColor: '#fafafa',
       backgroundImage: '~/assets/images/instagram.png'
     },
     {
       link2App: 'com.twitter',
-      link2Page: customization.social.twitterUrl,
+      link2Page: twitterUrl,
       iconId: '\ue08d',
       iconColor: '#fafafa',
       background: '#006dbf'
     }
   ],
-  'stream': customization.stream,
-  'writeEmailTo': customization.writeEmailTo
+  'stream': stream,
+  'writeEmailTo': writeEmailTo
 }
 
 export default config
