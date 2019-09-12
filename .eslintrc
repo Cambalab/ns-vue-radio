@@ -20,7 +20,8 @@
   ],
   "globals": {
     "API_URL": true,
-    "TNS_ENV": true
+    "TNS_ENV": true,
+    "customization": true
   },
   rules: {
     "indent": ["error", 2, {
