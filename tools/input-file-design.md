@@ -9,6 +9,11 @@ The create app script consumes data from a file to configure customization, soci
 +   **Details:** The name of the radio.
 +   **Type:** `String`  
 
+### sections
+
+   **Details:** An array with the application sections. The sections can be "Live", "Schedule", "WriteUs", "Podcasts", "Social".
+   **Type:** `Array`
+
 ### social
 
 +   **Details:** An object with social media information.
