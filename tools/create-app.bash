@@ -19,7 +19,7 @@ DIRECTORY_PATH=$(dirname $FULL_PATH)
 ### Initial configuration ###
 
 # Parse json configuration file to string
-STRING_CONFIGURATION_FILE=$(jq '. | tostring' $CONFIGURATION_FILE)
+STRINGIFIED_CONFIGURATION=$(jq '. | tostring' $CONFIGURATION_FILE)
 
 ### Assets ###
 
@@ -35,4 +35,4 @@ tns resources generate icons $ASSETS_DIRECTORY/icon.png
 ### Build ###
 
 # Generate a .aab file
-tns build android --bundle --release --env.customization=$STRING_CONFIGURATION_FILE --compileSdk 28 --key-store-path $KEYSTORE_PATH --key-store-password $KEYSTORE_PASS --key-store-alias $KEYSTORE_ALIAS --key-store-alias-password $KEYSTORE_ALIAS_PASS --aab --copy-to $OUTPUT_DIRECTORY
+tns build android --bundle --release --env.customization=$STRINGIFIED_CONFIGURATION --compileSdk 28 --key-store-path $KEYSTORE_PATH --key-store-password $KEYSTORE_PASS --key-store-alias $KEYSTORE_ALIAS --key-store-alias-password $KEYSTORE_ALIAS_PASS --aab --copy-to $OUTPUT_DIRECTORY
