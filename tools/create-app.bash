@@ -21,6 +21,11 @@ DIRECTORY_PATH=$(dirname $FULL_PATH)
 # Parse json configuration file to string
 STRINGIFIED_CONFIGURATION=$(jq '. | tostring' $CONFIGURATION_FILE)
 
+APP_NAME=$(jq '.name | tostring' $CONFIGURATION_FILE | tr -d "\"")
+
+sed -i s/org.camba.radio/org.$APP_NAME.radio/g $DIRECTORY_PATH/../app/App_Resources/Android/app.gradle
+sed -i s/org.camba.radio/org.$APP_NAME.radio/g $DIRECTORY_PATH/../package.json
+
 ### Assets ###
 
 # Place logo in the assets directory
@@ -36,3 +41,6 @@ tns resources generate icons $ASSETS_DIRECTORY/icon.png
 
 # Generate a .aab file
 tns build android --bundle --release --env.customization=$STRINGIFIED_CONFIGURATION --compileSdk 28 --key-store-path $KEYSTORE_PATH --key-store-password $KEYSTORE_PASS --key-store-alias $KEYSTORE_ALIAS --key-store-alias-password $KEYSTORE_ALIAS_PASS --aab --copy-to $OUTPUT_DIRECTORY
+
+sed -i s/org.$APP_NAME.radio/org.camba.radio/g $DIRECTORY_PATH/../app/App_Resources/Android/app.gradle
+sed -i s/org.$APP_NAME.radio/org.camba.radio/g $DIRECTORY_PATH/../package.json
