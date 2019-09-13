@@ -10,6 +10,7 @@ KEYSTORE_PASS=$5
 KEYSTORE_ALIAS=$6
 KEYSTORE_ALIAS_PASS=$7
 CONFIGURATION_FILE=$8
+GOOGLE_SERVICES_PATH=$9
 
 ### Script path and directory ###
 
@@ -17,6 +18,8 @@ FULL_PATH=$(realpath $0)
 DIRECTORY_PATH=$(dirname $FULL_PATH)
 
 ### Initial configuration ###
+
+cp $GOOGLE_SERVICES_PATH $DIRECTORY_PATH/../app/App_Resources/Android/
 
 # Parse json configuration file to string
 STRINGIFIED_CONFIGURATION=$(jq '. | tostring' $CONFIGURATION_FILE)
