@@ -48,7 +48,8 @@ module.exports = env => {
         hiddenSourceMap, // --env.hiddenSourceMap
         unitTesting, // --env.unitTesting
         verbose, // --env.verbose
-        development
+        development,
+        customization
     } = env;
 
     const isAnySourceMapEnabled = !!sourceMap || !!hiddenSourceMap;
@@ -245,7 +246,8 @@ module.exports = env => {
                 "global.TNS_WEBPACK": "true",
                 "TNS_ENV": JSON.stringify(mode),
                 "process": "global.process",
-                "API_URL": JSON.stringify(api_url)
+                "API_URL": JSON.stringify(api_url),
+                "CUSTOMIZATION": customization.split('\\').join('')
             }),
             // Remove all files from the out dir.
             new CleanWebpackPlugin(itemsToClean, { verbose: !!verbose }),
