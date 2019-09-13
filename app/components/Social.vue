@@ -53,7 +53,8 @@ export default {
   },
   methods: {
     shareUrl () {
-      SocialShare.shareUrl(config.shareApp.playStoreUrl, config.shareApp.message)
+      const message = `${this.$t('messageToShareApp')} ${config.name}`
+      SocialShare.shareUrl(config.shareApp.playStoreUrl, message)
     },
     openSocialNetwork (app, url) {
       appAvailability.available(app).then(function (avail) {

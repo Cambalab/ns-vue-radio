@@ -1,4 +1,5 @@
 const {
+  name,
   bottomNavigationBar: {
     activeColor: navActiveColor,
     backgroundColor: appBackgroundColor,
@@ -41,10 +42,7 @@ const config = {
     }
   },
   'phoneNumber': '',
-  'shareApp': {
-    'playStoreUrl': '',
-    'message': ''
-  },
+  'name': name || 'Radio',
   'sections': sections || [
     'Live',
     'Schedule',
@@ -52,6 +50,9 @@ const config = {
     'Podcasts',
     'Social'
   ],
+  'shareApp': {
+    'playStoreUrl': `https://play.google.com/store/apps/details?id=org.${name}.radio`
+  },
   'socialNetworks': [
     {
       link2App: 'com.facebook',
