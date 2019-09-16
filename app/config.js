@@ -1,4 +1,5 @@
 const {
+  appId,
   name,
   bottomNavigationBar: {
     activeColor: navActiveColor,
@@ -21,6 +22,7 @@ const {
 } = CUSTOMIZATION
 
 const config = {
+  'appId': appId || 'org.camba.radio',
   'jsondata': true,
   'colors': {
     'appBackgroundColor': {
@@ -51,7 +53,7 @@ const config = {
     'Social'
   ],
   'shareApp': {
-    'playStoreUrl': `https://play.google.com/store/apps/details?id=org.${name}.radio`
+    'playStoreUrl': `https://play.google.com/store/apps/details?id=${appId}`
   },
   'socialNetworks': [
     {
