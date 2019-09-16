@@ -29,6 +29,8 @@ APP_NAME=$(jq '.name | tostring' $CONFIGURATION_FILE | tr -d "\"")
 sed -i s/org.camba.radio/org.$APP_NAME.radio/g $DIRECTORY_PATH/../app/App_Resources/Android/app.gradle
 sed -i s/org.camba.radio/org.$APP_NAME.radio/g $DIRECTORY_PATH/../package.json
 
+sed -i s/Radio/$APP_NAME/g $DIRECTORY_PATH/../app/App_Resources/Android/src/main/res/values-v21/strings.xml
+
 ### Assets ###
 
 # Place logo in the assets directory
@@ -47,3 +49,5 @@ tns build android --bundle --release --env.customization=$STRINGIFIED_CONFIGURAT
 
 sed -i s/org.$APP_NAME.radio/org.camba.radio/g $DIRECTORY_PATH/../app/App_Resources/Android/app.gradle
 sed -i s/org.$APP_NAME.radio/org.camba.radio/g $DIRECTORY_PATH/../package.json
+
+sed -i s/$APP_NAME/Radio/g $DIRECTORY_PATH/../app/App_Resources/Android/src/main/res/values-v21/strings.xml
