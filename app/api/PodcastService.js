@@ -1,4 +1,11 @@
 import api from './api'
+import config from '../config'
+
+const {
+  endpointUrls: {
+    podcasts
+  }
+} = config
 
 export default {
   getPodcasts (qty) {
@@ -6,6 +13,6 @@ export default {
     if (qty > 0) {
       options += '?limit=' + qty
     }
-    return api.get('/podcasts/api' + options)
+    return api.get(podcasts + options)
   }
 }
