@@ -2,7 +2,7 @@
 
 Based on existent nativescript tools, `ns-vue-radio` provides a bash script to help building radio apps easily from the command line.
 
-The script will generate a `.aab` bundle that let us build different `apks`, each one optimized for different devices. This bundle or a single `.apk` file can be used to deploy applications to the Google Play Store. We rather like to create bundles than a single apk.
+The script will generate a `.aab` bundle that let us build different `apks`, each one optimized for different devices. This bundle or a single `.apk` file can be used to deploy applications to the Google Play Store. We'would rather like to create bundles than a single apk.
 
 To run the script program, a set of parameters that will be used during the building process are required. To understand the nature of those requirements we'd likely need to understand the processes involved.
 
@@ -120,7 +120,7 @@ $FIREBASE_CONFIG_PATH
 
 ## Test the generated bundle
 
-The `.aab` bundle is used to generate many apks, each of them specifically supports different devices architecture and/or Android versions. Since every single `.apk` is built exclusively for a specific device, the file is a lot lighter than an `.apk` that supports every (or many of) Android device architecture. Sometimes an optimized application weight is half the size of a non-optimized `.apk`, which allows users to download it quicker than other applications and uses less device storage.
+The `.aab` bundle is used to generate many apks, each of them specifically supports different devices architecture and/or Android versions. Since every single `.apk` is built exclusively for a specific device, the file is a lot lighter than an `.apk` that supports every (or many of) Android device's architecture. Sometimes an optimized application weight is half the size of a non-optimized `.apk`, which allows users to download it quicker than other applications and uses less device storage.
 
 Here's the official [**documentation**](https://docs.nativescript.org/angular/tooling/publishing/android-app-bundle#testing-the-produced-aab-file), or you can follow the steps explained below.
 
