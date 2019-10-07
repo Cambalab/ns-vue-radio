@@ -1,4 +1,6 @@
 const {
+  appId,
+  name,
   bottomNavigationBar: {
     activeColor: navActiveColor,
     backgroundColor: appBackgroundColor,
@@ -20,6 +22,7 @@ const {
 } = CUSTOMIZATION
 
 const config = {
+  'appId': appId || 'org.camba.radio',
   'jsondata': true,
   'colors': {
     'appBackgroundColor': {
@@ -41,10 +44,7 @@ const config = {
     }
   },
   'phoneNumber': '',
-  'shareApp': {
-    'playStoreUrl': '',
-    'message': ''
-  },
+  'name': name || 'Radio',
   'sections': sections || [
     'Live',
     'Schedule',
@@ -52,6 +52,9 @@ const config = {
     'Podcasts',
     'Social'
   ],
+  'shareApp': {
+    'playStoreUrl': `https://play.google.com/store/apps/details?id=${appId}`
+  },
   'socialNetworks': [
     {
       link2App: 'com.facebook',

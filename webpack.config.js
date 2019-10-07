@@ -49,8 +49,11 @@ module.exports = env => {
         unitTesting, // --env.unitTesting
         verbose, // --env.verbose
         development,
-        customization
+        customization,
+        appId
     } = env;
+
+    const appCustomization = JSON.stringify({ ...JSON.parse(customization.split('\\').join('')), appId })
 
     const isAnySourceMapEnabled = !!sourceMap || !!hiddenSourceMap;
     const externals = nsWebpack.getConvertedExternals(env.externals);
@@ -247,7 +250,7 @@ module.exports = env => {
                 "TNS_ENV": JSON.stringify(mode),
                 "process": "global.process",
                 "API_URL": JSON.stringify(api_url),
-                "CUSTOMIZATION": customization.split('\\').join('')
+                "CUSTOMIZATION": appCustomization
             }),
             // Remove all files from the out dir.
             new CleanWebpackPlugin(itemsToClean, { verbose: !!verbose }),
