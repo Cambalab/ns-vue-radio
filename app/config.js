@@ -18,6 +18,9 @@ const {
     twitterUrl
   },
   stream,
+  currentShowEndpoint,
+  showsEndpoint,
+  podcastsEndpoint,
   writeEmailTo
 } = CUSTOMIZATION
 
@@ -79,6 +82,11 @@ const config = {
     }
   ],
   'stream': stream,
+  'endpointUrls': {
+    currentShow: currentShowEndpoint || '/api/programs/current',
+    shows: showsEndpoint || '/api/programs',
+    podcasts: podcastsEndpoint || '/api/podcasts'
+  },
   'writeEmailTo': writeEmailTo
 }
 

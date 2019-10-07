@@ -8,19 +8,19 @@ class LocalApi {
   get (id) {
     let res = []
     switch (true) {
-    case id.includes('/shows/api', 0):
+    case id.includes('/api/programs', 0):
       res = {
         status: 200,
         data: this.data.shows
       }
       break
-    case id.includes('/shows/currentshow', 0):
+    case id.includes('/api/programs/current', 0):
       res = {
         status: 200,
         data: this.data.currentshow
       }
       break
-    case id.includes('/podcasts/api', 0):
+    case id.includes('/api/podcasts', 0):
       res = {
         status: 200,
         data: {
