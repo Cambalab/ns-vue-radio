@@ -87,7 +87,7 @@ const config = {
     shows: showsEndpoint || '/api/programs',
     podcasts: podcastsEndpoint || '/api/podcasts'
   },
-  'writeEmailTo': writeEmailTo
+  'writeEmailTo': writeEmailTo || ['info@camba.coop']
 }
 
 export default config
