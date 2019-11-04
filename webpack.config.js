@@ -53,7 +53,8 @@ module.exports = env => {
         appId
     } = env;
 
-    const appCustomization = JSON.stringify({ ...JSON.parse(customization.split('\\').join('')), appId })
+    const appCustomization = customization &&
+      JSON.stringify({ ...JSON.parse(customization.split('\\').join('')), appId })
 
     const isAnySourceMapEnabled = !!sourceMap || !!hiddenSourceMap;
     const externals = nsWebpack.getConvertedExternals(env.externals);
