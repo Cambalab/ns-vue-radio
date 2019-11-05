@@ -17,7 +17,7 @@
     "clean": "rimraf platforms"
   },
   "nativescript": {
-    "id": "org.camba.radio",
+    "id": "coop.radio.app",
     "tns-ios": {
       "version": "6.0.1"
     },
