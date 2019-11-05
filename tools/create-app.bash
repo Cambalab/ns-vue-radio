@@ -31,6 +31,8 @@ LEGACY_ID="coop.radio.app"
 sed -i s/$LEGACY_ID/$APP_ID/g $DIRECTORY_PATH/../app/App_Resources/Android/app.gradle
 sed -i s/$LEGACY_ID/$APP_ID/g $DIRECTORY_PATH/../package.json
 
+sed -i s/Radio/$APP_NAME/g $DIRECTORY_PATH/../app/App_Resources/Android/src/main/res/values-v21/strings.xml
+
 ### Assets ###
 
 # Place logo in the assets directory
