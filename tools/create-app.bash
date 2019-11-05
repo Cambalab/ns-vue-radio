@@ -26,8 +26,10 @@ STRINGIFIED_CONFIGURATION=$(jq '. | tostring' $CONFIGURATION_FILE)
 
 APP_ID=$(jq '.client[0].client_info.android_client_info.package_name | tostring' $GOOGLE_SERVICES_PATH | tr -d "\"")
 
-sed -i s/org.camba.radio/$APP_ID/g $DIRECTORY_PATH/../app/App_Resources/Android/app.gradle
-sed -i s/org.camba.radio/$APP_ID/g $DIRECTORY_PATH/../package.json
+LEGACY_ID="coop.radio.app"
+
+sed -i s/$LEGACY_ID/$APP_ID/g $DIRECTORY_PATH/../app/App_Resources/Android/app.gradle
+sed -i s/$LEGACY_ID/$APP_ID/g $DIRECTORY_PATH/../package.json
 
 ### Assets ###
 
@@ -45,5 +47,5 @@ tns resources generate icons $ASSETS_DIRECTORY/icon.png
 # Generate a .aab file
 tns build android --bundle --release --env.customization=$STRINGIFIED_CONFIGURATION --env.appId=$APP_ID --compileSdk 28 --key-store-path $KEYSTORE_PATH --key-store-password $KEYSTORE_PASS --key-store-alias $KEYSTORE_ALIAS --key-store-alias-password $KEYSTORE_ALIAS_PASS --aab --copy-to $OUTPUT_DIRECTORY
 
-sed -i s/$APP_ID/org.camba.radio/g $DIRECTORY_PATH/../app/App_Resources/Android/app.gradle
-sed -i s/$APP_ID/org.camba.radio/g $DIRECTORY_PATH/../package.json
+sed -i s/$APP_ID/$LEGACY_ID/g $DIRECTORY_PATH/../app/App_Resources/Android/app.gradle
+sed -i s/$APP_ID/$LEGACY_ID/g $DIRECTORY_PATH/../package.json
