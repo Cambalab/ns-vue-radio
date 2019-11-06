@@ -3,11 +3,11 @@ const {
   name,
   bottomNavigationBar: {
     activeColor: navActiveColor,
-    backgroundColor: appBackgroundColor,
+    backgroundColor: navBackgroundColor,
     inactiveColor: navInactiveColor
   },
   colors: {
-    backgroundColor: navBackgroundColor,
+    backgroundColor: appBackgroundColor,
     primaryText,
     secondaryText
   },
