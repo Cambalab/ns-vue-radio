@@ -14,6 +14,7 @@ const {
     primaryText,
     secondaryText
   },
+  phoneNumber,
   sections,
   social: {
     facebookUrl,
@@ -49,7 +50,7 @@ const config = {
       color: secondaryText || '#ffffff'
     }
   },
-  'phoneNumber': '',
+  'phoneNumber': phoneNumber || '',
   'name': {
     humanReadableName: humanReadableName || 'Radio',
     applicationName
