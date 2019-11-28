@@ -38,7 +38,7 @@ const {
     primaryText: primaryTextColor,
     secondaryText: secondaryTextColor
   },
-  name,
+  name: { humanReadableName },
   shareApp: { playStoreUrl },
   socialNetworks
 } = config
@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     shareUrl () {
-      const message = `${this.$t('messageToShareApp')} ${name}`
+      const message = `${this.$t('messageToShareApp')} ${humanReadableName}`
       SocialShare.shareUrl(playStoreUrl, message)
     },
     openSocialNetwork (app, url) {

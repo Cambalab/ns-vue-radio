@@ -1,6 +1,9 @@
 const {
   appId,
-  name,
+  name: {
+    humanReadableName,
+    applicationName
+  },
   bottomNavigationBar: {
     activeColor: navActiveColor,
     backgroundColor: navBackgroundColor,
@@ -47,7 +50,10 @@ const config = {
     }
   },
   'phoneNumber': '',
-  'name': name || 'Radio',
+  'name': {
+    humanReadableName: humanReadableName || 'Radio',
+    applicationName
+  },
   'sections': sections || [
     'Live',
     'Schedule',
