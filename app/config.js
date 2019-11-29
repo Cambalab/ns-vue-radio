@@ -29,7 +29,7 @@ const {
 } = CUSTOMIZATION
 
 const config = {
-  'appId': appId || 'org.camba.radio',
+  'appId': appId || 'coop.radio.app',
   'jsondata': true,
   'colors': {
     'appBackgroundColor': {
