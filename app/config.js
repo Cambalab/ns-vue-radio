@@ -1,6 +1,9 @@
 const {
   appId,
-  name,
+  name: {
+    humanReadableName,
+    applicationName
+  },
   bottomNavigationBar: {
     activeColor: navActiveColor,
     backgroundColor: navBackgroundColor,
@@ -11,6 +14,7 @@ const {
     primaryText,
     secondaryText
   },
+  phoneNumber,
   sections,
   social: {
     facebookUrl,
@@ -46,8 +50,11 @@ const config = {
       color: secondaryText || '#ffffff'
     }
   },
-  'phoneNumber': '',
-  'name': name || 'Radio',
+  'phoneNumber': phoneNumber || '',
+  'name': {
+    humanReadableName: humanReadableName || 'Radio',
+    applicationName
+  },
   'sections': sections || [
     'Live',
     'Schedule',
