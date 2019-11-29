@@ -36,6 +36,9 @@ const {
     secondaryText: {
       color: secondaryTextColor
     }
+  },
+  dataAdapter: {
+    showsAdapter
   }
 } = config
 
@@ -54,7 +57,7 @@ export default {
   mounted () {
     ShowService.getShows().then((shows) => {
       if (shows.status === 200) {
-        this.shows = shows.data
+        this.shows = showsAdapter(shows)
       }
     }).catch((err) => console.log(err))
   },
