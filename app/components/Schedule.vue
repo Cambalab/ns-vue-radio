@@ -7,7 +7,7 @@
             <CardView radius="6" margin="10" backgroundColor="white" elevation="5" ripple="true">
               <StackLayout>
                 <StackLayout width="100%" height="200">
-                  <Image :src="show.image" stretch="aspectFill"/>
+                  <Image :src="getApiUrl()+'/'+show.image" stretch="aspectFill"/>
                 </StackLayout>
                 <StackLayout class="p-x-12 p-y-12" borderTopWidth="1px" borderTopColor="#eee">
                   <Label :text="show.title" color="#333" textWrap="true"/>
@@ -81,7 +81,9 @@ export default {
     },
     isAiredOn (show) {
       return show.days.includes(this.selectedDay)
-    }
+    },
+    getApiUrl () {
+      return API_URL
   }
 }
 </script>
