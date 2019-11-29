@@ -14,11 +14,8 @@ const {
     primaryText,
     secondaryText
   },
-<<<<<<< HEAD
   phoneNumber,
-=======
   dataAdapter,
->>>>>>> Fixed the podcasts render
   sections,
   social: {
     facebookUrl,
@@ -94,8 +91,8 @@ const config = {
   ],
   'stream': stream,
   'endpointUrls': {
-    currentShow: currentShowEndpoint || '/api/programs/current?radio_name',
-    shows: showsEndpoint || '/api/programs',
+    currentShow: currentShowEndpoint || '/api/programs/current?radio_name?radio_name=' + applicationName,
+    shows: showsEndpoint || '/api/programs?radio_name=' + applicationName,
     podcasts: podcastsEndpoint || '/api/podcasts?limit=30&radio_name' + applicationName
   },
   'dataAdapter': dataAdapter || {

@@ -28,6 +28,10 @@ const {
     primaryText: primaryTextColor,
     secondaryText: secondaryTextColor
   },
+  dataAdapter: {
+    currentShowAdapter,
+    showsAdapter
+  },
   stream: url
 } = config
 
@@ -79,15 +83,15 @@ export default {
     },
     setCurrentShow () {
       ShowService.getCurrentShow().then((resp) => {
-        if (this.currentShow !== resp.data.show) {
-          this.currentShow = resp.data.show
+        if (this.currentShow !== currentShowAdapter(resp).show) {
+          this.currentShow = currentShowAdapter(resp).show
           this.setImage()
         }
       })
     },
     setImage () {
       ShowService.getShows().then((shows) => {
-        this.shows = shows.data
+        this.shows = showsAdapter(shows)
         this.currentShowImage = this.shows.find((p) => { return p.title === this.currentShow }).image
       }).catch((err) => console.log(err))
     }
