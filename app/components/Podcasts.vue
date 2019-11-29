@@ -19,7 +19,6 @@
 </template>
 <script>
 import PodcastService from '../api/PodcastService'
-import htmlToText from 'html-to-text'
 import { SET_PLAYER_SCREEN, PLAY_URL, PAUSE } from '../store/constants'
 import config from '../config.js'
 
@@ -28,6 +27,9 @@ const {
     primaryText: primaryTextColor,
     secondaryText: secondaryTextColor,
     appBackgroundColor
+  },
+  dataAdapter: {
+    podcastsAdapter
   }
 } = config
 
@@ -42,9 +44,8 @@ export default {
   },
   mounted () {
     PodcastService.getPodcasts(30).then((podcasts) => {
-      this.podcasts = podcasts.data.results.map((podcast) => {
+      this.podcasts = podcastsAdapter(podcasts).map((podcast) => {
         podcast.playing = 'paused'
-        podcast.content = htmlToText.fromString(podcast.content, { wordwrap: 200 })
         return podcast
       })
     }).catch((err) => console.log(err))

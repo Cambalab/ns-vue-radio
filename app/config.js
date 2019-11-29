@@ -14,7 +14,11 @@ const {
     primaryText,
     secondaryText
   },
+<<<<<<< HEAD
   phoneNumber,
+=======
+  dataAdapter,
+>>>>>>> Fixed the podcasts render
   sections,
   social: {
     facebookUrl,
@@ -90,9 +94,20 @@ const config = {
   ],
   'stream': stream,
   'endpointUrls': {
-    currentShow: currentShowEndpoint || '/api/programs/current',
+    currentShow: currentShowEndpoint || '/api/programs/current?radio_name',
     shows: showsEndpoint || '/api/programs',
-    podcasts: podcastsEndpoint || '/api/podcasts'
+    podcasts: podcastsEndpoint || '/api/podcasts?limit=30&radio_name' + applicationName
+  },
+  'dataAdapter': dataAdapter || {
+    podcastsAdapter: (response) => {
+      return response.data
+    },
+    showsAdapter: (response) => {
+      return response.data
+    },
+    currentShowAdapter: (response) => {
+      return response.data
+    }
   },
   'writeEmailTo': writeEmailTo || ['info@camba.coop']
 }

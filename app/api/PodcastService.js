@@ -9,10 +9,6 @@ const {
 
 export default {
   getPodcasts (qty) {
-    let options = ''
-    if (qty > 0) {
-      options += '?limit=' + qty
-    }
-    return api.get(podcasts + options)
+    return api.get(podcasts)
   }
 }
