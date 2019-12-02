@@ -93,7 +93,7 @@ const config = {
   'stream': stream,
   apiUrl,
   'endpointUrls': {
-    currentShow: currentShowEndpoint || '/api/programs/current?radio_name?radio_name=' + applicationName,
+    currentShow: currentShowEndpoint || '/api/programs/current/?radio_name=' + applicationName,
     shows: showsEndpoint || '/api/programs?radio_name=' + applicationName,
     podcasts: podcastsEndpoint || '/api/podcasts?limit=30&radio_name=' + applicationName
   },
@@ -105,7 +105,7 @@ const config = {
       return response.data
     },
     currentShowAdapter: (response) => {
-      return response.data
+      return response.data[0]
     }
   },
   'writeEmailTo': writeEmailTo || ['info@camba.coop']
