@@ -45,7 +45,7 @@ tns resources generate icons $ASSETS_DIRECTORY/icon.png
 ### Build ###
 
 # Generate a .aab file
-tns build android --bundle --release --env.customization=$STRINGIFIED_CONFIGURATION --env.appId=$APP_ID --compileSdk 28 --key-store-path $KEYSTORE_PATH --key-store-password $KEYSTORE_PASS --key-store-alias $KEYSTORE_ALIAS --key-store-alias-password $KEYSTORE_ALIAS_PASS --aab --copy-to $OUTPUT_DIRECTORY
+tns build android --bundle --release --env.customization="$STRINGIFIED_CONFIGURATION" --env.appId=$APP_ID --compileSdk 28 --key-store-path $KEYSTORE_PATH --key-store-password $KEYSTORE_PASS --key-store-alias $KEYSTORE_ALIAS --key-store-alias-password $KEYSTORE_ALIAS_PASS --aab --copy-to $OUTPUT_DIRECTORY
 
 sed -i s/$APP_ID/$LEGACY_ID/g $DIRECTORY_PATH/../app/App_Resources/Android/app.gradle
 sed -i s/$APP_ID/$LEGACY_ID/g $PACKAGE_JSON_PATH
