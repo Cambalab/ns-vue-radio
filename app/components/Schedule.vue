@@ -84,6 +84,7 @@ export default {
     },
     getApiUrl () {
       return API_URL
+    }
   }
 }
 </script>
