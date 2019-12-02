@@ -1,12 +1,12 @@
 <template>
     <AbsoluteLayout>
-      <Image :src="currentShowImage" stretch="aspectFill" height="100%" width="100%" top="0"  :style="appBackgroundColor"/>
+      <Image :src="getApiUrl()+'/'+currentShow.image" stretch="aspectFill" height="100%" width="100%" top="0"  :style="appBackgroundColor"/>
       <Image src="~/assets/images/blackgradient.png" stretch="aspectFit" top="0" width="100%"/>
       <FlexboxLayout flexDirection="column" justifyContent="space-between" top="100" width="100%">
         <StackLayout alignSelf="center" width="100%">
           <Image src="~/assets/images/microphone.png" width="30" opacity="0.7"/>
           <Label :text="$t('youAreListeningTo')" :style="primaryTextColor" class="text-center font-italic" marginTop="10" fontSize="14" />
-          <Label :text="currentShow" class="h2 bold text-center m-b-0" :style="secondaryTextColor" textWrap="true"/>
+          <Label :text="currentShow.title" class="h2 bold text-center m-b-0" :style="secondaryTextColor" textWrap="true"/>
         </StackLayout>
         <StackLayout class="spacer" style="height: 110;" alignSelf="center" marginTop="20">
           <Label v-show="playing === 'paused'"  @tap="play" :text="'\ue037'" fontSize="110" class="mdi text-center" color="white"/>
@@ -83,17 +83,13 @@ export default {
     },
     setCurrentShow () {
       ShowService.getCurrentShow().then((resp) => {
-        if (this.currentShow !== currentShowAdapter(resp).show) {
-          this.currentShow = currentShowAdapter(resp).show
-          this.setImage()
+        if (this.currentShow !== currentShowAdapter(resp)) {
+          this.currentShow = currentShowAdapter(resp)
         }
       })
     },
-    setImage () {
-      ShowService.getShows().then((shows) => {
-        this.shows = showsAdapter(shows)
-        this.currentShowImage = this.shows.find((p) => { return p.title === this.currentShow }).image
-      }).catch((err) => console.log(err))
+    getApiUrl () {
+      return API_URL
     }
   },
   mounted () {
