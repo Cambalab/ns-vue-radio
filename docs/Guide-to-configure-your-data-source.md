@@ -39,15 +39,7 @@
 
 ![06](./images/Guide-to-configure-your-data-source/06s.png)
 
-  * Create the environments/development.json and environments/production.json files.
-
-  * Set an appropiate API url for each file:
-
-```JSON
-{
-  "API_URL": "your-lan-ip"
-}
-```
+  * When you're about to run the application (`tns run android`, for example) provide a `--env.apiUrl` flag with your API URL. This is going to be exposed to the `config.js` file.
 
   * Your API should have the following services:
     - `<url's API>/shows/currentShow`, here the `.status` field, seted in `200` to verify connection and `.data` with the field:
