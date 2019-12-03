@@ -19,11 +19,11 @@
     "vue"
   ],
   "globals": {
-    "API_URL": true,
     "TNS_ENV": true,
     "CUSTOMIZATION": true
   },
-  rules: {
+  "rules": {
+    "max-len": ["error", { "code": 80 }],
     "indent": ["error", 2, {
       "MemberExpression": "off"
     }],
@@ -33,10 +33,10 @@
       ]
     }]
   },
-  overrides: [
+  "overrides": [
     {
-      files: ['**/__tests__/**/*.js', "**/cli-test-utils/**/*.js"],
-      rules: {
+      "files": ['**/__tests__/**/*.js', "**/cli-test-utils/**/*.js"],
+      "rules": {
         "node/no-extraneous-require": "off"
       }
     }
