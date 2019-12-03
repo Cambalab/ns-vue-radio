@@ -1,6 +1,6 @@
 <template>
     <AbsoluteLayout>
-      <Image :src="getApiUrl()+'/'+currentShow.image" stretch="aspectFill" height="100%" width="100%" top="0"  :style="appBackgroundColor"/>
+      <Image :src="getCurrentShowImage()" stretch="aspectFill" height="100%" width="100%" top="0"  :style="appBackgroundColor"/>
       <Image src="~/assets/images/blackgradient.png" stretch="aspectFit" top="0" width="100%"/>
       <FlexboxLayout flexDirection="column" justifyContent="space-between" top="100" width="100%">
         <StackLayout alignSelf="center" width="100%">
@@ -29,8 +29,7 @@ const {
     secondaryText: secondaryTextColor
   },
   dataAdapter: {
-    currentShowAdapter,
-    showsAdapter
+    currentShowAdapter
   },
   stream: url
 } = config
@@ -88,8 +87,8 @@ export default {
         }
       })
     },
-    getApiUrl () {
-      return API_URL
+    getCurrentShowImage () {
+      return `${API_URL}/${this.currentShow.image}`
     }
   },
   mounted () {
