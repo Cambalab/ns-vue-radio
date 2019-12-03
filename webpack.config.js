@@ -50,19 +50,21 @@ module.exports = env => {
         verbose, // --env.verbose
         development,
         customization,
-        appId
+        appId,
+        apiUrl
     } = env;
 
-    const appCustomization = customization &&
-      JSON.stringify({ ...JSON.parse(customization.split('\\').join('')), appId })
+    const appCustomization = customization
+      ? {
+        ...JSON.parse(customization.split('\\').join('')),
+        appId
+      }
+      : { apiUrl }
 
     const isAnySourceMapEnabled = !!sourceMap || !!hiddenSourceMap;
     const externals = nsWebpack.getConvertedExternals(env.externals);
 
     const mode = development ? "development" : "production";
-
-    const environment = require(`./environments/${mode}`);
-    const api_url = environment.API_URL;
 
     const appFullPath = resolve(projectRoot, appPath);
     const appResourcesFullPath = resolve(projectRoot, appResourcesPath);
@@ -250,8 +252,7 @@ module.exports = env => {
                 "global.TNS_WEBPACK": "true",
                 "TNS_ENV": JSON.stringify(mode),
                 "process": "global.process",
-                "API_URL": JSON.stringify(api_url),
-                "CUSTOMIZATION": appCustomization
+                "CUSTOMIZATION": JSON.stringify(appCustomization)
             }),
             // Remove all files from the out dir.
             new CleanWebpackPlugin(itemsToClean, { verbose: !!verbose }),
