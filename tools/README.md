@@ -192,3 +192,20 @@ install-apks \
 ```
 
 The process should take less than a 30 seconds and you should discover there's a new application available in your applications box.
+
+## Frequent Errors
+
+- If you are using bundletool and you are getting a `java.lang.NullPointerException` while you are trying to install the app in your phone, check `adb devices`, if there is a permissions issue or multiple instances of your connected device proceed with the following steps:
+    1) Add your user to the plugdev group `sudo usermod -aG plugdev <username>`
+    2) Restart your adb service  
+        `adb kill-server`  
+        `adb start-server`
+    3) Try the bundletool again, if this didn't help, reconnect your device and check the usb debugging developer options, `adb devices` output should be similiar to this:
+    ```
+        List of devices attached
+        67a351090305	device
+    ```
+
+- If this script fails or is interrupted at any point of its execution, it may have unintended side effects. So, you can use `git diff` to check if any of the configuration files changes in an unexpected way. Some of the main suspects of this are:
+    - `app/App_Resources/Android/app.gradle`: applicationId may be erased
+    - `app/package.json`: name may be erased
