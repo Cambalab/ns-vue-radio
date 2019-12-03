@@ -1,17 +1,69 @@
 <template>
     <AbsoluteLayout>
-      <Image :src="getCurrentShowImage()" stretch="aspectFill" height="100%" width="100%" top="0"  :style="appBackgroundColor"/>
-      <Image src="~/assets/images/blackgradient.png" stretch="aspectFit" top="0" width="100%"/>
-      <FlexboxLayout flexDirection="column" justifyContent="space-between" top="100" width="100%">
+      <Image
+        :src="getCurrentShowImage()"
+        stretch="aspectFill"
+        height="100%"
+        width="100%"
+        top="0"
+        :style="appBackgroundColor"
+      />
+      <Image
+        src="~/assets/images/blackgradient.png"
+        stretch="aspectFit"
+        top="0"
+        width="100%"
+      />
+      <FlexboxLayout
+        flexDirection="column"
+        justifyContent="space-between"
+        top="100"
+        width="100%"
+      >
         <StackLayout alignSelf="center" width="100%">
           <Image src="~/assets/images/microphone.png" width="30" opacity="0.7"/>
-          <Label :text="$t('youAreListeningTo')" :style="primaryTextColor" class="text-center font-italic" marginTop="10" fontSize="14" />
-          <Label :text="currentShow.title" class="h2 bold text-center m-b-0" :style="secondaryTextColor" textWrap="true"/>
+          <Label
+            :text="$t('youAreListeningTo')"
+            :style="primaryTextColor"
+            class="text-center font-italic"
+            marginTop="10"
+            fontSize="14"
+          />
+          <Label
+            :text="currentShow.title"
+            class="h2 bold text-center m-b-0"
+            :style="secondaryTextColor"
+            textWrap="true"
+          />
         </StackLayout>
-        <StackLayout class="spacer" style="height: 110;" alignSelf="center" marginTop="20">
-          <Label v-show="playing === 'paused'"  @tap="play" :text="'\ue037'" fontSize="110" class="mdi text-center" color="white"/>
-          <Label v-show="playing === 'playing'"  @tap="pause" :text="'\ue034'" fontSize="110" class="mdi text-center" color="white"/>
-          <ActivityIndicator v-show="playing === 'loading'" busy="true"  color="white" height="110"/>
+        <StackLayout
+          class="spacer"
+          style="height: 110;"
+          alignSelf="center"
+          marginTop="20"
+        >
+          <Label
+            v-show="playing === 'paused'"
+            @tap="play"
+            :text="'\ue037'"
+            fontSize="110"
+            class="mdi text-center"
+            color="white"
+          />
+          <Label
+            v-show="playing === 'playing'"
+            @tap="pause"
+            :text="'\ue034'"
+            fontSize="110"
+            class="mdi text-center"
+            color="white"
+          />
+          <ActivityIndicator
+            v-show="playing === 'loading'"
+            busy="true"
+            color="white"
+            height="110"
+          />
         </StackLayout>
       </FlexboxLayout>
     </AbsoluteLayout>
@@ -20,7 +72,12 @@
 import { TNSPlayer } from 'nativescript-audio'
 import ShowService from '../api/ShowService'
 import config from '../config'
-import { SET_PLAYER_SCREEN, PLAY_URL, PAUSE, SET_PLAYER } from '../store/constants'
+import {
+  SET_PLAYER_SCREEN,
+  PLAY_URL,
+  PAUSE,
+  SET_PLAYER
+} from '../store/constants'
 
 const {
   colors: {
@@ -31,7 +88,8 @@ const {
   dataAdapter: {
     currentShowAdapter
   },
-  stream: url
+  stream: url,
+  apiUrl
 } = config
 
 export default {
@@ -88,7 +146,7 @@ export default {
       })
     },
     getCurrentShowImage () {
-      return `${API_URL}/${this.currentShow.image}`
+      return `${apiUrl}/${this.currentShow.image}`
     }
   },
   mounted () {
