@@ -209,5 +209,3 @@ The process should take less than a 30 seconds and you should discover there's a
 - If this script fails or is interrupted at any point of its execution, it may have unintended side effects. So, you can use `git diff` to check if any of the configuration files changes in an unexpected way. Some of the main suspects of this are:
     - `app/App_Resources/Android/app.gradle`: applicationId may be erased
     - `app/package.json`: name may be erased
-
-- Remember to provide the necessary environments config in `environments/production.json` and `environments/development.json` as explained in `docs/Guide-to-configure-your-data-source.md` step 6.
