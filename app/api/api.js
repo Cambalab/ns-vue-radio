@@ -8,7 +8,7 @@ if (config.jsondata) {
   api = new LocalApi()
 } else {
   api = axios.create({
-    baseURL: API_URL,
+    baseURL: config.apiUrl,
     withCredentials: false,
     headers: {
       'Accept': 'application/json',

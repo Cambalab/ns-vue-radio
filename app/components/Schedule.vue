@@ -1,18 +1,47 @@
 <template>
-  <FlexboxLayout :style="backgroundColor" flexDirection="column" justifyContent="space-between">
+  <FlexboxLayout
+    :style="backgroundColor"
+    flexDirection="column"
+    justifyContent="space-between"
+  >
     <StackLayout flexGrow="2" height="100%">
-      <ListView for="show in filteredShows" height="100%" separatorColor="transparent">
+      <ListView
+        for="show in filteredShows"
+        height="100%"
+        separatorColor="transparent"
+      >
         <v-template>
           <StackLayout xmlns:Card="nativescript-cardview" width="100%">
-            <CardView radius="6" margin="10" backgroundColor="white" elevation="5" ripple="true">
+            <CardView
+              radius="6"
+              margin="10"
+              backgroundColor="white"
+              elevation="5"
+              ripple="true"
+            >
               <StackLayout>
                 <StackLayout width="100%" height="200">
-                  <Image :src="getApiUrl()+'/'+show.image" stretch="aspectFill"/>
+                  <Image :src="getApiUrl(show)" stretch="aspectFill"/>
                 </StackLayout>
-                <StackLayout class="p-x-12 p-y-12" borderTopWidth="1px" borderTopColor="#eee">
+                <StackLayout
+                  class="p-x-12 p-y-12"
+                  borderTopWidth="1px"
+                  borderTopColor="#eee"
+                >
                   <Label :text="show.title" color="#333" textWrap="true"/>
-                  <Label :text="show.hours" fontSize="10" color="#555" textWrap="true"/>
-                  <Label :text="show.content" fontSize="11" marginTop="10" color="#555" textWrap="true"/>
+                  <Label
+                    :text="show.hours"
+                    fontSize="10"
+                    color="#555"
+                    textWrap="true"
+                  />
+                  <Label
+                    :text="show.content"
+                    fontSize="11"
+                    marginTop="10"
+                    color="#555"
+                    textWrap="true"
+                  />
                 </StackLayout>
               </StackLayout>
             </CardView>
@@ -21,7 +50,13 @@
       </ListView>
     </StackLayout>
     <StackLayout class="spacer" height="22%" flexShrink="0">
-      <ListPicker :items="days" :selectedIndex="dayPicker" @selectedIndexChange="dayChange" :style="panelBackgroundColor" :color="secondaryTextColor"/>
+      <ListPicker
+        :items="days"
+        :selectedIndex="dayPicker"
+        @selectedIndexChange="dayChange"
+        :style="panelBackgroundColor"
+        :color="secondaryTextColor"
+      />
     </StackLayout>
   </FlexboxLayout>
 </template>
@@ -30,6 +65,7 @@ import ShowService from '../api/ShowService'
 import config from '../config.js'
 
 const {
+  apiUrl,
   colors: {
     appBackgroundColor: backgroundColor,
     panelBackgroundColor,
@@ -63,10 +99,20 @@ export default {
   },
   computed: {
     days () {
-      return [this.$t('monday'), this.$t('tuesday'), this.$t('wednesday'), this.$t('thursday'), this.$t('friday'), this.$t('saturday'), this.$t('sunday')]
+      return [
+        this.$t('monday'),
+        this.$t('tuesday'),
+        this.$t('wednesday'),
+        this.$t('thursday'),
+        this.$t('friday'),
+        this.$t('saturday'),
+        this.$t('sunday')
+      ]
     },
     filteredShows () {
-      return this.shows.filter(this.isAiredOn).sort((a, b) => { return a.init_hour < b.init_hour ? -1 : 1 })
+      return this.shows
+        .filter(this.isAiredOn)
+        .sort((a, b) => { return a.init_hour < b.init_hour ? -1 : 1 })
     }
   },
   methods: {
@@ -85,8 +131,8 @@ export default {
     isAiredOn (show) {
       return show.days.includes(this.selectedDay)
     },
-    getApiUrl () {
-      return API_URL
+    getApiUrl (show) {
+      return `${apiUrl}/${show.image}`
     }
   }
 }

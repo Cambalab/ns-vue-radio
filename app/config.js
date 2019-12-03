@@ -1,5 +1,6 @@
 const {
   appId,
+  apiUrl,
   name: {
     humanReadableName,
     applicationName
@@ -90,6 +91,7 @@ const config = {
     }
   ],
   'stream': stream,
+  apiUrl,
   'endpointUrls': {
     currentShow: currentShowEndpoint || '/api/programs/current?radio_name?radio_name=' + applicationName,
     shows: showsEndpoint || '/api/programs?radio_name=' + applicationName,
