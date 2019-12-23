@@ -30,7 +30,7 @@
                 >
                   <Label :text="show.title" color="#333" textWrap="true"/>
                   <Label
-                    :text="show.hours"
+                    :text="show.timetable"
                     fontSize="10"
                     color="#555"
                     textWrap="true"
@@ -112,7 +112,7 @@ export default {
     filteredShows () {
       return this.shows
         .filter(this.isAiredOn)
-        .sort((a, b) => { return a.init_hour < b.init_hour ? -1 : 1 })
+        .sort((a, b) => { return a.start_time < b.start_time ? -1 : 1 })
     }
   },
   methods: {
