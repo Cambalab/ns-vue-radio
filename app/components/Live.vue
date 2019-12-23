@@ -23,7 +23,7 @@
         <StackLayout alignSelf="center" width="100%">
           <Image src="~/assets/images/microphone.png" width="30" opacity="0.7"/>
           <Label
-            :text="$t('youAreListeningTo')"
+            :text="$t(currentShowMessage)"
             :style="primaryTextColor"
             class="text-center font-italic"
             marginTop="10"
@@ -102,7 +102,8 @@ export default {
       currentShow: '',
       url,
       shows: [],
-      currentShowImage: ''
+      currentShowImage: '',
+      currentShowMessage: 'youAreListeningTo'
     }
   },
   computed: {
@@ -141,6 +142,12 @@ export default {
     setCurrentShow () {
       ShowService.getCurrentShow().then((resp) => {
         if (this.currentShow !== currentShowAdapter(resp)) {
+          if (currentShowAdapter(resp)['message-slug']){
+            this.currentShowMessage = 'programNotAvailable'
+          }
+          else{
+            this.currentShowMessage = 'youAreListeningTo'
+          }
           this.currentShow = currentShowAdapter(resp)
         }
       })

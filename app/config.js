@@ -32,7 +32,7 @@ const {
 
 const config = {
   'appId': appId || 'coop.radio.app',
-  'jsondata': true,
+  'jsondata': false,
   'colors': {
     'appBackgroundColor': {
       backgroundColor: appBackgroundColor || '#432f4f'
@@ -54,8 +54,8 @@ const config = {
   },
   'phoneNumber': phoneNumber || '',
   'name': {
-    humanReadableName: humanReadableName || 'Radio',
-    applicationName
+    applicationName: applicationName,
+    humanReadableName: humanReadableName
   },
   'sections': sections || [
     'Live',
@@ -94,8 +94,8 @@ const config = {
   apiUrl,
   'endpointUrls': {
     currentShow: currentShowEndpoint || '/api/programs/current/?radio_name=' + applicationName,
-    shows: showsEndpoint || '/api/programs?radio_name=' + applicationName,
-    podcasts: podcastsEndpoint || '/api/podcasts?limit=30&radio_name=' + applicationName
+    shows: showsEndpoint || '/api/programs/?radio_name=' + applicationName,
+    podcasts: podcastsEndpoint || '/api/podcasts/?limit=30&radio_name=' + applicationName
   },
   'dataAdapter': dataAdapter || {
     podcastsAdapter: (response) => {
@@ -105,7 +105,7 @@ const config = {
       return response.data
     },
     currentShowAdapter: (response) => {
-      return response.data[0]
+      return response.data
     }
   },
   'writeEmailTo': writeEmailTo || ['info@camba.coop']
