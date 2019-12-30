@@ -42,6 +42,23 @@ sed -i \
   s/$LEGACY_ID/$APP_ID/g \
   $PACKAGE_JSON_PATH
 
+### App Name ###
+
+DEFAULT_NAME='Radio'
+APP_NAME=$(
+  jq \
+    '.name.humanReadableName | tostring' \
+    $CONFIGURATION_FILE | tr -d "\""
+)
+
+sed -i \
+  "s,${DEFAULT_NAME},${APP_NAME},g" \
+  $DIRECTORY_PATH/../app/App_Resources/Android/src/main/res/values/strings.xml
+
+sed -i \
+  "s,${DEFAULT_NAME},${APP_NAME},g" \
+  $DIRECTORY_PATH/../app/App_Resources/Android/src/main/res/values-v21/strings.xml
+
 ### Assets ###
 
 # Places logo in the assets directory
@@ -80,3 +97,11 @@ sed -i \
 sed -i \
   s/$APP_ID/$LEGACY_ID/g \
   $PACKAGE_JSON_PATH
+
+sed -i \
+  "s,${APP_NAME},${DEFAULT_NAME},g" \
+  $DIRECTORY_PATH/../app/App_Resources/Android/src/main/res/values/strings.xml
+
+sed -i \
+  "s,${APP_NAME},${DEFAULT_NAME},g" \
+  $DIRECTORY_PATH/../app/App_Resources/Android/src/main/res/values-v21/strings.xml
