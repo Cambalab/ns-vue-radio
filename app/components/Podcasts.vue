@@ -59,7 +59,7 @@
             width="30"
             flexShrink="0"
             fontSize="9"
-            opacity="0.4"
+            opacity="1"
             alignSelf="flext-end"
           />
         </FlexboxLayout>
