@@ -19,3 +19,4 @@ background.png
 icon.png
 logo.png
 !app/assets/images/logo.png
+!public/logo.png
