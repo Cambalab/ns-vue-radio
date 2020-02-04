@@ -1,22 +1,28 @@
-# Nativescript Vue Radio
+<p align="center">
+  <a target="_blank" rel="noopener noreferrer">
+    <img width="140" src="public/logo.png" alt="Vue-Admin logo" />
+  </a>
+</p>
 
-<img style="" src="/design/logo520x520.png" width="300"> <img style="" src="/design/screen_live.png" width="200">
+<h4 align="center">Ns-Vue-Radio is a native white-label application built with NativeScript-Vue for community radios</h4>
 
-<img style="" src="/design/screen_podcasts.png" width="200"> <img style="" src="/design/screen_social.png" width="200"> <img style="" src="/design/screen_write_us.png" width="200">
+---
 
-> A native white-label application built with NativeScript-Vue for community radios
+<div align="center">
+  <img style="" src="/design/screen_live.png" width="200"> <img style="" src="/design/screen_podcasts.png" width="200"> <img style="" src="/design/screen_social.png" width="200"> <img style="" src="/design/screen_write_us.png" width="200">
+</div>
 
 ## Download and Install
 
-Download [Command line tools](https://developer.android.com/studio/#downloads) from android
+Download the [command line tools](https://developer.android.com/studio/#downloads) from the android website.
 
-Follow steps here:
+Follow this steps:
 - [NativeScript Advanced Setup: Linux](https://docs.nativescript.org/start/ns-setup-linux)
 - [Setup Android Emulators](https://docs.nativescript.org/tooling/android-virtual-devices)
 
 ## Generate your radio application
 
-With the [guide to generate your radio app](./docs/Guide-to-generate-your-radio-app.md)
+Follow instructions in our [guide to generate your radio app](./docs/Guide-to-generate-your-radio-app.md).
 
 ## FCM Firebase Cloud Messaging
 - [Enabling Firebase Cloud Messaging](https://github.com/EddyVerbruggen/nativescript-plugin-firebase/blob/master/docs/MESSAGING.md)
@@ -56,7 +62,7 @@ tns run <platform> --bundle --env.jsondata
 
  - Instructions to debug using [VueDevtools](https://nativescript-vue.org/en/docs/getting-started/vue-devtools/)
 
-# Clean the NativeScript application instance
+## Clean the NativeScript application instance
 
 > i.e. rm -rf platforms
 ```
@@ -64,6 +70,12 @@ npm run clean
 ```
 
 For detailed instructions, see [vue-cli-template](https://github.com/nativescript-vue/vue-cli-template)
+
+## Contribution
+
+<a href="https://github.com/Cambalab/ns-vue-radio/blob/master/.github/CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg" alt="License"></a>
+
+Please make sure to read the [**Contributing Guide**](https://github.com/Cambalab/ns-vue-radio/blob/master/.github/CONTRIBUTING.md) before making a pull request.
 
 ## License
 
