@@ -81,3 +81,14 @@ Please make sure to read the [**Contributing Guide**](https://github.com/Cambala
 
 This software is licensed under the [GNU GPLv3 License](LICENSE), and sponsored by [Cambá](https://www.camba.coop).
 <img style="" src="/design/logo-telegram.jpg" width="35">
+
+---
+<p align="center">
+  <a href="https://camba.coop" target="_blank" rel="noopener noreferrer">
+    <img class="margin" width="20" src="public/camba_icon.png" />
+  </a>
+  <strong>With :green_heart: :purple_heart: :heart: by <a href="https://camba.coop" target="_blank" rel="noopener noreferrer">Cambá Coop</a> :earth_americas: Buenos Aires, Argentina</strong>
+  <a href="https://camba.coop" target="_blank" rel="noopener noreferrer">
+    <img class="margin" width="20" src="public/camba_icon.png" />
+  </a>
+</p>
