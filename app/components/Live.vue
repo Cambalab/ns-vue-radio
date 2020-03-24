@@ -76,7 +76,8 @@ import {
   SET_PLAYER_SCREEN,
   PLAY_URL,
   PAUSE,
-  SET_PLAYER
+  SET_PLAYER,
+  SET_STREAMING,
 } from '../store/constants'
 
 const {
@@ -109,7 +110,16 @@ export default {
   computed: {
     player_screen () {
       return this.$store.getters.getPlayerScreen
-    }
+    },
+    streamingUp () {
+      return this.$store.getters.getStreamingUp
+    },
+    player () {
+      return this.$store.getters.getPlayer
+    },
+    playPromise () {
+      return this.$store.getters.getPlayPromise
+    },
   },
   watch: {
     player_screen (newPlayerScreen) {
@@ -123,16 +133,16 @@ export default {
       this.$store.commit(SET_PLAYER_SCREEN, 'LIVE')
       this.playing = 'loading'
       this.$store.commit(PLAY_URL, this.url)
-      this.$store.getters.getPlayPromise.then((res) => {
+      this.playPromise.then((res) => {
         this.playing = 'playing'
+        if (!this.streamingUp){
+          this.$store.commit(SET_STREAMING, true)
+        }
       })
-      .catch(() => {
+      .catch((e) => {
+        this.pause
         this.playing = 'paused'
-        alert({
-          title: this.$t('error'),
-          message: this.$t('thereWasAProblemPlayingTheStream'),
-          okButtonText: this.$t('understood')
-        })
+        this.$store.commit(SET_STREAMING, false)
       })
     },
     pause () {
