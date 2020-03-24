@@ -29,3 +29,7 @@ export const getLastMessageId = state => {
 export const getConnection = state => {
   return state.connection
 }
+
+export const getStreamingUp = state => {
+  return state.streamingUp
+}

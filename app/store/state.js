@@ -13,4 +13,5 @@ export class State {
   language = 'en'
   sections = config.sections
   loadedLanguages = ['en', 'es', 'pt']
+  streamingUp = true
 }

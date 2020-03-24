@@ -11,7 +11,8 @@ import {
   SET_PLAYER,
   SUCCESS_LANGUAGE_FETCH,
   SET_PLAY_PROMISE,
-  SET_PLAYER_SCREEN
+  SET_PLAYER_SCREEN,
+  SET_STREAMING
 } from './constants'
 
 
@@ -24,15 +25,18 @@ export default {
       audioFile: url,
       loop: false,
       errorCallback: err => {
-        console.log(err)
-        alert({
-          title: i18n.t('error'),
-          message: i18n.t('thereWasAProblemPlayingTheStream'),
-          okButtonText: i18n.t('understood')
-        })
+        console.log('ERROR CALLBACK', err)
+        state.streamingUp = false
+      },
+      completeCallback: () => {
+        console.log('COMPLETE CALLBACK')
+        state.streamingUp = false
+      },
+      infoCallback: info => {
+        console.log('INFO CALLBACK:', JSON.stringify(info))
+        state.streamingUp = false
       }
     }
-
     state.playPromise = state.player.playFromUrl(playerOptions)
   },
   [PAUSE]: state => {
@@ -131,5 +135,8 @@ export default {
   },
   [SUCCESS_LANGUAGE_FETCH]: (state, language) => {
     state.loadedLanguages.push(language)
+  },
+  [SET_STREAMING]: (state, streamingUp) => {
+    state.streamingUp = streamingUp
   }
 }
