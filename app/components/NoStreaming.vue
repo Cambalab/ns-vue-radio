@@ -15,7 +15,7 @@
 </template>
 <script>
 import config from '../config'
-import { PLAY_URL, SET_STREAMING } from '../store/constants'
+import { PLAY_URL, SET_STREAMING, SET_PLAYING } from '../store/constants'
 
 const {
   colors: {
@@ -36,13 +36,14 @@ export default {
   methods: {
     updateStreaming () {
       if (!this.streamingUp){
-        if ((this.player !== undefined) && (this.playPromise !== undefined)){
+        if (this.player !== undefined && this.playPromise !== undefined){
           this.$store.commit(PLAY_URL, this.url)
-          this.$store.commit(SET_STREAMING, true)
+          this.playPromise.then(() => {
+            this.$store.commit(SET_PLAYING, 'playing')
+          })
         }
-        else{
-          this.$store.commit(SET_STREAMING, true)
-        }
+        this.$store.commit(SET_PLAYING, 'loading')
+        this.$store.commit(SET_STREAMING, true)
       }
     }
   },
@@ -52,9 +53,6 @@ export default {
     },
     streamingUp () {
       return this.$store.getters.getStreamingUp
-    },
-    streamUrl () {
-      return this.$store.getters.getStreamURL
     },
     player () {
       return this.$store.getters.getPlayer

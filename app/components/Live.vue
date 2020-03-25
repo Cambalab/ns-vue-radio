@@ -78,6 +78,7 @@ import {
   PAUSE,
   SET_PLAYER,
   SET_STREAMING,
+  SET_PLAYING,
 } from '../store/constants'
 
 const {
@@ -99,7 +100,6 @@ export default {
       appBackgroundColor,
       primaryTextColor,
       secondaryTextColor,
-      playing: 'paused',
       currentShow: '',
       url,
       shows: [],
@@ -108,6 +108,9 @@ export default {
     }
   },
   computed: {
+    playing (){
+      return this.$store.getters.getPlaying
+    },
     player_screen () {
       return this.$store.getters.getPlayerScreen
     },
@@ -124,29 +127,25 @@ export default {
   watch: {
     player_screen (newPlayerScreen) {
       if (newPlayerScreen !== 'LIVE') {
-        this.playing = 'paused'
+        this.$store.commit(SET_PLAYING, 'paused')
       }
     }
   },
   methods: {
     play () {
       this.$store.commit(SET_PLAYER_SCREEN, 'LIVE')
-      this.playing = 'loading'
+      this.$store.commit(SET_PLAYING, 'loading')
       this.$store.commit(PLAY_URL, this.url)
       this.playPromise.then((res) => {
-        this.playing = 'playing'
-        if (!this.streamingUp){
-          this.$store.commit(SET_STREAMING, true)
-        }
+        this.$store.commit(SET_PLAYING, 'playing')
       })
       .catch((e) => {
         this.pause
-        this.playing = 'paused'
         this.$store.commit(SET_STREAMING, false)
       })
     },
     pause () {
-      this.playing = 'paused'
+      this.$store.commit(SET_PLAYING, 'paused')
       this.$store.commit(PAUSE)
     },
     setCurrentShow () {
