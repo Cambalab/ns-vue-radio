@@ -33,3 +33,7 @@ export const getConnection = state => {
 export const getStreamingUp = state => {
   return state.streamingUp
 }
+
+export const getPlaying = state => {
+  return state.playing
+}

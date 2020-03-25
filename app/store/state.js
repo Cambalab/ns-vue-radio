@@ -4,6 +4,7 @@ import firebase from 'nativescript-plugin-firebase'
 export class State {
   player = undefined
   playerScreen = 'LIVE'
+  playing = 'paused'
   playPromise = undefined
   currentTab = config.sections[0]
   firebase = firebase

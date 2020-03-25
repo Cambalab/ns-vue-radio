@@ -12,7 +12,8 @@ import {
   SUCCESS_LANGUAGE_FETCH,
   SET_PLAY_PROMISE,
   SET_PLAYER_SCREEN,
-  SET_STREAMING
+  SET_STREAMING,
+  SET_PLAYING
 } from './constants'
 
 
@@ -138,5 +139,8 @@ export default {
   },
   [SET_STREAMING]: (state, streamingUp) => {
     state.streamingUp = streamingUp
+  },
+  [SET_PLAYING]: (state, playing) => {
+    state.playing = playing
   }
 }
