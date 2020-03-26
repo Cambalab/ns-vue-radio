@@ -8,10 +8,10 @@
     <GridLayout columns="*" rows="*, auto">
       <Live v-show="currentTab === 'Live' && connection && streamingUp" v-if="exists('Live')"/>
       <Schedule v-show="currentTab === 'Schedule' && connection" v-if="exists('Schedule')"/>
-      <WriteUs v-show="currentTab === 'WriteUs' && connection" v-if="exists('WriteUs')"/>
+      <WriteUs v-show="currentTab === 'WriteUs'" v-if="exists('WriteUs')"/>
       <Podcasts v-show="currentTab === 'Podcasts' && connection" v-if="exists('Podcasts')"/>
-      <Social v-show="currentTab === 'Social' && connection" v-if="exists('Social')"/>
-      <NoConnection v-show="!connection" />
+      <Social v-show="currentTab === 'Social'" v-if="exists('Social')"/>
+      <NoConnection v-show="!connection && currentTab !== 'WriteUs' && currentTab !== 'Social'" />
       <NoStreaming v-show="currentTab === 'Live' && connection && !streamingUp" />
       <BottomNavigationBar
                         :inactiveColor="inactiveColor"
