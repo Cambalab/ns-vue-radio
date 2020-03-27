@@ -6,12 +6,13 @@
       </StackLayout>
     </ActionBar>
     <GridLayout columns="*" rows="*, auto">
-      <Live v-show="currentTab === 'Live' && connection" v-if="exists('Live')"/>
+      <Live v-show="currentTab === 'Live' && connection && streamingUp" v-if="exists('Live')"/>
       <Schedule v-show="currentTab === 'Schedule' && connection" v-if="exists('Schedule')"/>
-      <WriteUs v-show="currentTab === 'WriteUs' && connection" v-if="exists('WriteUs')"/>
+      <WriteUs v-show="currentTab === 'WriteUs'" v-if="exists('WriteUs')"/>
       <Podcasts v-show="currentTab === 'Podcasts' && connection" v-if="exists('Podcasts')"/>
-      <Social v-show="currentTab === 'Social' && connection" v-if="exists('Social')"/>
-      <NoConnection v-show="!connection" />
+      <Social v-show="currentTab === 'Social'" v-if="exists('Social')"/>
+      <NoConnection v-show="!connection && currentTab !== 'WriteUs' && currentTab !== 'Social'" />
+      <NoStreaming v-show="currentTab === 'Live' && connection && !streamingUp" />
       <BottomNavigationBar
                         :inactiveColor="inactiveColor"
                         :activeColor="activeColor"
@@ -37,6 +38,7 @@ import Podcasts from './Podcasts.vue'
 import Social from './Social.vue'
 import WriteUs from './WriteUs.vue'
 import NoConnection from './NoConnection.vue'
+import NoStreaming from './NoStreaming.vue'
 import config from '../config'
 import { SET_CURRENT_TAB, FIREBASE_INIT } from '../store/constants'
 
@@ -68,7 +70,8 @@ export default {
     Podcasts,
     Social,
     WriteUs,
-    NoConnection
+    NoConnection,
+    NoStreaming
   },
   computed: {
     currentTab () {
@@ -76,6 +79,9 @@ export default {
     },
     connection () {
       return this.$store.getters.getConnection
+    },
+    streamingUp () {
+      return this.$store.getters.getStreamingUp
     }
   },
   methods: {

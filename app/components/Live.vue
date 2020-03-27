@@ -76,7 +76,9 @@ import {
   SET_PLAYER_SCREEN,
   PLAY_URL,
   PAUSE,
-  SET_PLAYER
+  SET_PLAYER,
+  SET_STREAMING,
+  SET_PLAYING,
 } from '../store/constants'
 
 const {
@@ -98,7 +100,6 @@ export default {
       appBackgroundColor,
       primaryTextColor,
       secondaryTextColor,
-      playing: 'paused',
       currentShow: '',
       url,
       shows: [],
@@ -107,36 +108,44 @@ export default {
     }
   },
   computed: {
+    playing (){
+      return this.$store.getters.getPlaying
+    },
     player_screen () {
       return this.$store.getters.getPlayerScreen
-    }
+    },
+    streamingUp () {
+      return this.$store.getters.getStreamingUp
+    },
+    player () {
+      return this.$store.getters.getPlayer
+    },
+    playPromise () {
+      return this.$store.getters.getPlayPromise
+    },
   },
   watch: {
     player_screen (newPlayerScreen) {
       if (newPlayerScreen !== 'LIVE') {
-        this.playing = 'paused'
+        this.$store.commit(SET_PLAYING, 'paused')
       }
     }
   },
   methods: {
     play () {
       this.$store.commit(SET_PLAYER_SCREEN, 'LIVE')
-      this.playing = 'loading'
+      this.$store.commit(SET_PLAYING, 'loading')
       this.$store.commit(PLAY_URL, this.url)
-      this.$store.getters.getPlayPromise.then((res) => {
-        this.playing = 'playing'
+      this.playPromise.then((res) => {
+        this.$store.commit(SET_PLAYING, 'playing')
       })
-      .catch(() => {
-        this.playing = 'paused'
-        alert({
-          title: this.$t('error'),
-          message: this.$t('thereWasAProblemPlayingTheStream'),
-          okButtonText: this.$t('understood')
-        })
+      .catch((e) => {
+        this.pause
+        this.$store.commit(SET_STREAMING, false)
       })
     },
     pause () {
-      this.playing = 'paused'
+      this.$store.commit(SET_PLAYING, 'paused')
       this.$store.commit(PAUSE)
     },
     setCurrentShow () {
