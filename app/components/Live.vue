@@ -79,6 +79,7 @@ import {
   SET_PLAYER,
   SET_STREAMING,
   SET_PLAYING,
+  SET_STREAMING_UP
 } from '../store/constants'
 
 const {
@@ -138,7 +139,7 @@ export default {
       this.$store.commit(PLAY_URL, this.url)
       this.playPromise.then((res) => {
         this.$store.commit(SET_PLAYING, 'playing')
-        this.$store.commit(SET_STREAMING_UP, true)
+        this.$store.commit(SET_STREAMING_UP, false)
       })
       .catch((e) => {
         this.pause
@@ -170,6 +171,7 @@ export default {
   mounted () {
     setTimeout(() => {
       this.$store.commit(SET_PLAYER, new TNSPlayer())
+      console.log('PLAYER: ', this.$store.getters.getPlayer)
     }, 0)
     this.setCurrentShow()
     setInterval(() => {
