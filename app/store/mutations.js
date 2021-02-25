@@ -13,7 +13,8 @@ import {
   SET_PLAY_PROMISE,
   SET_PLAYER_SCREEN,
   SET_STREAMING,
-  SET_PLAYING
+  SET_PLAYING,
+  SET_STREAMING_UP
 } from './constants'
 
 
@@ -27,18 +28,18 @@ export default {
       loop: false,
       errorCallback: err => {
         console.log('ERROR CALLBACK', err)
-        state.streamingUp = false
       },
       completeCallback: () => {
         console.log('COMPLETE CALLBACK')
-        state.streamingUp = false
       },
       infoCallback: info => {
         console.log('INFO CALLBACK:', JSON.stringify(info))
-        state.streamingUp = false
       }
     }
     state.playPromise = state.player.playFromUrl(playerOptions)
+  },
+  [SET_STREAMING_UP]: (state, value) => {
+    state.streamingUp = value
   },
   [PAUSE]: state => {
     state.player.pause()

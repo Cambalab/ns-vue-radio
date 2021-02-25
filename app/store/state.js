@@ -1,5 +1,5 @@
 import config from '../config'
-import firebase from 'nativescript-plugin-firebase'
+import { firebase } from '@nativescript/firebase'
 
 export class State {
   player = undefined

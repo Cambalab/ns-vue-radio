@@ -100,20 +100,20 @@ export default {
     this.$store.commit(SET_CURRENT_TAB, 0)
 
     this.$store.commit(FIREBASE_INIT, this.$store)
-  },
-  beforeMount () {
-    this.$store.subscribe((mutation, state) => {
-      if (mutation.type === SET_CURRENT_TAB) {
-        // when the app is in the foreground and receives a message, the
-        // corresponding data.topic tab is shown
-        if (
-          this.$refs.bottomNavigationBar !== undefined &&
-          this.$store.getters.getForeground
-        ) {
-          this.$refs.bottomNavigationBar._nativeView.selectTab(mutation.payload)
-        }
-      }
-    })
   }
+  // beforeMount () {
+  //   this.$store.subscribe((mutation, state) => {
+  //     if (mutation.type === SET_CURRENT_TAB) {
+  //       // when the app is in the foreground and receives a message, the
+  //       // corresponding data.topic tab is shown
+  //       if (
+  //         this.$refs.bottomNavigationBar !== undefined &&
+  //         this.$store.getters.getForeground
+  //       ) {
+  //         this.$refs.bottomNavigationBar._nativeView.selectTab(mutation.payload)
+  //       }
+  //     }
+  //   })
+  // }
 }
 </script>

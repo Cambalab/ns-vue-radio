@@ -138,10 +138,12 @@ export default {
       this.$store.commit(PLAY_URL, this.url)
       this.playPromise.then((res) => {
         this.$store.commit(SET_PLAYING, 'playing')
+        this.$store.commit(SET_STREAMING_UP, true)
       })
       .catch((e) => {
         this.pause
         this.$store.commit(SET_STREAMING, false)
+        this.$store.commit(SET_STREAMING_UP, false)
       })
     },
     pause () {

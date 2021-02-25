@@ -16,34 +16,31 @@
     "watch:ios": "npm run watch -- --env.ios",
     "clean": "rimraf platforms"
   },
-  "nativescript": {
-    "id": "coop.radio.app",
-    "tns-ios": {
-      "version": "6.0.1"
-    },
-    "tns-android": {
-      "version": "6.0.0"
-    }
-  },
   "dependencies": {
+    "@nativescript-community/ui-material-bottomnavigationbar": "^5.2.7",
+    "@nativescript/core": "7.0.0",
+    "@nativescript/firebase": "11.0.0",
+    "@nativescript/types": "7.1.0",
+    "@nativescript/webpack": "3.0.0",
+    "@nstudio/nativescript-cardview": "1.0.0",
     "@vue/devtools": "^5.0.0-beta.3",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "nativescript-appavailability": "^1.3.1",
     "nativescript-audio": "^5.0.0",
-    "nativescript-bottom-navigation": "^1.5.1",
-    "nativescript-cardview": "^3.1.1",
     "nativescript-email": "^1.5.3",
     "nativescript-open-app": "git+https://github.com/ludwiktrammer/nativescript-open-app.git",
-    "nativescript-plugin-firebase": "^9.1.0",
     "nativescript-social-share": "^1.5.0",
     "nativescript-socket.io": "^0.9.0",
     "nativescript-socketio": "^3.3.1",
     "nativescript-theme-core": "^1.0.4",
     "nativescript-toast": "^1.4.6",
     "nativescript-toasty": "^2.0.1",
-    "nativescript-vue": "^2.0.0",
+    "nativescript-ui-core": "4.0.0",
+    "nativescript-ui-dataform": "6.1.0",
+    "nativescript-vue": "^2.8.1",
     "nativescript-vue-devtools": "^1.0.0",
-    "tns-core-modules": "6.0.1",
+    "ts-node": "^9.1.1",
+    "utf-8-validate": "^5.0.4",
     "vue-i18n": "^8.2.1",
     "vue-router": "^3.0.7",
     "vuex": "^3.0.1"
@@ -53,14 +50,12 @@
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
+    "@nativescript/android": "7.0.1",
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.0.2",
     "babel-traverse": "6.26.0",
     "babel-types": "6.26.0",
     "babylon": "6.18.0",
-    "clean-webpack-plugin": "^0.1.19",
-    "copy-webpack-plugin": "^4.5.2",
-    "css-loader": "^1.0.0",
     "eslint": "^5.7.0",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-html": "^4.0.5",
@@ -71,18 +66,15 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "fs-extra": "^5.0.0",
     "lazy": "1.0.11",
-    "nativescript-dev-webpack": "next",
-    "nativescript-vue-template-compiler": "^2.0.0",
-    "nativescript-worker-loader": "~0.9.0",
+    "nativescript-vue-template-compiler": "2.0.0",
     "node-sass": "^4.9.2",
     "rimraf": "^2.6.2",
-    "sass-loader": "^7.1.0",
-    "terser-webpack-plugin": "^1.1.0",
     "vue-eslint-parser": "^3.2.2",
     "vue-loader": "^15.2.6",
-    "webpack": "^4.16.4",
-    "webpack-bundle-analyzer": "~2.13.1",
-    "webpack-cli": "^3.1.0",
-    "winston-color": "^1.0.0"
-  }
+    "winston-color": "^1.0.0",
+    "typescript": "~3.9.0",
+    "css-loader": "^1.0.0",
+    "sass-loader": "^7.1.0"
+  },
+  "main": "main"
 }

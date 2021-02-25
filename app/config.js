@@ -90,12 +90,12 @@ const config = {
       background: '#006dbf'
     }
   ],
-  'stream': stream,
-  apiUrl,
+  stream: 'http://miradioenlaweb.com:4240',
+  apiUrl: 'http://192.168.0.20:9898/api',
   'endpointUrls': {
-    currentShow: currentShowEndpoint || '/api/programs/current/?radio_name=' + applicationName,
-    shows: showsEndpoint || '/api/programs/?radio_name=' + applicationName,
-    podcasts: podcastsEndpoint || '/api/podcasts/?limit=30&radio_name=' + applicationName
+    currentShow: 'http://192.168.0.20:9898/api/programs/current/?radio_name=laminga',
+    shows:  'http://192.168.0.20:9898/api/programs/?radio_name=laminga',
+    podcasts: 'http://192.168.0.20:9898/api/podcasts/?limit=30&radio_name=laminga'
   },
   'dataAdapter': dataAdapter || {
     podcastsAdapter: (response) => {

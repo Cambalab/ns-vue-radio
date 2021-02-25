@@ -12,7 +12,7 @@
       >
         <v-template>
           <StackLayout xmlns:Card="nativescript-cardview" width="100%">
-            <CardView
+            <card-view
               radius="6"
               margin="10"
               backgroundColor="white"
@@ -44,7 +44,7 @@
                   />
                 </StackLayout>
               </StackLayout>
-            </CardView>
+            </card-view>
           </StackLayout>
         </v-template>
       </ListView>

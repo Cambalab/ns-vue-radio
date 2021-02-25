@@ -1,8 +1,0 @@
-{
-  "android": {
-    "v8Flags": "--expose_gc"
-  },
-  "main": "main",
-  "name": "radio",
-  "version": "1.0.0"
-}
