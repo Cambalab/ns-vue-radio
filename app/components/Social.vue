@@ -27,7 +27,7 @@
 </template>
 <script>
 import { openApp } from 'nativescript-open-app'
-import { openUrl } from 'tns-core-modules/utils/utils'
+import { openUrl } from '@nativescript/core/utils/utils'
 import config from '../config.js'
 import appAvailability from 'nativescript-appavailability'
 import * as SocialShare from 'nativescript-social-share'

@@ -18,7 +18,7 @@
 </template>
 <script>
 import { openApp } from 'nativescript-open-app'
-import { openUrl } from 'tns-core-modules/utils/utils'
+import { openUrl } from '@nativescript/core/utils/utils'
 import * as email from 'nativescript-email'
 import appAvailability from 'nativescript-appavailability'
 import config from '../config.js'

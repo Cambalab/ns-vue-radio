@@ -1,5 +1,5 @@
 import { setLanguage, setLanguageAndLocale, loadLanguageFile } from '../langs/utils'
-const lang = require('tns-core-modules/platform').device.language
+const lang = require('@nativescript/core/platform').device.language
 import { SET_LANGUAGE, SUCCESS_LANGUAGE_FETCH,  } from './constants'
 
 export function loadDefaultLanguage ({ dispatch }) {
